@@ -1,0 +1,46 @@
+extends CharacterBody2D
+
+
+@export var speed: float = 200.0
+@export var sprintSpeed: float = 350.0
+@export var sneakSpeed: float = 100.0
+
+
+# Called when the node enters the scene tree for the first time.
+func _ready() -> void:
+	pass # Replace with function body.
+
+
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+func _process(delta: float) -> void:
+	# Reset velocity
+	velocity = Vector2.ZERO
+
+	if Input.is_action_just_pressed("ui_cancel"):
+		get_tree().quit() # Exit the game
+
+	# Check input actions for movement
+	if Input.is_action_pressed("ui_right"):
+		velocity.x += 1
+		$PlayerSprite.flip_h = true
+	elif Input.is_action_pressed("ui_left"):
+		velocity.x -= 1
+		$PlayerSprite.flip_h = false
+	if Input.is_action_pressed("ui_up"):
+		velocity.y -= 1
+	elif Input.is_action_pressed("ui_down"):
+		velocity.y += 1
+
+	if velocity.length() > 0:
+		var temp_speed = sneakSpeed if Input.is_action_pressed("sneak") else self.speed
+		velocity = velocity.normalized() * (temp_speed if not Input.is_action_pressed("sprint") else sprintSpeed)
+		move_and_slide()
+
+# Add a signal to detect collisions
+func _integrate_forces(state):
+	print("Integrate call " + str(state.get_contact_count()))
+	for i in range(state.get_contact_count()):
+		var collider = state.get_contact_collider_object(i)
+		if collider and collider.is_in_group("walls"):
+			velocity = Vector2.ZERO
+			break

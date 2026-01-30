@@ -1,0 +1,14 @@
+[remap]
+
+importer="com.technohacker.piskel"
+type="ImageTexture"
+uid="uid://dnr43qdh20ubw"
+path="res://.godot/imported/vert door.piskel-9f847279888e070fdf9fa2e4215ed305.tres"
+
+[deps]
+
+source_file="res://Scenes/Functional/Interactables/Doors/vert door.piskel"
+dest_files=["res://.godot/imported/vert door.piskel-9f847279888e070fdf9fa2e4215ed305.tres"]
+
+[params]
+

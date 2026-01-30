@@ -1,0 +1,31 @@
+[gd_scene format=3 uid="uid://da2onvnx23mh0"]
+
+[ext_resource type="Texture2D" uid="uid://b3tvd8ffn48v3" path="res://icon.svg" id="1_1th3s"]
+[ext_resource type="Script" uid="uid://bhmgptqv5aqee" path="res://Scenes/Functional/Interactables/Base/interactable.gd" id="1_vs0bu"]
+[ext_resource type="AudioStream" uid="uid://buy7kl3e6qfws" path="res://Scenes/Functional/Interactables/Doors/door.wav" id="3_3r0sx"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_vs0bu"]
+radius = 10.907336
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1th3s"]
+size = Vector2(132, 128)
+
+[node name="Interactable" type="StaticBody2D" unique_id=325767183]
+script = ExtResource("1_vs0bu")
+interactable_name = "Cool interactable"
+
+[node name="Area" type="Area2D" parent="." unique_id=668397000 groups=["interactable"]]
+scale = Vector2(10, 10)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area" unique_id=70439265]
+shape = SubResource("CircleShape2D_vs0bu")
+debug_color = Color(0.24771354, 0.50624675, 1, 0.41960785)
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=440756694]
+texture = ExtResource("1_1th3s")
+
+[node name="Body Blocker" type="CollisionShape2D" parent="." unique_id=1615269018]
+shape = SubResource("RectangleShape2D_1th3s")
+
+[node name="AudSource" type="AudioStreamPlayer2D" parent="." unique_id=612601482]
+stream = ExtResource("3_3r0sx")

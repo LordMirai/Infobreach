@@ -1,0 +1,39 @@
+[gd_scene format=3 uid="uid://co1rc0ob6v4xs"]
+
+[ext_resource type="SpriteFrames" uid="uid://oxx23u6cynwj" path="res://Scenes/Functional/Player/animation/hacker_frames.tres" id="1_dgwec"]
+[ext_resource type="Script" uid="uid://cta7wnpyrdgsm" path="res://Scenes/Functional/Player/player.gd" id="1_i1tdd"]
+[ext_resource type="Script" uid="uid://cfdrfghd1tk0" path="res://Scenes/Functional/Player/player_sprite.gd" id="3_lujq3"]
+[ext_resource type="Script" uid="uid://1hak46nl5wa8" path="res://Scenes/Functional/Player/interaction_area.gd" id="4_mubij"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_lujq3"]
+size = Vector2(69, 122)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_lujq3"]
+radius = 7.200694
+
+[node name="Player" type="CharacterBody2D" unique_id=1285538653]
+collision_layer = 3
+collision_mask = 3
+script = ExtResource("1_i1tdd")
+
+[node name="PlayerSprite" type="AnimatedSprite2D" parent="." unique_id=472939682]
+z_index = 10
+scale = Vector2(4, 4)
+sprite_frames = ExtResource("1_dgwec")
+frame_progress = 0.4672218
+script = ExtResource("3_lujq3")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=221576324]
+position = Vector2(-0.5, 2)
+shape = SubResource("RectangleShape2D_lujq3")
+
+[node name="InteractionArea" type="Area2D" parent="." unique_id=908933762]
+script = ExtResource("4_mubij")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="InteractionArea" unique_id=1489174849]
+scale = Vector2(10, 10)
+shape = SubResource("CircleShape2D_lujq3")
+debug_color = Color(4.3317675e-07, 0.6418373, 0.3128065, 0.41960785)
+
+[connection signal="area_entered" from="InteractionArea" to="InteractionArea" method="_on_area_entered"]
+[connection signal="area_exited" from="InteractionArea" to="InteractionArea" method="_on_area_exited"]

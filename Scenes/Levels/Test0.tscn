@@ -1,0 +1,20 @@
+[gd_scene format=3 uid="uid://dlch2ybvjxwvs"]
+
+[ext_resource type="PackedScene" uid="uid://co1rc0ob6v4xs" path="res://Scenes/Functional/Player/Player.tscn" id="1_c38sf"]
+[ext_resource type="PackedScene" uid="uid://deacbbse3x3ov" path="res://Scenes/Functional/Obstacles/Wall.tscn" id="2_dk62x"]
+[ext_resource type="PackedScene" uid="uid://da2onvnx23mh0" path="res://Scenes/Functional/Interactables/Base/Interactable.tscn" id="3_7ion2"]
+[ext_resource type="PackedScene" uid="uid://b2apyps155mgv" path="res://Scenes/Functional/Interactables/Doors/FadingDoor.tscn" id="4_eq4xh"]
+
+[node name="Node2D" type="Node2D" unique_id=430878801]
+
+[node name="Player" parent="." unique_id=536035213 instance=ExtResource("1_c38sf")]
+position = Vector2(443, 352)
+
+[node name="Wall" parent="." unique_id=1251683878 instance=ExtResource("2_dk62x")]
+position = Vector2(670, 198)
+
+[node name="Interactable" parent="." unique_id=2069599029 instance=ExtResource("3_7ion2")]
+position = Vector2(957, 307)
+
+[node name="Interactable2" parent="." unique_id=1733218285 instance=ExtResource("4_eq4xh")]
+position = Vector2(663, 404)
