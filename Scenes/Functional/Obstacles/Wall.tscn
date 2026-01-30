@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://deacbbse3x3ov"]
 
-[ext_resource type="Texture2D" uid="uid://bgubgle7urmvd" path="res://Scenes/Functional/Obstacles/wall-20260129-235421.piskel" id="1_w11hc"]
+[ext_resource type="Texture2D" uid="uid://bgubgle7urmvd" path="res://Scenes/Functional/Obstacles/wall.piskel" id="1_w11hc"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_w11hc"]
 size = Vector2(18.5, 32.25)
