@@ -1,0 +1,22 @@
+[gd_scene format=3 uid="uid://bnfa18h07tich"]
+
+[ext_resource type="Script" uid="uid://qexbcdi4jecg" path="res://Scenes/Functional/Hacking Minigame/Modules/Bezier/draggable_point.gd" id="1_5x87u"]
+
+[sub_resource type="Gradient" id="Gradient_5x87u"]
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_5vf3f"]
+gradient = SubResource("Gradient_5x87u")
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_5vf3f"]
+radius = 35.92
+
+[node name="DraggablePoint" type="Area2D" unique_id=1744968212]
+script = ExtResource("1_5x87u")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=536076280]
+texture = SubResource("GradientTexture2D_5vf3f")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1063849755]
+shape = SubResource("CircleShape2D_5vf3f")
+
+[connection signal="input_event" from="." to="." method="_on_input_event"]

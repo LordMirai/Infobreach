@@ -1,0 +1,17 @@
+[gd_scene format=3 uid="uid://dimkk0rpo4mkt"]
+
+[ext_resource type="Script" uid="uid://lrm7nemawt53" path="res://Scenes/Functional/Hacking Minigame/Modules/Bezier/bezier.gd" id="1_whrlc"]
+
+[sub_resource type="Curve2D" id="Curve2D_as4ul"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 192, 191, 0, 0, 0, 0, 204.79456, 127.59259, 0, 0, 0, 0, 182.06042, 150.70987, 0, 0, 0, 0, 120, 154, 0, 0, 0, 0, 52, 84)
+}
+point_count = 5
+
+[node name="Bezier" type="Container" unique_id=1109403167]
+script = ExtResource("1_whrlc")
+
+[node name="Path2D" type="Path2D" parent="." unique_id=101603113]
+position = Vector2(-46.354286, -43.177574)
+scale = Vector2(1.8914286, 1.5140187)
+curve = SubResource("Curve2D_as4ul")
