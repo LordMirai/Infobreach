@@ -1,0 +1,14 @@
+[remap]
+
+importer="com.technohacker.piskel"
+type="ImageTexture"
+uid="uid://bgubgle7urmvd"
+path="res://.godot/imported/wall.piskel-e5bc5e1b5878f3c2f3325932e68ce49d.tres"
+
+[deps]
+
+source_file="res://Scenes/Functional/Obstacles/wall.piskel"
+dest_files=["res://.godot/imported/wall.piskel-e5bc5e1b5878f3c2f3325932e68ce49d.tres"]
+
+[params]
+
