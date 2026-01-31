@@ -11,13 +11,13 @@ var HackingMinigame : PackedScene = preload("res://Scenes/Functional/Hacking Min
 @export var default_texture: Texture2D
 @export var hacked_texture: Texture2D
 
+signal device_hacked(device_name)
+signal device_hack_failed(device_name)
+
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	$Sprite2D.texture = default_texture
-
-	add_user_signal("device_hacked", [device_name])
-	add_user_signal("device_hack_failed", [device_name])
 
 
 func sub_interact():
