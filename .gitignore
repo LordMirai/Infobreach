@@ -26,13 +26,9 @@ mono_crash.*.json
 # Local History for Visual Studio Code
 .history/
 
-# Built Visual Studio Code Extensions
 *.vsix
 
-### VisualStudioCode Patch ###
-# Ignore all local history of files
 .history
 .ionide
 
-# End of https://www.toptal.com/developers/gitignore/api/godot,visualstudiocode
-/.vscode
+.idea/
