@@ -102,6 +102,12 @@ func on_hack_successful():
 	print(\"Hacked from the CameraHackLogic\")
 	$\"../Timers/DisabledTimer\".start(CAMERA_DISABLED_TIME)
 	$\"../CameraSprites\".modulate.a = 0.3
+
+func on_hack_failed():
+	hacked = false
+	$\"..\".isCameraDisabled = 0
+	print(\"Failed or simply exited\")
+	
 	
 	
 	
