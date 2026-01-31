@@ -106,6 +106,9 @@ func on_hack_successful():
 func on_hack_failed():
 	hacked = false
 	$\"..\".isCameraDisabled = 0
+	$\"../Timers/DangerTimer\".paused = false
+	$\"../Timers/WarnTimer\".paused=false
+	$\"../Timers/Timer\".paused =false
 	print(\"Failed or simply exited\")
 	
 	
