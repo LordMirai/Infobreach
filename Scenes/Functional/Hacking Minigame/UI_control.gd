@@ -29,9 +29,13 @@ func _on_close_button_pressed() -> void:
 	# Clear the active hacking UI reference
 	if active_hacking_ui == self:
 		active_hacking_ui = null
+	_on_minigame_closed()
 
 
 func _on_minigame_closed() -> void:
+	#parent_device.on_hack_failed() -- Gives NULL pointer reff
+	# TO DO -- WHY?????
+	print("Reached here 1")
 	if player:
 		player.movement_enabled = true
 
@@ -41,3 +45,8 @@ func _on_minigame_closed() -> void:
 	# Clear the active hacking UI reference
 	if active_hacking_ui == self:
 		active_hacking_ui = null
+<<<<<<< Updated upstream
+=======
+	
+	
+>>>>>>> Stashed changes
