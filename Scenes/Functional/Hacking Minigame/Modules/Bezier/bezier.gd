@@ -38,6 +38,7 @@ func create_curve_points() -> void:
 		point.position = random_position(container.size.x, container.size.y)
 		point.bounds = container.size
 		point.top_left = position
+		point.top_left = minigame_frame.global_position
 		print(point.bounds)
 		curve_point_array.append(point.position)
 		curve_points.add_child(point)
