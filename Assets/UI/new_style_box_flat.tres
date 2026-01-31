@@ -2,4 +2,5 @@
 
 [resource]
 bg_color = Color(0, 0, 0, 1)
+draw_center = false
 border_color = Color(0, 0, 0, 1)

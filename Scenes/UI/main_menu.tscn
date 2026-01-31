@@ -71,22 +71,25 @@ horizontal_alignment = 1
 vertical_alignment = 1
 script = ExtResource("4_u7lva")
 
-[node name="PromptHbox" type="HBoxContainer" parent="." unique_id=1670712449]
+[node name="ConsoleVBox" type="VBoxContainer" parent="." unique_id=200177914]
 visible = false
-layout_mode = 0
-offset_left = 41.0
-offset_top = 28.0
-offset_right = 266.0
-offset_bottom = 68.0
+layout_mode = 1
+offset_left = 36.0
+offset_top = 24.0
+offset_right = 311.0
+offset_bottom = 217.0
 
-[node name="Hostname" type="Label" parent="PromptHbox" unique_id=610105714]
+[node name="PromptHbox" type="HBoxContainer" parent="ConsoleVBox" unique_id=1670712449]
+layout_mode = 2
+
+[node name="Hostname" type="Label" parent="ConsoleVBox/PromptHbox" unique_id=610105714]
 custom_minimum_size = Vector2(225, 0)
 layout_mode = 2
 theme_override_fonts/font = ExtResource("1_5wsvm")
 text = "vendetta@hacker-os: ~ $"
 autowrap_mode = 2
 
-[node name="CommandInput" type="LineEdit" parent="PromptHbox" unique_id=494885133]
+[node name="CommandInput" type="LineEdit" parent="ConsoleVBox/PromptHbox" unique_id=494885133]
 layout_mode = 2
 theme_override_colors/font_color = Color(0.875, 0.875, 0.875, 1)
 theme_override_fonts/font = ExtResource("1_5wsvm")
@@ -104,10 +107,59 @@ drag_and_drop_selection_enabled = false
 flat = true
 virtual_keyboard_enabled = false
 
-[node name="Menu" type="LineEdit" parent="PromptHbox" unique_id=1274286759]
+[node name="GameTitle" type="Label" parent="ConsoleVBox" unique_id=1516587639]
+visible = false
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_5wsvm")
+theme_override_font_sizes/font_size = 24
+text = "Infobreach v4.20.69
+"
+
+[node name="MenuOption1" type="Label" parent="ConsoleVBox" unique_id=1615750231]
+visible = false
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_5wsvm")
+theme_override_font_sizes/font_size = 24
+text = "[1] Start Infiltrating"
+
+[node name="MenuOption2" type="Label" parent="ConsoleVBox" unique_id=9871209]
+visible = false
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_5wsvm")
+theme_override_font_sizes/font_size = 24
+text = "[2] Program Configuration"
+
+[node name="MenuOption3" type="Label" parent="ConsoleVBox" unique_id=1575785800]
+visible = false
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_5wsvm")
+theme_override_font_sizes/font_size = 24
+text = "[3] Shutdown"
+
+[node name="Input" type="HBoxContainer" parent="ConsoleVBox" unique_id=582213546]
+clip_contents = true
 layout_mode = 2
 
-[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=200177914]
-layout_mode = 0
-offset_right = 40.0
-offset_bottom = 40.0
+[node name="EnterOption" type="Label" parent="ConsoleVBox/Input" unique_id=35239964]
+visible = false
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_5wsvm")
+theme_override_font_sizes/font_size = 24
+text = "Enter an option: "
+
+[node name="InputField" type="LineEdit" parent="ConsoleVBox/Input" unique_id=1123061503]
+visible = false
+clip_contents = true
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_5wsvm")
+theme_override_font_sizes/font_size = 24
+theme_override_styles/normal = ExtResource("5_mrfpk")
+theme_override_styles/focus = ExtResource("5_mrfpk")
+context_menu_enabled = false
+emoji_menu_enabled = false
+shortcut_keys_enabled = false
+middle_mouse_paste_enabled = false
+selecting_enabled = false
+drag_and_drop_selection_enabled = false
+virtual_keyboard_enabled = false
