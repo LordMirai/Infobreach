@@ -91,6 +91,11 @@ func _on_timer_timeout() -> void:
 	reset_module()
 
 
+func complete_module() -> void:
+	super()
+	for node in curve_points.get_children():
+		node.is_draggable = false
+		
 func reset_module() -> void:
 	for node in curve_points.get_children():
 		curve_points.remove_child(node)
