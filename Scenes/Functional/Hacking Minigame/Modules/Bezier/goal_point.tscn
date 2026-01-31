@@ -1,0 +1,10 @@
+[gd_scene format=3 uid="uid://vci565klhoy1"]
+
+[ext_resource type="Script" uid="uid://c0pss4t8hi3re" path="res://Scenes/Functional/Hacking Minigame/Modules/Bezier/goal_point.gd" id="1_qpiyp"]
+[ext_resource type="Texture2D" uid="uid://bunf0je0mnsm3" path="res://Scenes/Functional/Hacking Minigame/Modules/Bezier/goal.png" id="2_4r7yj"]
+
+[node name="GoalPoint" type="Node2D" unique_id=1521071918]
+script = ExtResource("1_qpiyp")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1098140706]
+texture = ExtResource("2_4r7yj")
