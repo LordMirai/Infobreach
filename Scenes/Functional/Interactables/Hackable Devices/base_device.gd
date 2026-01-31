@@ -20,7 +20,7 @@ var hacking_ui_instance = null
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	$Sprite2D.texture = default_texture
-
+	
 
 func sub_interact():
 	if hackable and not hacked:
@@ -32,8 +32,8 @@ func sub_interact():
 		
 		hacking_ui_instance = HackingMinigame.instantiate()
 		get_tree().current_scene.add_child(hacking_ui_instance)
-
 		hacking_ui_instance.initialize_minigame(self)
+		
 
 # prepare hack successful/failed signals
 func on_hack_successful():

@@ -22,8 +22,9 @@ func initialize_minigame(hackable : HackableDevice):
 	parent_entity = hackable
 
 	# Pass the parent_device reference to the hacking UI
-	if $HackingUI:
-		$HackingUI.parent_device = parent_entity
+	if $Container:
+		print("ne-am oprit pe AICI!!!")
+		$Container.parent_device = parent_entity
 
 func _on_mimic_pressed() -> void:
 	parent_entity.on_hack_successful()
