@@ -5,7 +5,8 @@ extends Container
 @onready var line: Line2D = $Line2D
 @onready var goal_points: Node = $GoalPoints
 @onready var curve_points: Node = $CurvePoints
-var curve_point_array: Array[Vector2]
+var curve_point_array: PackedVector2Array
+#var goal_point_array: Array[Vector2]
 var curve: Curve2D
 const CURVE_POINTS: int = 4 # don't change yet please
 const GOAL_POINTS: int = 10
@@ -25,6 +26,7 @@ func _process(delta: float) -> void:
 	for i in range(CURVE_POINTS):
 		curve_point_array[i] = curve_points.get_child(i).position
 	draw_curved_line()
+	check_targets()
 
 
 func random_position(x: int, y: int) -> Vector2:
@@ -45,7 +47,7 @@ func create_goal_points() -> void:
 		var random_point_curve = curve.get_baked_points()[randi() % curve.get_baked_points().size()]
 		point.position = random_point_curve
 		goal_points.add_child(point)
-	
+		#goal_point_array.append(point)
 		
 		
 func generate_curve() -> void:
@@ -62,3 +64,13 @@ func draw_curved_line() -> void:
 	line.clear_points()
 	for point in curve.get_baked_points():
 		line.add_point(point)
+		
+
+func check_targets() -> void:
+	var current_point: int = 0
+	var baked: Array = Array(curve.get_baked_points())
+	for goal in goal_points.get_children():
+		goal.is_intersected = baked.any(
+			func(point):
+				return goal.detect_input(point + position)
+		)
