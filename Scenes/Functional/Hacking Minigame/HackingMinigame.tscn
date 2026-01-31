@@ -1,0 +1,67 @@
+[gd_scene format=3 uid="uid://4nubnl32rs7j"]
+
+[ext_resource type="Script" uid="uid://b5b58qsxw4ewo" path="res://Scenes/Functional/Hacking Minigame/hacking_minigame.gd" id="1_dt5jg"]
+[ext_resource type="Texture2D" uid="uid://bab3uu88bimsc" path="res://Scenes/Functional/Hacking Minigame/closebtn.png" id="2_c32av"]
+[ext_resource type="Texture2D" uid="uid://cu0fq54ebxn86" path="res://Scenes/Functional/Hacking Minigame/hacking minigame tex test.png" id="2_o6vpl"]
+[ext_resource type="Script" uid="uid://jcjl2q4iwh3r" path="res://Scenes/Functional/Hacking Minigame/UI_control.gd" id="2_wyv6g"]
+
+[node name="HackingMinigame" type="Control" unique_id=572980912]
+layout_mode = 3
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_dt5jg")
+
+[node name="Container" type="Control" parent="." unique_id=1369514488]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -283.0
+offset_top = -231.0
+offset_right = 283.0
+offset_bottom = 231.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(1.008591, 1)
+script = ExtResource("2_wyv6g")
+
+[node name="Background" type="TextureRect" parent="Container" unique_id=485558385]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(1.0023434, 1)
+texture = ExtResource("2_o6vpl")
+
+[node name="CloseButton" type="TextureButton" parent="Container" unique_id=2022426290]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -49.008728
+offset_top = -25.0
+offset_right = 0.991272
+offset_bottom = 25.0
+grow_horizontal = 0
+texture_normal = ExtResource("2_c32av")
+
+[node name="mimic" type="Button" parent="Container" unique_id=417222251]
+layout_mode = 0
+offset_left = 214.16014
+offset_top = 194.0
+offset_right = 222.16014
+offset_bottom = 202.0
+text = "MIMIC MINIGAME COMPLETE"
+
+[connection signal="tree_exited" from="." to="Container" method="_on_minigame_closed"]
+[connection signal="pressed" from="Container/CloseButton" to="Container" method="_on_close_button_pressed"]
+[connection signal="pressed" from="Container/mimic" to="." method="_on_mimic_pressed"]

@@ -5,6 +5,7 @@ extends CharacterBody2D
 @export var sprintSpeed: float = 350.0
 @export var sneakSpeed: float = 100.0
 
+var movement_enabled: bool = true
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -19,6 +20,9 @@ func _process(delta: float) -> void:
 	if Input.is_action_just_pressed("ui_cancel"):
 		get_tree().quit() # Exit the game
 
+	if not movement_enabled:
+		return
+		
 	# Check input actions for movement
 	if Input.is_action_pressed("ui_right"):
 		velocity.x += 1
