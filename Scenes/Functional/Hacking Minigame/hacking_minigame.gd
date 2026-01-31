@@ -4,6 +4,10 @@ const HackableDevice = preload("res://Scenes/Functional/Interactables/Hackable D
 
 var parent_entity: HackableDevice = null
 
+@export var difficulty: int = 1
+@export var module_count: int = 1
+var modules_completed: int = 0
+
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	print(position)
