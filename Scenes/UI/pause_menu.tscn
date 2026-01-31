@@ -1,0 +1,97 @@
+[gd_scene format=3 uid="uid://dvtk3smi6ufhh"]
+
+[ext_resource type="FontFile" uid="uid://bkxfscaiy7g1a" path="res://Assets/Fonts/JetBrainsMono-Regular.ttf" id="1_8rf44"]
+[ext_resource type="Script" uid="uid://dy70lirwbp6gc" path="res://Scenes/UI/pause_menu.gd" id="1_r2i2h"]
+[ext_resource type="Script" uid="uid://b5hkjgphuduos" path="res://Scenes/UI/os_icon.gd" id="2_r2i2h"]
+
+[node name="PauseMenu" type="CanvasLayer" unique_id=429206491]
+script = ExtResource("1_r2i2h")
+
+[node name="Background" type="ColorRect" parent="." unique_id=2077266380]
+offset_right = 1920.0
+offset_bottom = 1080.0
+color = Color(0, 0, 0, 1)
+
+[node name="GameName" type="Label" parent="." unique_id=1469007134]
+offset_top = 81.5
+offset_right = 1920.0
+offset_bottom = 161.5
+theme_override_fonts/font = ExtResource("1_8rf44")
+theme_override_font_sizes/font_size = 60
+text = "INFOBREACH"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="OSIcon" type="RichTextLabel" parent="." unique_id=1764639831]
+process_mode = 3
+offset_top = 221.5
+offset_right = 1920.0
+offset_bottom = 617.5
+size_flags_vertical = 4
+theme_override_fonts/normal_font = ExtResource("1_8rf44")
+text = "        @ @ @ @ @ @ @ @ @ @ @ @ @ @ @ @ @ @ @ @ @ @ @ @ @ @ @ @ @ @ @
+      @ @ @ @ % % # # % % @ @ @ @ @ @ @ @ @ @ @ # # % @ @ @ @ @ @ @ @
+    @ @ @ + : = + + + + = - - # @ @ @ % * = - - = = = % @ @ @ @ @ @ @
+    @ @ @ @ @ # + + + + * * = + @ @ @ * = - + + * * * # @ @ @ @ @ @
+    @ @ @ @ @ + .           + @ @ @ @ @ @ - .       : @ @ @ @ @ @
+    @ @ @ @ @ @ @ % % % % % @ @ % @ @ @ @ @ @ % % % % @ @ @ @ @ @ @
+    @ @ @ @ @ @ @ @ @ @ @ @ @ @ @ % @ @ @ @ @ @ @ @ @ @ @ @ @ @ @ @
+    @ @ @ @ @ @ @ @ @ @ @ @ @ @ @ % @ @ @ @ @ @ @ @ @ @ @ @ @ @ @
+    @ @ @ @ @ @ @ @ @ @ @ @ @ @ % @ @ @ @ @ @ @ @ @ @ @ @ @ @ @ @
+      - + + + + * # % @ @ @ % @ @ @ @ @ @ @ @ @ @ @ @ @ % # + .
+      % @ @ % % # + = # # # % % # - + % @ @ @ @ @ # + = = * :
+        @ @ @ @ @ @ @ @ + = = = + # + + + + + = = = # @ @ @
+          @ @ @ @ @ @ + - - - - = + = + + = = = * @ @ @ @
+            @ @ @ @ @ @ @ @ % % % * % @ @ @ @ @ @ @ @ @
+                @ @ @ @ @ @ @ @ #   - @ @ @ @ @ @ @ @
+                    @ @ @ @ @ @ @   * @ @ @ @ @ @
+                        @ @ @ @ @ + : @ @ @ @ @
+                            @ @ %   - @ @ @ @"
+fit_content = true
+horizontal_alignment = 1
+vertical_alignment = 1
+script = ExtResource("2_r2i2h")
+wiggle_amplitude = 10.0
+
+[node name="Hacker OS" type="Label" parent="." unique_id=1466553667]
+offset_top = 677.5
+offset_right = 1920.0
+offset_bottom = 725.5
+theme_override_fonts/font = ExtResource("1_8rf44")
+theme_override_font_sizes/font_size = 36
+text = "Anomalous Scanning System"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ButtonsVBox" type="VBoxContainer" parent="." unique_id=1328350119]
+process_mode = 3
+clip_contents = true
+offset_left = 764.0
+offset_top = 761.5
+offset_right = 1156.0
+offset_bottom = 974.5
+size_flags_horizontal = 4
+theme_override_constants/separation = 30
+
+[node name="ResumeGame" type="Button" parent="ButtonsVBox" unique_id=1199402102]
+custom_minimum_size = Vector2(10, 0)
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_8rf44")
+theme_override_font_sizes/font_size = 32
+text = "Resume Hacking"
+
+[node name="Options" type="Button" parent="ButtonsVBox" unique_id=285284604]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_8rf44")
+theme_override_font_sizes/font_size = 32
+text = "System Configuration"
+
+[node name="ExitGame" type="Button" parent="ButtonsVBox" unique_id=494292740]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_8rf44")
+theme_override_font_sizes/font_size = 32
+text = "Halt the Program"
+
+[connection signal="pressed" from="ButtonsVBox/ResumeGame" to="." method="_on_resume_game_pressed"]
+[connection signal="pressed" from="ButtonsVBox/ResumeGame" to="." method="_on_resume_pressed"]
+[connection signal="pressed" from="ButtonsVBox/ExitGame" to="." method="_on_quit_pressed"]
