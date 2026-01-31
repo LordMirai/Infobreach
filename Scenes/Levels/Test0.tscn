@@ -24,7 +24,7 @@ position = Vector2(670, 198)
 position = Vector2(672, 326)
 
 [node name="Camera" parent="." unique_id=1871301614 instance=ExtResource("6_uiv5f")]
-position = Vector2(243, 662)
+position = Vector2(81, -2)
 
 [node name="Interactable3" parent="." unique_id=325767183 instance=ExtResource("5_e2s60")]
 position = Vector2(849, 446)
