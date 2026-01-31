@@ -41,8 +41,6 @@ animations = [{
 "speed": 5.0
 }]
 
-[sub_resource type="ImageTexture" id="ImageTexture_50wlb"]
-
 [sub_resource type="AtlasTexture" id="AtlasTexture_ce6ki"]
 atlas = ExtResource("3_8p70a")
 region = Rect2(0, 0, 32, 32)
@@ -77,6 +75,9 @@ resource_name = "CameraHackLogic"
 script/source = "extends \"res://Scenes/Functional/Interactables/Hackable Devices/base_device.gd\"
 
 const CAMERA_DISABLED_TIME = 5
+
+var hacking_ui = null
+
 func _ready() -> void:
 	device_name = \"CCTV Camera\"
 	$Sprite2D.texture = null
@@ -91,9 +92,12 @@ func sub_interact():
 		$\"..\".beforeHackFrame = $\"..\".currentFrame
 		$\"..\".beforeHackLoopback = $\"..\".loopback
 		
-		var hacking_ui = HackingMinigame.instantiate()
+		hacking_ui= HackingMinigame.instantiate()
 		get_tree().current_scene.add_child(hacking_ui)
+		print(hacking_ui)
 		hacking_ui.initialize_minigame(self)
+		
+		
 	
 
 func on_hack_successful():
@@ -132,7 +136,6 @@ scale = Vector2(1.3961194, 0.7518293)
 polygon = PackedVector2Array(0.2837293, -0.33007813, 220.6115, 587.8994, 132.51015, 663.7145, -1.432548, 684.996, -117.46847, 662.3844, -228.4905, 575.9286)
 
 [node name="Sprite2D" type="Sprite2D" parent="Area2D" unique_id=1193801360]
-texture = SubResource("ImageTexture_50wlb")
 
 [node name="WarningSprites" type="AnimatedSprite2D" parent="." unique_id=527893219]
 position = Vector2(34, 32)

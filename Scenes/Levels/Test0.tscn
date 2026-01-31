@@ -6,7 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://bqq66veeuw43j" path="res://Scenes/Functional/Interactables/Hackable Devices/BaseDevice.tscn" id="5_e2s60"]
 [ext_resource type="PackedScene" uid="uid://d3si4cm6sa1n3" path="res://Scenes/Functional/CameraSystem/Scenes/MainCamera.tscn" id="6_uiv5f"]
 [ext_resource type="Texture2D" uid="uid://dckgupeoukcmu" path="res://textures/drone.png" id="7_25o6u"]
-[ext_resource type="Script" path="res://camera_drone.gd" id="7_84ukx"]
+[ext_resource type="Script" uid="uid://b5kqlbu2ocan0" path="res://camera_drone.gd" id="7_84ukx"]
 [ext_resource type="PackedScene" uid="uid://duujbf38cwpy0" path="res://Scenes/Functional/Interactables/Hackable Devices/SecurityTerminal.tscn" id="8_25o6u"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_84ukx"]
@@ -24,6 +24,7 @@ position = Vector2(670, 198)
 position = Vector2(672, 326)
 
 [node name="Camera" parent="." unique_id=1871301614 instance=ExtResource("6_uiv5f")]
+position = Vector2(143, 523)
 position = Vector2(81, -2)
 
 [node name="Interactable3" parent="." unique_id=325767183 instance=ExtResource("5_e2s60")]
