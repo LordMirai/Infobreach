@@ -1,6 +1,10 @@
 [gd_scene format=3 uid="uid://04yq74xb1kax"]
 
 [ext_resource type="FontFile" uid="uid://bkxfscaiy7g1a" path="res://Assets/Fonts/JetBrainsMono-Regular.ttf" id="1_5wsvm"]
+[ext_resource type="Script" uid="uid://be6rit1tjpsxa" path="res://Scenes/UI/main_menu.gd" id="1_i2xx2"]
+[ext_resource type="Script" uid="uid://b5hkjgphuduos" path="res://Scenes/UI/os_icon.gd" id="3_o14dv"]
+[ext_resource type="Script" uid="uid://dpb3p3ytpjfwv" path="res://Scenes/UI/start_prompt.gd" id="4_u7lva"]
+[ext_resource type="StyleBox" uid="uid://cad1oolt86wde" path="res://Assets/UI/new_style_box_flat.tres" id="5_mrfpk"]
 
 [node name="Main Menu" type="Control" unique_id=969432078]
 layout_mode = 3
@@ -9,6 +13,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_i2xx2")
 
 [node name="Background" type="ColorRect" parent="." unique_id=1233522911]
 layout_mode = 0
@@ -16,20 +21,11 @@ offset_right = 1920.0
 offset_bottom = 1080.0
 color = Color(0, 0, 0, 1)
 
-[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=1686894614]
-custom_minimum_size = Vector2(1920, 0)
-layout_mode = 1
-anchors_preset = 13
-anchor_left = 0.5
-anchor_right = 0.5
-anchor_bottom = 1.0
-offset_left = -0.5
-offset_right = 0.5
-grow_horizontal = 2
-grow_vertical = 2
-
-[node name="OSIcon" type="RichTextLabel" parent="VBoxContainer" unique_id=890662971]
-layout_mode = 2
+[node name="OSIcon" type="RichTextLabel" parent="." unique_id=890662971]
+layout_mode = 0
+offset_top = 171.0
+offset_right = 1920.0
+offset_bottom = 567.0
 size_flags_vertical = 4
 theme_override_fonts/normal_font = ExtResource("1_5wsvm")
 text = "        @ @ @ @ @ @ @ @ @ @ @ @ @ @ @ @ @ @ @ @ @ @ @ @ @ @ @ @ @ @ @
@@ -51,6 +47,67 @@ text = "        @ @ @ @ @ @ @ @ @ @ @ @ @ @ @ @ @ @ @ @ @ @ @ @ @ @ @ @ @ @ @
                         @ @ @ @ @ + : @ @ @ @ @
                             @ @ %   - @ @ @ @"
 fit_content = true
+horizontal_alignment = 1
+vertical_alignment = 1
+script = ExtResource("3_o14dv")
 
-[node name="Hostname" type="Label" parent="VBoxContainer" unique_id=610105714]
+[node name="StartPrompt" type="Label" parent="." unique_id=772960633]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -240.0
+offset_top = -260.0
+offset_right = 240.0
+offset_bottom = -217.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_fonts/font = ExtResource("1_5wsvm")
+theme_override_font_sizes/font_size = 32
+text = "Press any button to start"
+horizontal_alignment = 1
+vertical_alignment = 1
+script = ExtResource("4_u7lva")
+
+[node name="PromptHbox" type="HBoxContainer" parent="." unique_id=1670712449]
+visible = false
+layout_mode = 0
+offset_left = 41.0
+offset_top = 28.0
+offset_right = 266.0
+offset_bottom = 68.0
+
+[node name="Hostname" type="Label" parent="PromptHbox" unique_id=610105714]
+custom_minimum_size = Vector2(225, 0)
 layout_mode = 2
+theme_override_fonts/font = ExtResource("1_5wsvm")
+text = "vendetta@hacker-os: ~ $"
+autowrap_mode = 2
+
+[node name="CommandInput" type="LineEdit" parent="PromptHbox" unique_id=494885133]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.875, 0.875, 0.875, 1)
+theme_override_fonts/font = ExtResource("1_5wsvm")
+theme_override_styles/normal = ExtResource("5_mrfpk")
+theme_override_styles/focus = ExtResource("5_mrfpk")
+editable = false
+expand_to_text_length = true
+context_menu_enabled = false
+emoji_menu_enabled = false
+shortcut_keys_enabled = false
+middle_mouse_paste_enabled = false
+selecting_enabled = false
+deselect_on_focus_loss_enabled = false
+drag_and_drop_selection_enabled = false
+flat = true
+virtual_keyboard_enabled = false
+
+[node name="Menu" type="LineEdit" parent="PromptHbox" unique_id=1274286759]
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=200177914]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
