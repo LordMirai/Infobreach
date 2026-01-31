@@ -4,15 +4,16 @@
 [ext_resource type="PackedScene" uid="uid://deacbbse3x3ov" path="res://Scenes/Functional/Obstacles/Wall.tscn" id="2_dk62x"]
 [ext_resource type="PackedScene" uid="uid://da2onvnx23mh0" path="res://Scenes/Functional/Interactables/Base/Interactable.tscn" id="3_7ion2"]
 [ext_resource type="PackedScene" uid="uid://b2apyps155mgv" path="res://Scenes/Functional/Interactables/Doors/FadingDoor.tscn" id="4_eq4xh"]
-[ext_resource type="PackedScene" uid="uid://d3si4cm6sa1n3" path="res://Scenes/Functional/CameraSystem/Scenes/MainCamera.tscn" id="6_uiv5f"]
 [ext_resource type="PackedScene" uid="uid://bqq66veeuw43j" path="res://Scenes/Functional/Interactables/Hackable Devices/BaseDevice.tscn" id="5_e2s60"]
+[ext_resource type="PackedScene" uid="uid://d3si4cm6sa1n3" path="res://Scenes/Functional/CameraSystem/Scenes/MainCamera.tscn" id="6_uiv5f"]
 [ext_resource type="Texture2D" uid="uid://dckgupeoukcmu" path="res://textures/drone.png" id="7_25o6u"]
-[ext_resource type="Script" uid="uid://b5kqlbu2ocan0" path="res://camera_drone.gd" id="7_84ukx"]
+[ext_resource type="Script" path="res://camera_drone.gd" id="7_84ukx"]
 [ext_resource type="PackedScene" uid="uid://duujbf38cwpy0" path="res://Scenes/Functional/Interactables/Hackable Devices/SecurityTerminal.tscn" id="8_25o6u"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_84ukx"]
 
 [node name="Node2D" type="Node2D" unique_id=430878801]
+position = Vector2(6, 7)
 
 [node name="Player" parent="." unique_id=536035213 instance=ExtResource("1_c38sf")]
 position = Vector2(443, 352)
@@ -27,11 +28,13 @@ position = Vector2(991, 150)
 position = Vector2(663, 404)
 
 [node name="Camera" parent="." unique_id=1871301614 instance=ExtResource("6_uiv5f")]
-position = Vector2(81, -2)
+position = Vector2(143, 523)
+
 [node name="Interactable3" parent="." unique_id=325767183 instance=ExtResource("5_e2s60")]
 position = Vector2(890, 546)
 
 [node name="CameraDrone" type="CharacterBody2D" parent="." unique_id=532205285 node_paths=PackedStringArray("patrol_points")]
+position = Vector2(84, 75)
 scale = Vector2(0.3, 0.3)
 script = ExtResource("7_84ukx")
 patrol_points = [NodePath("../Marker2D2"), NodePath("../Marker2D3"), NodePath("../Marker2D")]
