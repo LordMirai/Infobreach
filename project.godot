@@ -27,6 +27,7 @@ enabled=PackedStringArray("res://addons/godot_piskel_importer/plugin.cfg")
 
 walls=""
 interactable=""
+Player=""
 
 [input]
 

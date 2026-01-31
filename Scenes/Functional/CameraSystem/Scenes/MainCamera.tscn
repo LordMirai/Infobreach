@@ -1,0 +1,73 @@
+[gd_scene format=3 uid="uid://d3si4cm6sa1n3"]
+
+[ext_resource type="Script" uid="uid://r7swc8fuyadm" path="res://Scenes/Functional/CameraSystem/Scripts/main_camera2.gd" id="1_8p70a"]
+[ext_resource type="Texture2D" uid="uid://cwtn57lrmaq01" path="res://Scenes/Functional/CameraSystem/Assets/CameraMovement2-20260131-132701.piskel" id="1_50wlb"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8p70a"]
+atlas = ExtResource("1_50wlb")
+region = Rect2(0, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fus4w"]
+atlas = ExtResource("1_50wlb")
+region = Rect2(64, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1ta5n"]
+atlas = ExtResource("1_50wlb")
+region = Rect2(128, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_athw2"]
+atlas = ExtResource("1_50wlb")
+region = Rect2(192, 0, 64, 64)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_athw2"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8p70a")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fus4w")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1ta5n")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_athw2")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="ImageTexture" id="ImageTexture_50wlb"]
+
+[node name="Camera" type="Node2D" unique_id=1871301614]
+script = ExtResource("1_8p70a")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=2065031680]
+scale = Vector2(2.015625, 2.015625)
+sprite_frames = SubResource("SpriteFrames_athw2")
+
+[node name="Timer" type="Timer" parent="." unique_id=972610358]
+
+[node name="Area2D" type="Area2D" parent="." unique_id=2137418635]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Area2D" unique_id=399076903]
+position = Vector2(7.6293945e-06, 16)
+scale = Vector2(1.3961194, 0.7518293)
+polygon = PackedVector2Array(1, 1, 222.16254, 591.53705, 130, 651, -4.8973484, 686.8048, -118, 665, -232.95749, 578.39667)
+
+[node name="Sprite2D" type="Sprite2D" parent="Area2D" unique_id=1193801360]
+texture = SubResource("ImageTexture_50wlb")
+
+[node name="DangerTimer" type="Timer" parent="." unique_id=1802483976]
+
+[node name="WarnTimer" type="Timer" parent="." unique_id=1579736493]
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
+[connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]
+[connection signal="area_exited" from="Area2D" to="." method="_on_area_2d_area_exited"]
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
+[connection signal="body_exited" from="Area2D" to="." method="_on_area_2d_body_exited"]
+[connection signal="timeout" from="DangerTimer" to="." method="_on_danger_timer_timeout"]
+[connection signal="timeout" from="WarnTimer" to="." method="_on_warn_timer_timeout"]
