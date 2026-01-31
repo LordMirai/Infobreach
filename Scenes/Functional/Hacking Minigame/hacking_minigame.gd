@@ -5,8 +5,11 @@ const HackableDevice = preload("res://Scenes/Functional/Interactables/Hackable D
 var parent_entity: HackableDevice = null
 
 @export var difficulty: int = 1
-@export var module_count: int = 1
+@export var module_count: int = 3
 var modules_completed: int = 0
+
+var fail_count: int = 0
+var fail_limit: int = 3 # module fail limit (count==limit -> minigame fail)
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -17,9 +20,16 @@ func _ready() -> void:
 func _process(delta: float) -> void:
 	pass
 
+func _update_labels():
+	$Container/Device.text = parent_entity.device_name
+	$Container/Difficulty.text = "Difficulty: " + str(difficulty)
+	$Container/Completion.text = "Modules Completed: " + str(modules_completed) + " / " + str(module_count)
+	$Container/Failures.text = "Failures: " + str(fail_count) + " / " + str(fail_limit)
 
 func initialize_minigame(hackable : HackableDevice):
 	parent_entity = hackable
+
+	_update_labels()
 
 	# Pass the parent_device reference to the hacking UI
 	if $Container:
@@ -39,12 +49,27 @@ func _on_mimic_pressed() -> void:
 const BaseModuleScene = preload("res://Scenes/Functional/Hacking Minigame/Modules/Module Base/BaseModule.tscn")
 const TestModuleScene = preload("res://Scenes/Functional/Hacking Minigame/Modules/Module Base/test_derived_module.tscn")
 
+const KeywordModuleScene = preload("res://Scenes/Functional/Hacking Minigame/Modules/Keyword/KeywordModule.tscn")
+const BezierModuleScene = preload("res://Scenes/Functional/Hacking Minigame/Modules/Bezier/bezier.tscn")
+
 var module_pool = [
 	{
 		scene = TestModuleScene,
 		script = preload("res://Scenes/Functional/Hacking Minigame/Modules/Module Base/test_derived_module.gd")
 	},
+	# {
+	# 	scene = KeywordModuleScene,
+	# 	script = preload("res://Scenes/Functional/Modules/KeywordMatching/KeywordMatchingModule.cs")
+	# },
+	{
+		scene = BezierModuleScene,
+		script = preload("res://Scenes/Functional/Hacking Minigame/Modules/Bezier/bezier.gd")
+	}
 ]
+
+
+var current_module = null
+
 
 func select_module():
 	var module_index = randi() % module_pool.size()
@@ -57,14 +82,34 @@ func pull_next_module():
 	module_instance.parent_minigame = self
 
 	$Container/ModuleFrame.add_child(module_instance)
+	current_module = module_instance
 	
 	module_instance.set_anchors_preset(Control.PRESET_FULL_RECT)
 	print("Container origin: " + str($Container/ModuleFrame.position) + "; module position: " + str(module_instance.position))
 
 	module_instance.initialize_module(self)
+	
+	module_instance.connect("module_completed", Callable(self, "on_module_completed"))
 	return module_instance
 
 
 func _on_gen_module_pressed() -> void:
 	var module = pull_next_module()
 	print("Generated module: " + str(module.module_name))
+
+
+
+func on_module_completed(module_name: String) -> void:
+	modules_completed += 1
+	_update_labels()
+	print("Module completed: " + module_name)
+
+	if modules_completed >= module_count:
+		print("All modules completed! Hacking successful.")
+		parent_entity.on_hack_successful()
+		queue_free()
+	else:
+		# Load next module
+		if current_module:
+			current_module.queue_free()
+		pull_next_module()

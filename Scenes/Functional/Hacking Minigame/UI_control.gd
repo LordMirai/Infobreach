@@ -62,6 +62,7 @@ func _on_minigame_closed() -> void:
 		player.movement_enabled = true
 
 	if parent_device:
+		parent_device.on_hack_failed()
 		parent_device.hacking_ui_instance = null
 
 	# Clear the active hacking UI reference
