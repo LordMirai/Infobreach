@@ -4,6 +4,7 @@ extends Control
 const HackingMinigameModule = preload("res://Scenes/Functional/Hacking Minigame/hacking_minigame.gd")
 
 var parent_minigame: HackingMinigameModule = null
+var minigame_frame: PanelContainer = null
 
 @export var module_name: String = "Base Module"
 @export var difficulty: int = 1
@@ -18,7 +19,6 @@ signal module_failed(module_name)
 func _ready() -> void:
 	if parent_minigame != null:
 		initialize_module(parent_minigame)
-		
 
 
 func fail_module():

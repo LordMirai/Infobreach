@@ -80,6 +80,7 @@ func pull_next_module():
 	var module_instance = module_data.scene.instantiate()
 	module_instance.set_script(module_data.script)
 	module_instance.parent_minigame = self
+	module_instance.minigame_frame = get_node("Container/ModuleFrame")
 
 	$Container/ModuleFrame.add_child(module_instance)
 	current_module = module_instance
