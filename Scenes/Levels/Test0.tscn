@@ -4,6 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://deacbbse3x3ov" path="res://Scenes/Functional/Obstacles/Wall.tscn" id="2_dk62x"]
 [ext_resource type="PackedScene" uid="uid://da2onvnx23mh0" path="res://Scenes/Functional/Interactables/Base/Interactable.tscn" id="3_7ion2"]
 [ext_resource type="PackedScene" uid="uid://b2apyps155mgv" path="res://Scenes/Functional/Interactables/Doors/FadingDoor.tscn" id="4_eq4xh"]
+[ext_resource type="PackedScene" uid="uid://d3si4cm6sa1n3" path="res://Scenes/Functional/CameraSystem/Scenes/MainCamera.tscn" id="6_uiv5f"]
 [ext_resource type="PackedScene" uid="uid://bqq66veeuw43j" path="res://Scenes/Functional/Interactables/Hackable Devices/BaseDevice.tscn" id="5_e2s60"]
 
 [node name="Node2D" type="Node2D" unique_id=430878801]
@@ -20,5 +21,7 @@ position = Vector2(991, 150)
 [node name="Interactable2" parent="." unique_id=1733218285 instance=ExtResource("4_eq4xh")]
 position = Vector2(663, 404)
 
+[node name="Camera" parent="." unique_id=1871301614 instance=ExtResource("6_uiv5f")]
+position = Vector2(81, -2)
 [node name="Interactable3" parent="." unique_id=325767183 instance=ExtResource("5_e2s60")]
 position = Vector2(890, 546)
