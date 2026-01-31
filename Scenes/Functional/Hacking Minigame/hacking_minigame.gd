@@ -10,7 +10,6 @@ var modules_completed: int = 0
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	print(position)
 	pass # Replace with function body.
 
 
@@ -21,6 +20,10 @@ func _process(delta: float) -> void:
 
 func initialize_minigame(hackable : HackableDevice):
 	parent_entity = hackable
+
+	# Pass the parent_device reference to the hacking UI
+	if $HackingUI:
+		$HackingUI.parent_device = parent_entity
 
 func _on_mimic_pressed() -> void:
 	parent_entity.on_hack_successful()
@@ -53,7 +56,9 @@ func pull_next_module():
 	module_instance.parent_minigame = self
 
 	$Container/ModuleFrame.add_child(module_instance)
-	module_instance.position = Vector2(0, 0) # Force position to (0, 0)
+	
+	module_instance.set_anchors_preset(Control.PRESET_FULL_RECT)
+	print("Container origin: " + str($Container/ModuleFrame.position) + "; module position: " + str(module_instance.position))
 
 	module_instance.initialize_module(self)
 	return module_instance
