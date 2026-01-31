@@ -37,6 +37,9 @@ func create_curve_points() -> void:
 	for i in range(CURVE_POINTS):
 		var point = draggable_point.instantiate()
 		point.position = random_position(self.size.x, self.size.y)
+		point.bounds = self.size
+		point.top_left = position
+		print(point.bounds)
 		curve_point_array.append(point.position)
 		curve_points.add_child(point)
 	

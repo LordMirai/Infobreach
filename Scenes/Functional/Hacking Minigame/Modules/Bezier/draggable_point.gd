@@ -2,6 +2,8 @@ extends Area2D
 
 var is_dragging: bool = false
 var click_position: Vector2 = Vector2.ZERO
+var top_left: Vector2 = Vector2.ZERO
+var bounds: Vector2 = Vector2.ZERO
 	
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -12,6 +14,15 @@ func _ready() -> void:
 func _process(delta: float) -> void:
 	if is_dragging:
 		global_position = get_global_mouse_position() - click_position
+		# make sure the draggable point doesn't go out of module bounds
+		if global_position.x < top_left.x:
+			global_position.x = top_left.x
+		elif global_position.x > top_left.x + bounds.x:
+			global_position.x = top_left.x + bounds.x
+		if global_position.y < top_left.y:
+			global_position.y = top_left.y
+		elif global_position.y > top_left.y + bounds.y:
+			global_position.y = top_left.y + bounds.y
 
 
 func _on_input_event(viewport: Node, event: InputEvent, shape_idx: int) -> void:
