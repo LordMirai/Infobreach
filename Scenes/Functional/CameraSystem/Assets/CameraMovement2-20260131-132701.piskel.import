@@ -1,0 +1,14 @@
+[remap]
+
+importer="com.technohacker.piskel"
+type="ImageTexture"
+uid="uid://cwtn57lrmaq01"
+path="res://.godot/imported/CameraMovement2-20260131-132701.piskel-4d19105f126c3b0302b683a9310588e3.tres"
+
+[deps]
+
+source_file="res://Scenes/Functional/CameraSystem/Assets/CameraMovement2-20260131-132701.piskel"
+dest_files=["res://.godot/imported/CameraMovement2-20260131-132701.piskel-4d19105f126c3b0302b683a9310588e3.tres"]
+
+[params]
+

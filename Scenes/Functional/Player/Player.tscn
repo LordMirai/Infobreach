@@ -11,23 +11,23 @@ size = Vector2(69, 122)
 [sub_resource type="CircleShape2D" id="CircleShape2D_lujq3"]
 radius = 7.200694
 
-[node name="Player" type="CharacterBody2D" unique_id=1285538653]
+[node name="Player" type="CharacterBody2D" unique_id=1285538653 groups=["Player"]]
 collision_layer = 3
 collision_mask = 3
 script = ExtResource("1_i1tdd")
 
-[node name="PlayerSprite" type="AnimatedSprite2D" parent="." unique_id=472939682]
+[node name="PlayerSprite" type="AnimatedSprite2D" parent="." unique_id=472939682 groups=["Player"]]
 z_index = 10
 scale = Vector2(4, 4)
 sprite_frames = ExtResource("1_dgwec")
 frame_progress = 0.4672218
 script = ExtResource("3_lujq3")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=221576324]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=221576324 groups=["Player"]]
 position = Vector2(-0.5, 2)
 shape = SubResource("RectangleShape2D_lujq3")
 
-[node name="InteractionArea" type="Area2D" parent="." unique_id=908933762]
+[node name="InteractionArea" type="Area2D" parent="." unique_id=908933762 groups=["Player"]]
 script = ExtResource("4_mubij")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="InteractionArea" unique_id=1489174849]
