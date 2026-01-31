@@ -5,8 +5,11 @@ const HackableDevice = preload("res://Scenes/Functional/Interactables/Hackable D
 var parent_entity: HackableDevice = null
 
 @export var difficulty: int = 1
-@export var module_count: int = 1
+@export var module_count: int = 3
 var modules_completed: int = 0
+
+var fail_count: int = 0
+var fail_limit: int = 3 # module fail limit (count==limit -> minigame fail)
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -20,6 +23,11 @@ func _process(delta: float) -> void:
 
 func initialize_minigame(hackable : HackableDevice):
 	parent_entity = hackable
+
+	$Container/Device.text = parent_entity.device_name
+	$Container/Difficulty.text = "Difficulty: " + str(difficulty)
+	$Container/Completion.text = "Modules Completed: " + str(modules_completed) + " / " + str(module_count)
+	$Container/Failures.text = "Failures: " + str(fail_count) + " / " + str(fail_limit)
 
 	# Pass the parent_device reference to the hacking UI
 	if $HackingUI:

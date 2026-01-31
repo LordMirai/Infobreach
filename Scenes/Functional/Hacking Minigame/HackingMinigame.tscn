@@ -4,6 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://bab3uu88bimsc" path="res://Scenes/Functional/Hacking Minigame/closebtn.png" id="2_c32av"]
 [ext_resource type="Texture2D" uid="uid://cu0fq54ebxn86" path="res://Scenes/Functional/Hacking Minigame/hacking minigame tex test.png" id="2_o6vpl"]
 [ext_resource type="Script" uid="uid://jcjl2q4iwh3r" path="res://Scenes/Functional/Hacking Minigame/UI_control.gd" id="2_wyv6g"]
+[ext_resource type="FontFile" uid="uid://bkxfscaiy7g1a" path="res://Assets/Fonts/JetBrainsMono-Regular.ttf" id="5_08miw"]
 
 [node name="HackingMinigame" type="Control" unique_id=572980912]
 z_index = 20
@@ -85,6 +86,52 @@ offset_top = 120.0
 offset_right = 310.5605
 offset_bottom = 151.0
 text = "Generate Module"
+
+[node name="Completion" type="Label" parent="Container" unique_id=158474270]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -180.60309
+offset_top = 21.0
+offset_right = -72.60309
+offset_bottom = 44.0
+grow_horizontal = 0
+theme_override_fonts/font = ExtResource("5_08miw")
+text = "<Completion>"
+horizontal_alignment = 2
+
+[node name="Failures" type="Label" parent="Container" unique_id=1091379838]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -188.60309
+offset_top = 41.0
+offset_right = -72.60309
+offset_bottom = 64.0
+grow_horizontal = 0
+theme_override_fonts/font = ExtResource("5_08miw")
+text = "<Failures>"
+horizontal_alignment = 2
+
+[node name="Difficulty" type="Label" parent="Container" unique_id=27284965]
+layout_mode = 1
+offset_left = 16.855196
+offset_top = 41.0
+offset_right = 132.8552
+offset_bottom = 64.0
+theme_override_fonts/font = ExtResource("5_08miw")
+text = "<Difficulty>"
+
+[node name="Device" type="Label" parent="Container" unique_id=1282274038]
+layout_mode = 1
+offset_left = 16.855194
+offset_top = 22.0
+offset_right = 132.8552
+offset_bottom = 45.0
+theme_override_fonts/font = ExtResource("5_08miw")
+text = "<Device>"
 
 [connection signal="tree_exited" from="." to="Container" method="_on_minigame_closed"]
 [connection signal="pressed" from="Container/CloseButton" to="Container" method="_on_close_button_pressed"]
