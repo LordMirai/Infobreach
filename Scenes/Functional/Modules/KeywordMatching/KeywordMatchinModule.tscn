@@ -1,0 +1,782 @@
+[gd_scene format=3 uid="uid://jj1mob2hor5v"]
+
+[ext_resource type="Script" uid="uid://ckqxkdq1xj2oo" path="res://Scenes/Functional/Modules/KeywordMatching/KeywordMatchingModule.cs" id="1_1sion"]
+[ext_resource type="FontFile" uid="uid://bh74t8whgyd0v" path="res://misc/Fonts/Hack-Bold.ttf" id="2_b7hka"]
+[ext_resource type="FontFile" uid="uid://fu4gceytqjcg" path="res://misc/Fonts/Hack-Regular.ttf" id="3_njmoy"]
+
+[sub_resource type="FontVariation" id="FontVariation_b7hka"]
+base_font = ExtResource("2_b7hka")
+spacing_top = -9
+spacing_bottom = -12
+
+[node name="Control" type="Control" unique_id=195642637 node_paths=PackedStringArray("_gridContainer", "_keywordLabel", "_countdownLabel", "_failMarksContainer")]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = -640.0
+offset_bottom = -136.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+script = ExtResource("1_1sion")
+_gridContainer = NodePath("VBoxContainer/MarginContainer/LettersGridContainer")
+_keywordLabel = NodePath("VBoxContainer/HBoxContainer/Keyword")
+_countdownLabel = NodePath("VBoxContainer/CountdownLabel")
+_failMarksContainer = NodePath("VBoxContainer/FailMakrsHBoxContainer")
+_lengthOfKeyword = 5
+
+[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=246265664]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 10
+alignment = 1
+
+[node name="CountdownLabel" type="Label" parent="VBoxContainer" unique_id=1225910863]
+custom_minimum_size = Vector2(0, 40)
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_b7hka")
+theme_override_font_sizes/font_size = 32
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer" unique_id=846627332]
+layout_mode = 2
+theme_override_constants/separation = 0
+alignment = 1
+
+[node name="Label" type="Label" parent="VBoxContainer/HBoxContainer" unique_id=151665468]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_b7hka")
+theme_override_font_sizes/font_size = 24
+text = "Keyword : "
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Keyword" type="Label" parent="VBoxContainer/HBoxContainer" unique_id=1693285752]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("3_njmoy")
+theme_override_font_sizes/font_size = 24
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer" unique_id=1258964842]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="LettersGridContainer" type="GridContainer" parent="VBoxContainer/MarginContainer" unique_id=2004812416]
+layout_mode = 2
+theme_override_constants/h_separation = 0
+theme_override_constants/v_separation = 0
+columns = 10
+
+[node name="Label" type="Label" parent="VBoxContainer/MarginContainer/LettersGridContainer" unique_id=1214727469]
+custom_minimum_size = Vector2(40, 40)
+layout_mode = 2
+theme_override_fonts/font = SubResource("FontVariation_b7hka")
+theme_override_font_sizes/font_size = 40
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label2" type="Label" parent="VBoxContainer/MarginContainer/LettersGridContainer" unique_id=182978]
+custom_minimum_size = Vector2(40, 40)
+layout_mode = 2
+theme_override_fonts/font = SubResource("FontVariation_b7hka")
+theme_override_font_sizes/font_size = 40
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label3" type="Label" parent="VBoxContainer/MarginContainer/LettersGridContainer" unique_id=2075761236]
+custom_minimum_size = Vector2(40, 40)
+layout_mode = 2
+theme_override_fonts/font = SubResource("FontVariation_b7hka")
+theme_override_font_sizes/font_size = 40
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label4" type="Label" parent="VBoxContainer/MarginContainer/LettersGridContainer" unique_id=1640182815]
+custom_minimum_size = Vector2(40, 40)
+layout_mode = 2
+theme_override_fonts/font = SubResource("FontVariation_b7hka")
+theme_override_font_sizes/font_size = 40
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label5" type="Label" parent="VBoxContainer/MarginContainer/LettersGridContainer" unique_id=1933787296]
+custom_minimum_size = Vector2(40, 40)
+layout_mode = 2
+theme_override_fonts/font = SubResource("FontVariation_b7hka")
+theme_override_font_sizes/font_size = 40
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label6" type="Label" parent="VBoxContainer/MarginContainer/LettersGridContainer" unique_id=905150276]
+custom_minimum_size = Vector2(40, 40)
+layout_mode = 2
+theme_override_fonts/font = SubResource("FontVariation_b7hka")
+theme_override_font_sizes/font_size = 40
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label7" type="Label" parent="VBoxContainer/MarginContainer/LettersGridContainer" unique_id=939653551]
+custom_minimum_size = Vector2(40, 40)
+layout_mode = 2
+theme_override_fonts/font = SubResource("FontVariation_b7hka")
+theme_override_font_sizes/font_size = 40
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label8" type="Label" parent="VBoxContainer/MarginContainer/LettersGridContainer" unique_id=788824547]
+custom_minimum_size = Vector2(40, 40)
+layout_mode = 2
+theme_override_fonts/font = SubResource("FontVariation_b7hka")
+theme_override_font_sizes/font_size = 40
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label9" type="Label" parent="VBoxContainer/MarginContainer/LettersGridContainer" unique_id=296949660]
+custom_minimum_size = Vector2(40, 40)
+layout_mode = 2
+theme_override_fonts/font = SubResource("FontVariation_b7hka")
+theme_override_font_sizes/font_size = 40
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label10" type="Label" parent="VBoxContainer/MarginContainer/LettersGridContainer" unique_id=542331860]
+custom_minimum_size = Vector2(40, 40)
+layout_mode = 2
+theme_override_fonts/font = SubResource("FontVariation_b7hka")
+theme_override_font_sizes/font_size = 40
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label11" type="Label" parent="VBoxContainer/MarginContainer/LettersGridContainer" unique_id=53780081]
+custom_minimum_size = Vector2(40, 40)
+layout_mode = 2
+theme_override_fonts/font = SubResource("FontVariation_b7hka")
+theme_override_font_sizes/font_size = 40
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label12" type="Label" parent="VBoxContainer/MarginContainer/LettersGridContainer" unique_id=513167735]
+custom_minimum_size = Vector2(40, 40)
+layout_mode = 2
+theme_override_fonts/font = SubResource("FontVariation_b7hka")
+theme_override_font_sizes/font_size = 40
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label13" type="Label" parent="VBoxContainer/MarginContainer/LettersGridContainer" unique_id=462698360]
+custom_minimum_size = Vector2(40, 40)
+layout_mode = 2
+theme_override_fonts/font = SubResource("FontVariation_b7hka")
+theme_override_font_sizes/font_size = 40
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label14" type="Label" parent="VBoxContainer/MarginContainer/LettersGridContainer" unique_id=61895071]
+custom_minimum_size = Vector2(40, 40)
+layout_mode = 2
+theme_override_fonts/font = SubResource("FontVariation_b7hka")
+theme_override_font_sizes/font_size = 40
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label15" type="Label" parent="VBoxContainer/MarginContainer/LettersGridContainer" unique_id=1221072111]
+custom_minimum_size = Vector2(40, 40)
+layout_mode = 2
+theme_override_fonts/font = SubResource("FontVariation_b7hka")
+theme_override_font_sizes/font_size = 40
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label16" type="Label" parent="VBoxContainer/MarginContainer/LettersGridContainer" unique_id=162546953]
+custom_minimum_size = Vector2(40, 40)
+layout_mode = 2
+theme_override_fonts/font = SubResource("FontVariation_b7hka")
+theme_override_font_sizes/font_size = 40
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label17" type="Label" parent="VBoxContainer/MarginContainer/LettersGridContainer" unique_id=1703811870]
+custom_minimum_size = Vector2(40, 40)
+layout_mode = 2
+theme_override_fonts/font = SubResource("FontVariation_b7hka")
+theme_override_font_sizes/font_size = 40
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label18" type="Label" parent="VBoxContainer/MarginContainer/LettersGridContainer" unique_id=853472938]
+custom_minimum_size = Vector2(40, 40)
+layout_mode = 2
+theme_override_fonts/font = SubResource("FontVariation_b7hka")
+theme_override_font_sizes/font_size = 40
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label19" type="Label" parent="VBoxContainer/MarginContainer/LettersGridContainer" unique_id=1291633074]
+custom_minimum_size = Vector2(40, 40)
+layout_mode = 2
+theme_override_fonts/font = SubResource("FontVariation_b7hka")
+theme_override_font_sizes/font_size = 40
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label20" type="Label" parent="VBoxContainer/MarginContainer/LettersGridContainer" unique_id=387342028]
+custom_minimum_size = Vector2(40, 40)
+layout_mode = 2
+theme_override_fonts/font = SubResource("FontVariation_b7hka")
+theme_override_font_sizes/font_size = 40
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label21" type="Label" parent="VBoxContainer/MarginContainer/LettersGridContainer" unique_id=2129621540]
+custom_minimum_size = Vector2(40, 40)
+layout_mode = 2
+theme_override_fonts/font = SubResource("FontVariation_b7hka")
+theme_override_font_sizes/font_size = 40
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label22" type="Label" parent="VBoxContainer/MarginContainer/LettersGridContainer" unique_id=417054546]
+custom_minimum_size = Vector2(40, 40)
+layout_mode = 2
+theme_override_fonts/font = SubResource("FontVariation_b7hka")
+theme_override_font_sizes/font_size = 40
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label23" type="Label" parent="VBoxContainer/MarginContainer/LettersGridContainer" unique_id=1509058166]
+custom_minimum_size = Vector2(40, 40)
+layout_mode = 2
+theme_override_fonts/font = SubResource("FontVariation_b7hka")
+theme_override_font_sizes/font_size = 40
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label24" type="Label" parent="VBoxContainer/MarginContainer/LettersGridContainer" unique_id=1668531104]
+custom_minimum_size = Vector2(40, 40)
+layout_mode = 2
+theme_override_fonts/font = SubResource("FontVariation_b7hka")
+theme_override_font_sizes/font_size = 40
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label25" type="Label" parent="VBoxContainer/MarginContainer/LettersGridContainer" unique_id=1525476017]
+custom_minimum_size = Vector2(40, 40)
+layout_mode = 2
+theme_override_fonts/font = SubResource("FontVariation_b7hka")
+theme_override_font_sizes/font_size = 40
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label26" type="Label" parent="VBoxContainer/MarginContainer/LettersGridContainer" unique_id=1644581691]
+custom_minimum_size = Vector2(40, 40)
+layout_mode = 2
+theme_override_fonts/font = SubResource("FontVariation_b7hka")
+theme_override_font_sizes/font_size = 40
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label27" type="Label" parent="VBoxContainer/MarginContainer/LettersGridContainer" unique_id=1211244795]
+custom_minimum_size = Vector2(40, 40)
+layout_mode = 2
+theme_override_fonts/font = SubResource("FontVariation_b7hka")
+theme_override_font_sizes/font_size = 40
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label28" type="Label" parent="VBoxContainer/MarginContainer/LettersGridContainer" unique_id=621110838]
+custom_minimum_size = Vector2(40, 40)
+layout_mode = 2
+theme_override_fonts/font = SubResource("FontVariation_b7hka")
+theme_override_font_sizes/font_size = 40
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label29" type="Label" parent="VBoxContainer/MarginContainer/LettersGridContainer" unique_id=159671037]
+custom_minimum_size = Vector2(40, 40)
+layout_mode = 2
+theme_override_fonts/font = SubResource("FontVariation_b7hka")
+theme_override_font_sizes/font_size = 40
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label30" type="Label" parent="VBoxContainer/MarginContainer/LettersGridContainer" unique_id=2068469975]
+custom_minimum_size = Vector2(40, 40)
+layout_mode = 2
+theme_override_fonts/font = SubResource("FontVariation_b7hka")
+theme_override_font_sizes/font_size = 40
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label31" type="Label" parent="VBoxContainer/MarginContainer/LettersGridContainer" unique_id=676337636]
+custom_minimum_size = Vector2(40, 40)
+layout_mode = 2
+theme_override_fonts/font = SubResource("FontVariation_b7hka")
+theme_override_font_sizes/font_size = 40
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label32" type="Label" parent="VBoxContainer/MarginContainer/LettersGridContainer" unique_id=1342308836]
+custom_minimum_size = Vector2(40, 40)
+layout_mode = 2
+theme_override_fonts/font = SubResource("FontVariation_b7hka")
+theme_override_font_sizes/font_size = 40
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label33" type="Label" parent="VBoxContainer/MarginContainer/LettersGridContainer" unique_id=1838169961]
+custom_minimum_size = Vector2(40, 40)
+layout_mode = 2
+theme_override_fonts/font = SubResource("FontVariation_b7hka")
+theme_override_font_sizes/font_size = 40
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label34" type="Label" parent="VBoxContainer/MarginContainer/LettersGridContainer" unique_id=1402155093]
+custom_minimum_size = Vector2(40, 40)
+layout_mode = 2
+theme_override_fonts/font = SubResource("FontVariation_b7hka")
+theme_override_font_sizes/font_size = 40
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label35" type="Label" parent="VBoxContainer/MarginContainer/LettersGridContainer" unique_id=1611011599]
+custom_minimum_size = Vector2(40, 40)
+layout_mode = 2
+theme_override_fonts/font = SubResource("FontVariation_b7hka")
+theme_override_font_sizes/font_size = 40
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label36" type="Label" parent="VBoxContainer/MarginContainer/LettersGridContainer" unique_id=536024053]
+custom_minimum_size = Vector2(40, 40)
+layout_mode = 2
+theme_override_fonts/font = SubResource("FontVariation_b7hka")
+theme_override_font_sizes/font_size = 40
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label37" type="Label" parent="VBoxContainer/MarginContainer/LettersGridContainer" unique_id=1966551142]
+custom_minimum_size = Vector2(40, 40)
+layout_mode = 2
+theme_override_fonts/font = SubResource("FontVariation_b7hka")
+theme_override_font_sizes/font_size = 40
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label38" type="Label" parent="VBoxContainer/MarginContainer/LettersGridContainer" unique_id=1836696020]
+custom_minimum_size = Vector2(40, 40)
+layout_mode = 2
+theme_override_fonts/font = SubResource("FontVariation_b7hka")
+theme_override_font_sizes/font_size = 40
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label39" type="Label" parent="VBoxContainer/MarginContainer/LettersGridContainer" unique_id=1489186501]
+custom_minimum_size = Vector2(40, 40)
+layout_mode = 2
+theme_override_fonts/font = SubResource("FontVariation_b7hka")
+theme_override_font_sizes/font_size = 40
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label40" type="Label" parent="VBoxContainer/MarginContainer/LettersGridContainer" unique_id=1213904400]
+custom_minimum_size = Vector2(40, 40)
+layout_mode = 2
+theme_override_fonts/font = SubResource("FontVariation_b7hka")
+theme_override_font_sizes/font_size = 40
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label41" type="Label" parent="VBoxContainer/MarginContainer/LettersGridContainer" unique_id=1791426070]
+custom_minimum_size = Vector2(40, 40)
+layout_mode = 2
+theme_override_fonts/font = SubResource("FontVariation_b7hka")
+theme_override_font_sizes/font_size = 40
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label42" type="Label" parent="VBoxContainer/MarginContainer/LettersGridContainer" unique_id=1055490135]
+custom_minimum_size = Vector2(40, 40)
+layout_mode = 2
+theme_override_fonts/font = SubResource("FontVariation_b7hka")
+theme_override_font_sizes/font_size = 40
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label43" type="Label" parent="VBoxContainer/MarginContainer/LettersGridContainer" unique_id=459287562]
+custom_minimum_size = Vector2(40, 40)
+layout_mode = 2
+theme_override_fonts/font = SubResource("FontVariation_b7hka")
+theme_override_font_sizes/font_size = 40
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label44" type="Label" parent="VBoxContainer/MarginContainer/LettersGridContainer" unique_id=873208268]
+custom_minimum_size = Vector2(40, 40)
+layout_mode = 2
+theme_override_fonts/font = SubResource("FontVariation_b7hka")
+theme_override_font_sizes/font_size = 40
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label45" type="Label" parent="VBoxContainer/MarginContainer/LettersGridContainer" unique_id=111597750]
+custom_minimum_size = Vector2(40, 40)
+layout_mode = 2
+theme_override_fonts/font = SubResource("FontVariation_b7hka")
+theme_override_font_sizes/font_size = 40
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label46" type="Label" parent="VBoxContainer/MarginContainer/LettersGridContainer" unique_id=2094084529]
+custom_minimum_size = Vector2(40, 40)
+layout_mode = 2
+theme_override_fonts/font = SubResource("FontVariation_b7hka")
+theme_override_font_sizes/font_size = 40
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label47" type="Label" parent="VBoxContainer/MarginContainer/LettersGridContainer" unique_id=1694167116]
+custom_minimum_size = Vector2(40, 40)
+layout_mode = 2
+theme_override_fonts/font = SubResource("FontVariation_b7hka")
+theme_override_font_sizes/font_size = 40
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label48" type="Label" parent="VBoxContainer/MarginContainer/LettersGridContainer" unique_id=1984742116]
+custom_minimum_size = Vector2(40, 40)
+layout_mode = 2
+theme_override_fonts/font = SubResource("FontVariation_b7hka")
+theme_override_font_sizes/font_size = 40
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label49" type="Label" parent="VBoxContainer/MarginContainer/LettersGridContainer" unique_id=1637988913]
+custom_minimum_size = Vector2(40, 40)
+layout_mode = 2
+theme_override_fonts/font = SubResource("FontVariation_b7hka")
+theme_override_font_sizes/font_size = 40
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label50" type="Label" parent="VBoxContainer/MarginContainer/LettersGridContainer" unique_id=1254130192]
+custom_minimum_size = Vector2(40, 40)
+layout_mode = 2
+theme_override_fonts/font = SubResource("FontVariation_b7hka")
+theme_override_font_sizes/font_size = 40
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label51" type="Label" parent="VBoxContainer/MarginContainer/LettersGridContainer" unique_id=1285908000]
+custom_minimum_size = Vector2(40, 40)
+layout_mode = 2
+theme_override_fonts/font = SubResource("FontVariation_b7hka")
+theme_override_font_sizes/font_size = 40
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label52" type="Label" parent="VBoxContainer/MarginContainer/LettersGridContainer" unique_id=520044408]
+custom_minimum_size = Vector2(40, 40)
+layout_mode = 2
+theme_override_fonts/font = SubResource("FontVariation_b7hka")
+theme_override_font_sizes/font_size = 40
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label53" type="Label" parent="VBoxContainer/MarginContainer/LettersGridContainer" unique_id=1327669647]
+custom_minimum_size = Vector2(40, 40)
+layout_mode = 2
+theme_override_fonts/font = SubResource("FontVariation_b7hka")
+theme_override_font_sizes/font_size = 40
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label54" type="Label" parent="VBoxContainer/MarginContainer/LettersGridContainer" unique_id=371827654]
+custom_minimum_size = Vector2(40, 40)
+layout_mode = 2
+theme_override_fonts/font = SubResource("FontVariation_b7hka")
+theme_override_font_sizes/font_size = 40
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label55" type="Label" parent="VBoxContainer/MarginContainer/LettersGridContainer" unique_id=1681442754]
+custom_minimum_size = Vector2(40, 40)
+layout_mode = 2
+theme_override_fonts/font = SubResource("FontVariation_b7hka")
+theme_override_font_sizes/font_size = 40
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label56" type="Label" parent="VBoxContainer/MarginContainer/LettersGridContainer" unique_id=1960872414]
+custom_minimum_size = Vector2(40, 40)
+layout_mode = 2
+theme_override_fonts/font = SubResource("FontVariation_b7hka")
+theme_override_font_sizes/font_size = 40
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label57" type="Label" parent="VBoxContainer/MarginContainer/LettersGridContainer" unique_id=1075985804]
+custom_minimum_size = Vector2(40, 40)
+layout_mode = 2
+theme_override_fonts/font = SubResource("FontVariation_b7hka")
+theme_override_font_sizes/font_size = 40
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label58" type="Label" parent="VBoxContainer/MarginContainer/LettersGridContainer" unique_id=2008040416]
+custom_minimum_size = Vector2(40, 40)
+layout_mode = 2
+theme_override_fonts/font = SubResource("FontVariation_b7hka")
+theme_override_font_sizes/font_size = 40
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label59" type="Label" parent="VBoxContainer/MarginContainer/LettersGridContainer" unique_id=423740120]
+custom_minimum_size = Vector2(40, 40)
+layout_mode = 2
+theme_override_fonts/font = SubResource("FontVariation_b7hka")
+theme_override_font_sizes/font_size = 40
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label60" type="Label" parent="VBoxContainer/MarginContainer/LettersGridContainer" unique_id=520547041]
+custom_minimum_size = Vector2(40, 40)
+layout_mode = 2
+theme_override_fonts/font = SubResource("FontVariation_b7hka")
+theme_override_font_sizes/font_size = 40
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label61" type="Label" parent="VBoxContainer/MarginContainer/LettersGridContainer" unique_id=1173464186]
+custom_minimum_size = Vector2(40, 40)
+layout_mode = 2
+theme_override_fonts/font = SubResource("FontVariation_b7hka")
+theme_override_font_sizes/font_size = 40
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label62" type="Label" parent="VBoxContainer/MarginContainer/LettersGridContainer" unique_id=420154231]
+custom_minimum_size = Vector2(40, 40)
+layout_mode = 2
+theme_override_fonts/font = SubResource("FontVariation_b7hka")
+theme_override_font_sizes/font_size = 40
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label63" type="Label" parent="VBoxContainer/MarginContainer/LettersGridContainer" unique_id=1294186377]
+custom_minimum_size = Vector2(40, 40)
+layout_mode = 2
+theme_override_fonts/font = SubResource("FontVariation_b7hka")
+theme_override_font_sizes/font_size = 40
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label64" type="Label" parent="VBoxContainer/MarginContainer/LettersGridContainer" unique_id=1318028531]
+custom_minimum_size = Vector2(40, 40)
+layout_mode = 2
+theme_override_fonts/font = SubResource("FontVariation_b7hka")
+theme_override_font_sizes/font_size = 40
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label65" type="Label" parent="VBoxContainer/MarginContainer/LettersGridContainer" unique_id=112248125]
+custom_minimum_size = Vector2(40, 40)
+layout_mode = 2
+theme_override_fonts/font = SubResource("FontVariation_b7hka")
+theme_override_font_sizes/font_size = 40
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label66" type="Label" parent="VBoxContainer/MarginContainer/LettersGridContainer" unique_id=1094896164]
+custom_minimum_size = Vector2(40, 40)
+layout_mode = 2
+theme_override_fonts/font = SubResource("FontVariation_b7hka")
+theme_override_font_sizes/font_size = 40
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label67" type="Label" parent="VBoxContainer/MarginContainer/LettersGridContainer" unique_id=244858232]
+custom_minimum_size = Vector2(40, 40)
+layout_mode = 2
+theme_override_fonts/font = SubResource("FontVariation_b7hka")
+theme_override_font_sizes/font_size = 40
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label68" type="Label" parent="VBoxContainer/MarginContainer/LettersGridContainer" unique_id=305085570]
+custom_minimum_size = Vector2(40, 40)
+layout_mode = 2
+theme_override_fonts/font = SubResource("FontVariation_b7hka")
+theme_override_font_sizes/font_size = 40
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label69" type="Label" parent="VBoxContainer/MarginContainer/LettersGridContainer" unique_id=2039235083]
+custom_minimum_size = Vector2(40, 40)
+layout_mode = 2
+theme_override_fonts/font = SubResource("FontVariation_b7hka")
+theme_override_font_sizes/font_size = 40
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label70" type="Label" parent="VBoxContainer/MarginContainer/LettersGridContainer" unique_id=203755680]
+custom_minimum_size = Vector2(40, 40)
+layout_mode = 2
+theme_override_fonts/font = SubResource("FontVariation_b7hka")
+theme_override_font_sizes/font_size = 40
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label71" type="Label" parent="VBoxContainer/MarginContainer/LettersGridContainer" unique_id=546405766]
+custom_minimum_size = Vector2(40, 40)
+layout_mode = 2
+theme_override_fonts/font = SubResource("FontVariation_b7hka")
+theme_override_font_sizes/font_size = 40
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label72" type="Label" parent="VBoxContainer/MarginContainer/LettersGridContainer" unique_id=68057319]
+custom_minimum_size = Vector2(40, 40)
+layout_mode = 2
+theme_override_fonts/font = SubResource("FontVariation_b7hka")
+theme_override_font_sizes/font_size = 40
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label73" type="Label" parent="VBoxContainer/MarginContainer/LettersGridContainer" unique_id=2035058318]
+custom_minimum_size = Vector2(40, 40)
+layout_mode = 2
+theme_override_fonts/font = SubResource("FontVariation_b7hka")
+theme_override_font_sizes/font_size = 40
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label74" type="Label" parent="VBoxContainer/MarginContainer/LettersGridContainer" unique_id=1311882674]
+custom_minimum_size = Vector2(40, 40)
+layout_mode = 2
+theme_override_fonts/font = SubResource("FontVariation_b7hka")
+theme_override_font_sizes/font_size = 40
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label75" type="Label" parent="VBoxContainer/MarginContainer/LettersGridContainer" unique_id=1221673438]
+custom_minimum_size = Vector2(40, 40)
+layout_mode = 2
+theme_override_fonts/font = SubResource("FontVariation_b7hka")
+theme_override_font_sizes/font_size = 40
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label76" type="Label" parent="VBoxContainer/MarginContainer/LettersGridContainer" unique_id=929679087]
+custom_minimum_size = Vector2(40, 40)
+layout_mode = 2
+theme_override_fonts/font = SubResource("FontVariation_b7hka")
+theme_override_font_sizes/font_size = 40
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label77" type="Label" parent="VBoxContainer/MarginContainer/LettersGridContainer" unique_id=244890763]
+custom_minimum_size = Vector2(40, 40)
+layout_mode = 2
+theme_override_fonts/font = SubResource("FontVariation_b7hka")
+theme_override_font_sizes/font_size = 40
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label78" type="Label" parent="VBoxContainer/MarginContainer/LettersGridContainer" unique_id=1996851777]
+custom_minimum_size = Vector2(40, 40)
+layout_mode = 2
+theme_override_fonts/font = SubResource("FontVariation_b7hka")
+theme_override_font_sizes/font_size = 40
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label79" type="Label" parent="VBoxContainer/MarginContainer/LettersGridContainer" unique_id=1507045123]
+custom_minimum_size = Vector2(40, 40)
+layout_mode = 2
+theme_override_fonts/font = SubResource("FontVariation_b7hka")
+theme_override_font_sizes/font_size = 40
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label80" type="Label" parent="VBoxContainer/MarginContainer/LettersGridContainer" unique_id=242723671]
+custom_minimum_size = Vector2(40, 40)
+layout_mode = 2
+theme_override_fonts/font = SubResource("FontVariation_b7hka")
+theme_override_font_sizes/font_size = 40
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="FailMakrsHBoxContainer" type="HBoxContainer" parent="VBoxContainer" unique_id=883762507]
+custom_minimum_size = Vector2(0, 40)
+layout_mode = 2
+size_flags_horizontal = 4
+
+[node name="Label" type="Label" parent="VBoxContainer/FailMakrsHBoxContainer" unique_id=959175218]
+custom_minimum_size = Vector2(40, 40)
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 0.6666667)
+theme_override_fonts/font = ExtResource("2_b7hka")
+theme_override_font_sizes/font_size = 40
+text = "X"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label2" type="Label" parent="VBoxContainer/FailMakrsHBoxContainer" unique_id=1535762678]
+custom_minimum_size = Vector2(40, 40)
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 0.6666667)
+theme_override_fonts/font = ExtResource("2_b7hka")
+theme_override_font_sizes/font_size = 40
+text = "X"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label3" type="Label" parent="VBoxContainer/FailMakrsHBoxContainer" unique_id=130136583]
+custom_minimum_size = Vector2(40, 40)
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 0.6666667)
+theme_override_fonts/font = ExtResource("2_b7hka")
+theme_override_font_sizes/font_size = 40
+text = "X"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label4" type="Label" parent="VBoxContainer/FailMakrsHBoxContainer" unique_id=889179584]
+custom_minimum_size = Vector2(40, 40)
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 0.6666667)
+theme_override_fonts/font = ExtResource("2_b7hka")
+theme_override_font_sizes/font_size = 40
+text = "X"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label5" type="Label" parent="VBoxContainer/FailMakrsHBoxContainer" unique_id=996639815]
+custom_minimum_size = Vector2(40, 40)
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 0.6666667)
+theme_override_fonts/font = ExtResource("2_b7hka")
+theme_override_font_sizes/font_size = 40
+text = "X"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label6" type="Label" parent="VBoxContainer/FailMakrsHBoxContainer" unique_id=513113623]
+custom_minimum_size = Vector2(40, 40)
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 0.6666667)
+theme_override_fonts/font = ExtResource("2_b7hka")
+theme_override_font_sizes/font_size = 40
+text = "X"
+horizontal_alignment = 1
+vertical_alignment = 1
