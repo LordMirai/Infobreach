@@ -49,6 +49,7 @@ func create_goal_points() -> void:
 		var point = goal_point.instantiate()
 		var random_point_curve = curve.get_baked_points()[randi() % curve.get_baked_points().size()]
 		point.position = random_point_curve
+		#print(random_point_curve)
 		goal_points.add_child(point)
 		#goal_point_array.append(point)
 		
@@ -76,7 +77,7 @@ func check_targets() -> void:
 		for goal in goal_points.get_children():
 			goal.is_intersected = baked.any(
 				func(point):
-					return goal.detect_input(point + position)
+					return goal.detect_input(point + minigame_frame.global_position + position)
 			)
 		#print(goal_points.get_children().size())
 		if goal_points.get_children().all(
