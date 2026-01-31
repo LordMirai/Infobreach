@@ -42,5 +42,3 @@ func _on_minigame_closed() -> void:
 	# Clear the active hacking UI reference
 	if active_hacking_ui == self:
 		active_hacking_ui = null
-
-	parent_device.on_hack_failed()

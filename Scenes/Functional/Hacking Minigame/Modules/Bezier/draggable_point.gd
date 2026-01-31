@@ -1,5 +1,6 @@
 extends Area2D
 
+var is_draggable: bool = true
 var is_dragging: bool = false
 var click_position: Vector2 = Vector2.ZERO
 var top_left: Vector2 = Vector2.ZERO
@@ -12,7 +13,7 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	if is_dragging:
+	if is_dragging and is_draggable:
 		global_position = get_global_mouse_position() - click_position
 		# make sure the draggable point doesn't go out of module bounds
 		if global_position.x < top_left.x:

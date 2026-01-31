@@ -1,10 +1,13 @@
-extends Container
+extends "res://Scenes/Functional/Hacking Minigame/Modules/Module Base/base_module.gd"
 
 @onready var draggable_point: PackedScene = preload("res://Scenes/Functional/Hacking Minigame/Modules/Bezier/draggable_point.tscn")
 @onready var goal_point: PackedScene = preload("res://Scenes/Functional/Hacking Minigame/Modules/Bezier/goal_point.tscn")
-@onready var line: Line2D = $Line2D
-@onready var goal_points: Node = $GoalPoints
-@onready var curve_points: Node = $CurvePoints
+@onready var line: Line2D = $Container/Line2D
+@onready var container: PanelContainer = $Container
+@onready var goal_points: Node = $Container/GoalPoints
+@onready var curve_points: Node = $Container/CurvePoints
+@onready var timer: Node = $Timer
+@onready var timer_text: Label = $Container/Background/Timer
 var curve_point_array: PackedVector2Array
 #var goal_point_array: Array[Vector2]
 var curve: Curve2D
@@ -13,12 +16,7 @@ const GOAL_POINTS: int = 10
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	curve = Curve2D.new()
-	create_curve_points()
-	generate_curve()
-	create_goal_points()
-	for i in range(CURVE_POINTS):
-		curve_points.get_child(i).position = random_position(self.size.x, self.size.y)
+	reset_module()
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -27,6 +25,7 @@ func _process(delta: float) -> void:
 		curve_point_array[i] = curve_points.get_child(i).position
 	draw_curved_line()
 	check_targets()
+	timer_text.text = "%0.2f" % timer.time_left
 
 
 func random_position(x: int, y: int) -> Vector2:
@@ -36,8 +35,8 @@ func random_position(x: int, y: int) -> Vector2:
 func create_curve_points() -> void:
 	for i in range(CURVE_POINTS):
 		var point = draggable_point.instantiate()
-		point.position = random_position(self.size.x, self.size.y)
-		point.bounds = self.size
+		point.position = random_position(container.size.x, container.size.y)
+		point.bounds = container.size
 		point.top_left = position
 		print(point.bounds)
 		curve_point_array.append(point.position)
@@ -83,4 +82,34 @@ func check_targets() -> void:
 			func(goal):
 				return goal.is_intersected
 		):
-			print("good job")
+			timer.paused = true
+			complete_module()
+
+
+func _on_timer_timeout() -> void:
+	fail_module()
+	reset_module()
+
+
+func complete_module() -> void:
+	super()
+	for node in curve_points.get_children():
+		node.is_draggable = false
+		
+func reset_module() -> void:
+	for node in curve_points.get_children():
+		curve_points.remove_child(node)
+		node.queue_free()
+	for node in goal_points.get_children():
+		goal_points.remove_child(node)
+		node.queue_free()
+	curve_point_array.clear()
+	
+	curve = Curve2D.new()
+	create_curve_points()
+	generate_curve()
+	create_goal_points()
+	for i in range(CURVE_POINTS):
+		curve_points.get_child(i).position = random_position(container.size.x, container.size.y)
+
+	timer.start()
