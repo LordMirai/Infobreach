@@ -1,0 +1,166 @@
+[gd_scene format=3 uid="uid://04yq74xb1kax"]
+
+[ext_resource type="FontFile" uid="uid://bkxfscaiy7g1a" path="res://Assets/Fonts/JetBrainsMono-Regular.ttf" id="1_5wsvm"]
+[ext_resource type="Script" uid="uid://be6rit1tjpsxa" path="res://Scenes/UI/main_menu.gd" id="1_i2xx2"]
+[ext_resource type="Script" uid="uid://b5hkjgphuduos" path="res://Scenes/UI/os_icon.gd" id="3_o14dv"]
+[ext_resource type="Script" uid="uid://dpb3p3ytpjfwv" path="res://Scenes/UI/start_prompt.gd" id="4_u7lva"]
+[ext_resource type="StyleBox" uid="uid://cad1oolt86wde" path="res://Assets/UI/new_style_box_flat.tres" id="5_mrfpk"]
+
+[node name="Main Menu" type="Control" unique_id=969432078]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_i2xx2")
+
+[node name="Background" type="ColorRect" parent="." unique_id=1233522911]
+layout_mode = 0
+offset_right = 1920.0
+offset_bottom = 1080.0
+color = Color(0, 0, 0, 1)
+
+[node name="OSIcon" type="RichTextLabel" parent="." unique_id=890662971]
+layout_mode = 0
+offset_top = 171.0
+offset_right = 1920.0
+offset_bottom = 567.0
+size_flags_vertical = 4
+theme_override_fonts/normal_font = ExtResource("1_5wsvm")
+text = "        @ @ @ @ @ @ @ @ @ @ @ @ @ @ @ @ @ @ @ @ @ @ @ @ @ @ @ @ @ @ @
+      @ @ @ @ % % # # % % @ @ @ @ @ @ @ @ @ @ @ # # % @ @ @ @ @ @ @ @
+    @ @ @ + : = + + + + = - - # @ @ @ % * = - - = = = % @ @ @ @ @ @ @
+    @ @ @ @ @ # + + + + * * = + @ @ @ * = - + + * * * # @ @ @ @ @ @
+    @ @ @ @ @ + .           + @ @ @ @ @ @ - .       : @ @ @ @ @ @
+    @ @ @ @ @ @ @ % % % % % @ @ % @ @ @ @ @ @ % % % % @ @ @ @ @ @ @
+    @ @ @ @ @ @ @ @ @ @ @ @ @ @ @ % @ @ @ @ @ @ @ @ @ @ @ @ @ @ @ @
+    @ @ @ @ @ @ @ @ @ @ @ @ @ @ @ % @ @ @ @ @ @ @ @ @ @ @ @ @ @ @
+    @ @ @ @ @ @ @ @ @ @ @ @ @ @ % @ @ @ @ @ @ @ @ @ @ @ @ @ @ @ @
+      - + + + + * # % @ @ @ % @ @ @ @ @ @ @ @ @ @ @ @ @ % # + .
+      % @ @ % % # + = # # # % % # - + % @ @ @ @ @ # + = = * :
+        @ @ @ @ @ @ @ @ + = = = + # + + + + + = = = # @ @ @
+          @ @ @ @ @ @ + - - - - = + = + + = = = * @ @ @ @
+            @ @ @ @ @ @ @ @ % % % * % @ @ @ @ @ @ @ @ @
+                @ @ @ @ @ @ @ @ #   - @ @ @ @ @ @ @ @
+                    @ @ @ @ @ @ @   * @ @ @ @ @ @
+                        @ @ @ @ @ + : @ @ @ @ @
+                            @ @ %   - @ @ @ @"
+fit_content = true
+horizontal_alignment = 1
+vertical_alignment = 1
+script = ExtResource("3_o14dv")
+
+[node name="StartPrompt" type="Label" parent="." unique_id=772960633]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -240.0
+offset_top = -260.0
+offset_right = 240.0
+offset_bottom = -217.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_fonts/font = ExtResource("1_5wsvm")
+theme_override_font_sizes/font_size = 32
+text = "Press any button to start"
+horizontal_alignment = 1
+vertical_alignment = 1
+script = ExtResource("4_u7lva")
+
+[node name="ConsoleVBox" type="VBoxContainer" parent="." unique_id=200177914]
+visible = false
+layout_mode = 1
+offset_left = 36.0
+offset_top = 24.0
+offset_right = 311.0
+offset_bottom = 217.0
+
+[node name="PromptHbox" type="HBoxContainer" parent="ConsoleVBox" unique_id=1670712449]
+layout_mode = 2
+
+[node name="Hostname" type="Label" parent="ConsoleVBox/PromptHbox" unique_id=610105714]
+custom_minimum_size = Vector2(225, 0)
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_5wsvm")
+text = "vendetta@hacker-os: ~ $"
+autowrap_mode = 2
+
+[node name="CommandInput" type="LineEdit" parent="ConsoleVBox/PromptHbox" unique_id=494885133]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.875, 0.875, 0.875, 1)
+theme_override_fonts/font = ExtResource("1_5wsvm")
+theme_override_styles/normal = ExtResource("5_mrfpk")
+theme_override_styles/focus = ExtResource("5_mrfpk")
+editable = false
+expand_to_text_length = true
+context_menu_enabled = false
+emoji_menu_enabled = false
+shortcut_keys_enabled = false
+middle_mouse_paste_enabled = false
+selecting_enabled = false
+deselect_on_focus_loss_enabled = false
+drag_and_drop_selection_enabled = false
+flat = true
+virtual_keyboard_enabled = false
+
+[node name="GameTitle" type="Label" parent="ConsoleVBox" unique_id=1516587639]
+visible = false
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_5wsvm")
+theme_override_font_sizes/font_size = 24
+text = "Infobreach v4.20.69
+"
+
+[node name="MenuOption1" type="Label" parent="ConsoleVBox" unique_id=1615750231]
+visible = false
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_5wsvm")
+theme_override_font_sizes/font_size = 24
+text = "[1] Start Infiltrating"
+
+[node name="MenuOption2" type="Label" parent="ConsoleVBox" unique_id=9871209]
+visible = false
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_5wsvm")
+theme_override_font_sizes/font_size = 24
+text = "[2] Program Configuration"
+
+[node name="MenuOption3" type="Label" parent="ConsoleVBox" unique_id=1575785800]
+visible = false
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_5wsvm")
+theme_override_font_sizes/font_size = 24
+text = "[3] Shutdown"
+
+[node name="Input" type="HBoxContainer" parent="ConsoleVBox" unique_id=582213546]
+clip_contents = true
+layout_mode = 2
+
+[node name="EnterOption" type="Label" parent="ConsoleVBox/Input" unique_id=35239964]
+visible = false
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_5wsvm")
+theme_override_font_sizes/font_size = 24
+text = "Enter an option: "
+
+[node name="InputField" type="LineEdit" parent="ConsoleVBox/Input" unique_id=1123061503]
+visible = false
+clip_contents = true
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_5wsvm")
+theme_override_font_sizes/font_size = 24
+theme_override_styles/normal = ExtResource("5_mrfpk")
+theme_override_styles/focus = ExtResource("5_mrfpk")
+keep_editing_on_text_submit = true
+context_menu_enabled = false
+emoji_menu_enabled = false
+shortcut_keys_enabled = false
+middle_mouse_paste_enabled = false
+selecting_enabled = false
+drag_and_drop_selection_enabled = false
+virtual_keyboard_enabled = false
