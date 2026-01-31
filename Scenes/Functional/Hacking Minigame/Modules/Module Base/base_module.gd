@@ -7,6 +7,7 @@ var parent_minigame: HackingMinigameModule = null
 
 @export var module_name: String = "Base Module"
 @export var difficulty: int = 1
+@export var hack_enabled: bool = false
 
 const DEBUG: bool = true
 
@@ -36,6 +37,8 @@ func _debug_labels():
 	else:
 		$Container/Background/NameLabel.text = ""
 		$Container/Background/DifficultyLabel.text = ""
+		
+		$HackComplete.queue_free()
 
 func initialize_module(minigame):
 	parent_minigame = minigame
@@ -51,3 +54,7 @@ func reset_module():
 
 func sub_init():
 	pass  # To be overridden in derived classes for specific initialization
+
+
+func _on_hack_complete_pressed() -> void:
+	complete_module()
