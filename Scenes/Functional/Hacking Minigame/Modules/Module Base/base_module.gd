@@ -8,6 +8,7 @@ var parent_minigame: HackingMinigameModule = null
 @export var module_name: String = "Base Module"
 @export var difficulty: int = 1
 
+const DEBUG: bool = true
 
 signal module_completed(module_name)
 signal module_failed(module_name)
@@ -28,9 +29,18 @@ func complete_module():
 	print("Module " + module_name + " completed.")
 	emit_signal("module_completed", module_name)
 
+func _debug_labels():
+	if DEBUG:
+		$Container/Background/NameLabel.text = module_name
+		$Container/Background/DifficultyLabel.text = "Difficulty: " + str(difficulty)
+	else:
+		$Container/Background/NameLabel.text = ""
+		$Container/Background/DifficultyLabel.text = ""
+
 func initialize_module(minigame):
 	parent_minigame = minigame
-	# Override in derived classes for specific initialization
+	_debug_labels()
+
 	sub_init()
 
 

@@ -4,7 +4,6 @@
 [ext_resource type="Texture2D" uid="uid://bab3uu88bimsc" path="res://Scenes/Functional/Hacking Minigame/closebtn.png" id="2_c32av"]
 [ext_resource type="Texture2D" uid="uid://cu0fq54ebxn86" path="res://Scenes/Functional/Hacking Minigame/hacking minigame tex test.png" id="2_o6vpl"]
 [ext_resource type="Script" uid="uid://jcjl2q4iwh3r" path="res://Scenes/Functional/Hacking Minigame/UI_control.gd" id="2_wyv6g"]
-[ext_resource type="PackedScene" uid="uid://b58efh46s6cok" path="res://Scenes/Functional/Hacking Minigame/Modules/Module Base/BaseModule.tscn" id="5_08miw"]
 
 [node name="HackingMinigame" type="Control" unique_id=572980912]
 z_index = 20
@@ -25,10 +24,10 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -283.0
-offset_top = -231.0
-offset_right = 283.0
-offset_bottom = 231.0
+offset_left = -300.0
+offset_top = -400.0
+offset_right = 300.0
+offset_bottom = 400.0
 grow_horizontal = 2
 grow_vertical = 2
 scale = Vector2(1.008591, 1)
@@ -64,19 +63,29 @@ offset_right = 399.5605
 offset_bottom = 83.0
 text = "MIMIC MINIGAME COMPLETE"
 
-[node name="ModuleFrame" parent="Container" unique_id=1344213614 instance=ExtResource("5_08miw")]
+[node name="ModuleFrame" type="PanelContainer" parent="Container" unique_id=198195361]
 layout_mode = 1
 anchors_preset = 7
 anchor_left = 0.5
 anchor_top = 1.0
 anchor_right = 0.5
-offset_left = -150.0
-offset_top = -300.0
-offset_right = 150.0
+anchor_bottom = 1.0
+offset_left = -256.0
+offset_top = -545.0
+offset_right = 256.0
+offset_bottom = -33.0
+grow_horizontal = 2
 grow_vertical = 0
-pivot_offset_ratio = Vector2(0.5, 1)
-script = null
+
+[node name="GenModule" type="Button" parent="Container" unique_id=525172706]
+layout_mode = 0
+offset_left = 167.56049
+offset_top = 120.0
+offset_right = 310.5605
+offset_bottom = 151.0
+text = "Generate Module"
 
 [connection signal="tree_exited" from="." to="Container" method="_on_minigame_closed"]
 [connection signal="pressed" from="Container/CloseButton" to="Container" method="_on_close_button_pressed"]
 [connection signal="pressed" from="Container/mimic" to="." method="_on_mimic_pressed"]
+[connection signal="pressed" from="Container/GenModule" to="." method="_on_gen_module_pressed"]

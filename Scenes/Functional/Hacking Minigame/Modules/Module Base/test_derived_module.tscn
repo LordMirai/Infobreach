@@ -9,6 +9,6 @@ script = ExtResource("2_sehg3")
 module_name = "Test Derived Module"
 difficulty = 2
 
-[node name="TextureRect" type="TextureRect" parent="Container" parent_id_path=PackedInt32Array(525837264) index="0" unique_id=1031973873]
+[node name="TextureRect" type="TextureRect" parent="Container" parent_id_path=PackedInt32Array(1258241354) index="0" unique_id=1031973873]
 layout_mode = 2
 texture = ExtResource("3_168op")

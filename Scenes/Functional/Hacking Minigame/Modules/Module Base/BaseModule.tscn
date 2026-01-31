@@ -11,16 +11,27 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_yavyl")
 
-[node name="Container" type="Container" parent="." unique_id=525837264]
+[node name="Container" type="PanelContainer" parent="." unique_id=1258241354]
+z_index = 6
 layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -154.0
-offset_top = -154.0
-offset_right = 146.0
-offset_bottom = 146.0
-grow_horizontal = 2
-grow_vertical = 2
+offset_right = 512.0
+offset_bottom = 512.0
+
+[node name="Background" type="ColorRect" parent="Container" unique_id=851374414]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+color = Color(0.14044744, 0.14044744, 0.14044744, 1)
+
+[node name="NameLabel" type="Label" parent="Container/Background" unique_id=1875788796]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 23.0
+text = "<Module name>"
+
+[node name="DifficultyLabel" type="Label" parent="Container/Background" unique_id=1700661432]
+layout_mode = 0
+offset_top = 20.0
+offset_right = 125.0
+offset_bottom = 43.0
+text = "<Difficulty>"
