@@ -3,16 +3,17 @@
 [ext_resource type="Script" uid="uid://lrm7nemawt53" path="res://Scenes/Functional/Hacking Minigame/Modules/Bezier/bezier.gd" id="1_whrlc"]
 
 [node name="Bezier" type="Container" unique_id=1109403167]
-custom_minimum_size = Vector2(640, 360)
+z_index = 10
+custom_minimum_size = Vector2(512, 512)
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -320.0
-offset_top = -180.0
-offset_right = 320.0
-offset_bottom = 180.0
+offset_left = -256.0
+offset_top = -256.0
+offset_right = 256.0
+offset_bottom = 256.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_whrlc")
