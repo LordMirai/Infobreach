@@ -1,0 +1,46 @@
+[gd_scene format=3 uid="uid://b1f8fowlwiekh"]
+
+[ext_resource type="Script" uid="uid://cfwpmypoiamv5" path="res://Scenes/Functional/Modules/FrequencyModulation/FrequencyModulationMinigame.cs" id="1_0b68s"]
+
+[node name="Control" type="Control" unique_id=1403552496]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = -1408.0
+offset_bottom = -568.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_0b68s")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=827993883]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="PanelContainer" type="PanelContainer" parent="VBoxContainer" unique_id=894263159]
+custom_minimum_size = Vector2(0, 400)
+layout_mode = 2
+
+[node name="Node2D" type="Node2D" parent="VBoxContainer/PanelContainer" unique_id=393897967]
+position = Vector2(0, 200)
+
+[node name="Line2D" type="Line2D" parent="VBoxContainer/PanelContainer/Node2D" unique_id=1116734509]
+points = PackedVector2Array(0, 0, 512, 0)
+width = 2.0
+default_color = Color(0, 0, 0, 1)
+
+[node name="AmplitudeSlider" type="HSlider" parent="VBoxContainer" unique_id=1725544673]
+layout_mode = 2
+value = 50.0
+
+[node name="FrequencySlider" type="HSlider" parent="VBoxContainer" unique_id=232157257]
+layout_mode = 2
+value = 50.0
+
+[node name="PhaseSlider" type="HSlider" parent="VBoxContainer" unique_id=210198905]
+layout_mode = 2
+value = 50.0
