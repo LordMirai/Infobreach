@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="Infobreach"
-run/main_scene="uid://dlch2ybvjxwvs"
+run/main_scene="uid://04yq74xb1kax"
 config/features=PackedStringArray("4.6", "C#", "Forward Plus")
 config/icon="res://icon.svg"
 

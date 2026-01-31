@@ -22,6 +22,8 @@ func _ready() -> void:
 	input_field.text_submitted.connect(_on_input_submitted)
 
 func _input(event: InputEvent) -> void:	
+	if event is InputEventKey and event.is_pressed() and event.keycode == KEY_ESCAPE:
+		get_tree().quit()
 	if event is InputEventKey and event.is_pressed() and event.keycode == KEY_F1:
 		start_hacking()
 	if not is_booted and event is InputEventKey and event.is_pressed():
@@ -92,8 +94,7 @@ func _on_input_submitted(new_text: String):
 			invalid_command()
 
 func start_hacking():
-	# get_tree().change_scene_to_file()
-	print("HACKING")
+	get_tree().change_scene_to_file("res://Scenes/Levels/first_level.tscn")
 
 func invalid_command():
 	var flash = create_tween()
