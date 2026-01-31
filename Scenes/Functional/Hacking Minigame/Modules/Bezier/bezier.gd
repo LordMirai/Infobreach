@@ -67,10 +67,17 @@ func draw_curved_line() -> void:
 		
 
 func check_targets() -> void:
-	var current_point: int = 0
-	var baked: Array = Array(curve.get_baked_points())
-	for goal in goal_points.get_children():
-		goal.is_intersected = baked.any(
-			func(point):
-				return goal.detect_input(point + position)
-		)
+	if Input.is_action_pressed("click"):
+		var current_point: int = 0
+		var baked: Array = Array(curve.get_baked_points())
+		for goal in goal_points.get_children():
+			goal.is_intersected = baked.any(
+				func(point):
+					return goal.detect_input(point + position)
+			)
+		#print(goal_points.get_children().size())
+		if goal_points.get_children().all(
+			func(goal):
+				return goal.is_intersected
+		):
+			print("good job")

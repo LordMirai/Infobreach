@@ -4,6 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://bunf0je0mnsm3" path="res://Scenes/Functional/Hacking Minigame/Modules/Bezier/goal.png" id="2_4r7yj"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_qpiyp"]
+radius = 12.0
 
 [node name="GoalPoint" type="Area2D" unique_id=1842917593]
 script = ExtResource("1_qpiyp")
