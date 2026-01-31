@@ -156,6 +156,7 @@ theme_override_fonts/font = ExtResource("1_5wsvm")
 theme_override_font_sizes/font_size = 24
 theme_override_styles/normal = ExtResource("5_mrfpk")
 theme_override_styles/focus = ExtResource("5_mrfpk")
+keep_editing_on_text_submit = true
 context_menu_enabled = false
 emoji_menu_enabled = false
 shortcut_keys_enabled = false

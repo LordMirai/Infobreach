@@ -15,7 +15,12 @@ extends Control
 
 var is_booted = false
 
+func _ready() -> void:
+	input_field.text_submitted.connect(_on_input_submitted)
+
 func _input(event: InputEvent) -> void:
+	if event is InputEventKey and event.is_pressed() and event.keycode == KEY_F1:
+		start_hacking()
 	if not is_booted and event is InputEventKey and event.is_pressed():
 		boot_system()
 
@@ -60,4 +65,30 @@ func reveal_menu_options():
 		input_field.grab_focus()
 	)
 		
-	
+func _on_input_submitted(new_text: String):
+	var choice = new_text.strip_edges()
+
+	match choice:
+		"1":
+			start_hacking()
+		"2":
+			open_settings()
+		"3":
+			get_tree().quit()
+		_: 
+			invalid_command()
+
+func start_hacking():
+	# get_tree().change_scene_to_file()
+	print("HACKING")
+
+func invalid_command():
+	var flash = create_tween()
+
+	flash.tween_property(input_field, "modulate", Color.RED, 0.1)
+	flash.tween_property(input_field, "modulate", Color.WHITE, 0.1)
+
+	input_field.text = ""
+
+func open_settings():
+	print("OPEN SETTINGS")
