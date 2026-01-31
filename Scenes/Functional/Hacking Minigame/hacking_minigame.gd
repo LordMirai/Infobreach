@@ -60,10 +60,10 @@ var module_pool = [
 	# 	scene = KeywordModuleScene,
 	# 	script = preload("res://Scenes/Functional/Modules/KeywordMatching/KeywordMatchingModule.cs")
 	# },
-	# {
-	# 	scene = BezierModuleScene,
-	# 	script = preload("res://Scenes/Functional/Hacking Minigame/Modules/Bezier/bezier.gd")
-	# }
+	{
+		scene = BezierModuleScene,
+		script = preload("res://Scenes/Functional/Hacking Minigame/Modules/Bezier/bezier.gd")
+	}
 ]
 
 
