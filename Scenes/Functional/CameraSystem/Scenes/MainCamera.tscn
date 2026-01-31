@@ -103,7 +103,7 @@ func sub_interact():
 func on_hack_successful():
 	hacked = true
 	$\"..\".isCameraDisabled = 1
-	print(\"Hacked from the CameraHackLogic\")
+	#print(\"Hacked from the CameraHackLogic\")
 	$\"../Timers/DisabledTimer\".start(CAMERA_DISABLED_TIME)
 	$\"../CameraSprites\".modulate.a = 0.3
 
@@ -113,7 +113,7 @@ func on_hack_failed():
 	$\"../Timers/DangerTimer\".paused = false
 	$\"../Timers/WarnTimer\".paused=false
 	$\"../Timers/Timer\".paused =false
-	print(\"Failed or simply exited\")
+	#print(\"Failed or simply exited\")
 	
 	
 	
