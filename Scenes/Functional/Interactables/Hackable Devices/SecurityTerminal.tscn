@@ -1,0 +1,9 @@
+[gd_scene format=3 uid="uid://duujbf38cwpy0"]
+
+[ext_resource type="PackedScene" uid="uid://bqq66veeuw43j" path="res://Scenes/Functional/Interactables/Hackable Devices/BaseDevice.tscn" id="1_2brdg"]
+[ext_resource type="Script" uid="uid://conuvkjyagh0t" path="res://Scenes/Functional/Interactables/Hackable Devices/security_terminal.gd" id="2_knnjj"]
+
+[node name="Interactable" unique_id=325767183 instance=ExtResource("1_2brdg")]
+script = ExtResource("2_knnjj")
+interactable_name = ""
+interaction_prompt = "Press [Space] to interact"
