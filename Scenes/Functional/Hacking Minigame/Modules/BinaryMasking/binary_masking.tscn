@@ -1,0 +1,80 @@
+[gd_scene format=3 uid="uid://dih1sptistlgp"]
+
+[ext_resource type="PackedScene" uid="uid://b58efh46s6cok" path="res://Scenes/Functional/Hacking Minigame/Modules/Module Base/BaseModule.tscn" id="1_pr4xm"]
+[ext_resource type="Script" uid="uid://db52gdtdilgr1" path="res://Scenes/Functional/Hacking Minigame/Modules/BinaryMasking/binary_masking.gd" id="2_gi1lh"]
+[ext_resource type="FontFile" uid="uid://bkxfscaiy7g1a" path="res://Assets/Fonts/JetBrainsMono-Regular.ttf" id="3_vsgkq"]
+
+[node name="BaseModule" unique_id=1344213614 instance=ExtResource("1_pr4xm")]
+script = ExtResource("2_gi1lh")
+hack_enabled = false
+
+[node name="Input" type="Label" parent="Container/Background" parent_id_path=PackedInt32Array(851374414) index="2" unique_id=1054695712]
+layout_mode = 0
+offset_top = 176.0
+offset_right = 512.0
+offset_bottom = 216.0
+theme_override_colors/font_color = Color(0, 0.8627451, 1, 1)
+theme_override_fonts/font = ExtResource("3_vsgkq")
+theme_override_font_sizes/font_size = 30
+text = "<INPUT>"
+horizontal_alignment = 1
+
+[node name="Output" type="Label" parent="Container/Background" parent_id_path=PackedInt32Array(851374414) index="3" unique_id=514205815]
+layout_mode = 0
+offset_top = 313.0
+offset_right = 512.0
+offset_bottom = 336.0
+theme_override_colors/font_color = Color(1, 0.34509805, 0.22352941, 1)
+theme_override_fonts/font = ExtResource("3_vsgkq")
+theme_override_font_sizes/font_size = 30
+text = "<OUTPUT>"
+horizontal_alignment = 1
+
+[node name="Out_Temp" type="Label" parent="Container/Background" parent_id_path=PackedInt32Array(851374414) index="4" unique_id=283651534]
+layout_mode = 0
+offset_top = 356.0
+offset_right = 512.0
+offset_bottom = 396.0
+theme_override_colors/font_color = Color(0.7921569, 0.3529412, 1, 1)
+theme_override_fonts/font = ExtResource("3_vsgkq")
+theme_override_font_sizes/font_size = 30
+text = "<TEMP>"
+horizontal_alignment = 2
+
+[node name="Symbol" type="Label" parent="Container/Background" parent_id_path=PackedInt32Array(851374414) index="5" unique_id=851608180]
+layout_mode = 0
+offset_top = 216.0
+offset_right = 512.0
+offset_bottom = 256.0
+theme_override_fonts/font = ExtResource("3_vsgkq")
+theme_override_font_sizes/font_size = 30
+text = "< OP >"
+horizontal_alignment = 1
+
+[node name="Mask" type="Label" parent="Container/Background" parent_id_path=PackedInt32Array(851374414) index="6" unique_id=1508989544]
+layout_mode = 0
+offset_top = 254.0
+offset_right = 512.0
+offset_bottom = 294.0
+theme_override_colors/font_color = Color(1, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_vsgkq")
+theme_override_font_sizes/font_size = 30
+text = "<MASK>"
+horizontal_alignment = 1
+
+[node name="Eq" type="Label" parent="Container/Background" parent_id_path=PackedInt32Array(851374414) index="7" unique_id=567914672]
+layout_mode = 0
+offset_top = 280.0
+offset_right = 512.0
+offset_bottom = 320.0
+theme_override_fonts/font = ExtResource("3_vsgkq")
+theme_override_font_sizes/font_size = 30
+text = "="
+horizontal_alignment = 1
+
+[node name="ButtonPanel" type="PanelContainer" parent="Container/Background" parent_id_path=PackedInt32Array(851374414) index="8" unique_id=485587587]
+layout_mode = 0
+offset_left = 79.0
+offset_top = 414.0
+offset_right = 436.0
+offset_bottom = 454.0
