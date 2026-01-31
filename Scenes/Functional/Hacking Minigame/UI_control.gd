@@ -25,24 +25,8 @@ func _ready() -> void:
 
 func _on_close_button_pressed() -> void:
 	
-	
-	print(parent_device)
-	print("---------")
-	print("now closing the window")
-	print(get_parent())
-	print(get_parent().get_parent())
-	print(get_parent().get_parent().get_parent())
-	print("---------")
-	print("---------")
-	print(get_parent())
-	print(get_parent().get_parent())
-	
 	parent_device.on_hack_failed()
-	
 	get_parent().queue_free() # close parent
-	
-	print("removing the ui")
-	print("---------")
 	
 	# Clear the active hacking UI reference
 	if active_hacking_ui == self:
@@ -51,12 +35,6 @@ func _on_close_button_pressed() -> void:
 
 
 func _on_minigame_closed() -> void:
-
-	#parent_device.on_hack_failed() -- Gives NULL pointer reff
-	# TO DO -- WHY?????
-	print("Reached here 1")
-	print(is_instance_valid(parent_device))
-	
 
 	if player:
 		player.movement_enabled = true
