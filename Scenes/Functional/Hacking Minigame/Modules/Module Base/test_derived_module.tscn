@@ -1,0 +1,14 @@
+[gd_scene format=3 uid="uid://cud7j04gvy3it"]
+
+[ext_resource type="PackedScene" uid="uid://b58efh46s6cok" path="res://Scenes/Functional/Hacking Minigame/Modules/Module Base/BaseModule.tscn" id="1_70kyp"]
+[ext_resource type="Script" uid="uid://b6xn3y8rukneq" path="res://Scenes/Functional/Hacking Minigame/Modules/Module Base/test_derived_module.gd" id="2_sehg3"]
+[ext_resource type="Texture2D" uid="uid://djdn0nbqhkv1s" path="res://Images/expecto patronum.png" id="3_168op"]
+
+[node name="BaseModule" unique_id=1344213614 instance=ExtResource("1_70kyp")]
+script = ExtResource("2_sehg3")
+module_name = "Test Derived Module"
+difficulty = 2
+
+[node name="TextureRect" type="TextureRect" parent="Container" parent_id_path=PackedInt32Array(1258241354) index="0" unique_id=1031973873]
+layout_mode = 2
+texture = ExtResource("3_168op")
