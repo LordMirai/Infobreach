@@ -1,12 +1,13 @@
 [gd_scene format=4 uid="uid://bttofv74s3ftt"]
 
-[ext_resource type="Texture2D" uid="uid://dp28bdqhskch3" path="res://sprites/Office Tileset/Office VX Ace/A4 Office Walls.png" id="1_4l5vx"]
-[ext_resource type="Texture2D" uid="uid://ce86qhuwtb3bx" path="res://sprites/Office Tileset/Office VX Ace/A2 Office Floors.png" id="2_swywn"]
-[ext_resource type="Texture2D" uid="uid://cod22b72u8uey" path="res://sprites/Office Tileset/Office VX Ace/A5 Office Floors & Walls.png" id="3_jr2bq"]
-[ext_resource type="Texture2D" uid="uid://d17j3um42ga85" path="res://sprites/Office Tileset/Office VX Ace/B-C-D-E Office 1.png" id="4_jubc2"]
+[ext_resource type="Texture2D" uid="uid://cs4f2ayli76bl" path="res://sprites/Office Tileset/Office VX Ace/A4 Office Walls.png" id="1_4l5vx"]
+[ext_resource type="Texture2D" uid="uid://dm0v1g42kengq" path="res://sprites/Office Tileset/Office VX Ace/A2 Office Floors.png" id="2_swywn"]
+[ext_resource type="Texture2D" uid="uid://dl14rjwq1vttg" path="res://sprites/Office Tileset/Office VX Ace/A5 Office Floors & Walls.png" id="3_jr2bq"]
+[ext_resource type="Texture2D" uid="uid://b4lr7jt8dx6t8" path="res://sprites/Office Tileset/Office VX Ace/B-C-D-E Office 1.png" id="4_jubc2"]
 [ext_resource type="PackedScene" uid="uid://co1rc0ob6v4xs" path="res://Scenes/Functional/Player/Player.tscn" id="5_swywn"]
 [ext_resource type="PackedScene" uid="uid://bqq66veeuw43j" path="res://Scenes/Functional/Interactables/Hackable Devices/BaseDevice.tscn" id="6_jr2bq"]
 [ext_resource type="PackedScene" uid="uid://dvtk3smi6ufhh" path="res://Scenes/UI/pause_menu.tscn" id="7_jubc2"]
+[ext_resource type="PackedScene" uid="uid://d3si4cm6sa1n3" path="res://Scenes/Functional/CameraSystem/Scenes/MainCamera.tscn" id="8_nhch8"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_nhch8"]
 texture = ExtResource("1_4l5vx")
@@ -2049,3 +2050,9 @@ position = Vector2(1534, 236)
 [node name="PauseMenu" parent="." unique_id=429206491 instance=ExtResource("7_jubc2")]
 process_mode = 3
 visible = false
+
+[node name="Camera" parent="." unique_id=1871301614 instance=ExtResource("8_nhch8")]
+position = Vector2(2011, 110)
+
+[node name="Camera2" parent="." unique_id=376369567 instance=ExtResource("8_nhch8")]
+position = Vector2(1034, 106)
