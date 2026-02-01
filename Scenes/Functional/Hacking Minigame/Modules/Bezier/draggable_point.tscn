@@ -7,6 +7,7 @@
 radius = 17.0
 
 [node name="DraggablePoint" type="Area2D" unique_id=1744968212]
+z_index = 10
 script = ExtResource("1_5x87u")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=536076280]

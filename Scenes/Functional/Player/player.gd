@@ -49,11 +49,3 @@ func _process(delta: float) -> void:
 		var temp_speed = sneakSpeed if Input.is_action_pressed("sneak") else self.speed
 		velocity = velocity.normalized() * (temp_speed if not Input.is_action_pressed("sprint") else sprintSpeed)
 		move_and_slide()
-
-
-func _integrate_forces(state):
-	for i in range(state.get_contact_count()):
-		var collider = state.get_contact_collider_object(i)
-		if collider and collider.is_in_group("walls"):
-			velocity = Vector2.ZERO
-			break

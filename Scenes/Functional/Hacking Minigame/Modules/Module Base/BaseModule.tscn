@@ -10,6 +10,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_yavyl")
+hack_enabled = true
 
 [node name="Container" type="PanelContainer" parent="." unique_id=1258241354]
 z_index = 6
@@ -35,3 +36,14 @@ offset_top = 20.0
 offset_right = 125.0
 offset_bottom = 43.0
 text = "<Difficulty>"
+
+[node name="HackComplete" type="Button" parent="." unique_id=1101495440]
+z_index = 6
+layout_mode = 0
+offset_left = 380.0
+offset_top = 7.0
+offset_right = 505.0
+offset_bottom = 38.0
+text = "Hack Complete"
+
+[connection signal="pressed" from="HackComplete" to="." method="_on_hack_complete_pressed"]

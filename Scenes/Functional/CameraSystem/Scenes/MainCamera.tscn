@@ -3,7 +3,7 @@
 [ext_resource type="Script" uid="uid://r7swc8fuyadm" path="res://Scenes/Functional/CameraSystem/Scripts/main_camera2.gd" id="1_8p70a"]
 [ext_resource type="Texture2D" uid="uid://cwtn57lrmaq01" path="res://Scenes/Functional/CameraSystem/Assets/CameraMovement2-20260131-132701.piskel" id="1_50wlb"]
 [ext_resource type="Texture2D" uid="uid://cfut5v4t2jq4y" path="res://Scenes/Functional/CameraSystem/Assets/WARN_DANGER.piskel" id="3_8p70a"]
-[ext_resource type="PackedScene" uid="uid://da2onvnx23mh0" path="res://Scenes/Functional/Interactables/Base/Interactable.tscn" id="4_fus4w"]
+[ext_resource type="PackedScene" uid="uid://bqq66veeuw43j" path="res://Scenes/Functional/Interactables/Hackable Devices/BaseDevice.tscn" id="5_1ta5n"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_8p70a"]
 atlas = ExtResource("1_50wlb")
@@ -41,8 +41,6 @@ animations = [{
 "speed": 5.0
 }]
 
-[sub_resource type="ImageTexture" id="ImageTexture_50wlb"]
-
 [sub_resource type="AtlasTexture" id="AtlasTexture_ce6ki"]
 atlas = ExtResource("3_8p70a")
 region = Rect2(0, 0, 32, 32)
@@ -72,6 +70,63 @@ animations = [{
 "speed": 5.0
 }]
 
+[sub_resource type="GDScript" id="GDScript_fus4w"]
+resource_name = "CameraHackLogic"
+script/source = "extends \"res://Scenes/Functional/Interactables/Hackable Devices/base_device.gd\"
+
+const CAMERA_DISABLED_TIME = 5
+
+var hacking_ui = null
+var pressedQuitHack = 0
+
+func _ready() -> void:
+	device_name = \"CCTV Camera\"
+	$Sprite2D.texture = null
+	
+	
+func sub_interact():
+	if hackable and not hacked:
+		print(\"Starting hack on device: \" + device_name)
+		$\"../Timers/DangerTimer\".paused = true
+		$\"../Timers/WarnTimer\".paused=true
+		$\"../Timers/Timer\".paused = true
+		$\"..\".beforeHackFrame = $\"..\".currentFrame
+		$\"..\".beforeHackLoopback = $\"..\".loopback
+		pressedQuitHack = 1
+		
+		
+		hacking_ui= HackingMinigame.instantiate()
+		get_tree().current_scene.add_child(hacking_ui)
+		#print(hacking_ui)
+		hacking_ui.initialize_minigame(self)
+		
+		
+	
+
+func on_hack_successful():
+	hacked = true
+	pressedQuitHack = 0
+	$\"..\".isCameraDisabled = 1
+	#print(\"Hacked from the CameraHackLogic\")
+	$\"../Timers/DisabledTimer\".start(CAMERA_DISABLED_TIME)
+	$\"../CameraSprites\".modulate.a = 0.3
+	$\"..\".currentColor.a = 0.01
+
+func on_hack_failed():
+	hacked = false
+	if pressedQuitHack == 1:
+		$\"..\".isCameraDisabled = 0
+		$\"../Timers/DangerTimer\".paused = false
+		$\"../Timers/WarnTimer\".paused=false
+		$\"../Timers/Timer\".paused =false
+	#print(\"Failed or simply exited\")
+	
+	
+	
+	
+	
+"
+
 [node name="Camera" type="Node2D" unique_id=1871301614]
 script = ExtResource("1_8p70a")
 
@@ -79,21 +134,14 @@ script = ExtResource("1_8p70a")
 scale = Vector2(2.015625, 2.015625)
 sprite_frames = SubResource("SpriteFrames_athw2")
 
-[node name="Timer" type="Timer" parent="." unique_id=972610358]
-
 [node name="Area2D" type="Area2D" parent="." unique_id=2137418635]
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Area2D" unique_id=399076903]
 position = Vector2(7.6293945e-06, 16)
 scale = Vector2(1.3961194, 0.7518293)
-polygon = PackedVector2Array(0.2837293, -0.33007813, 220.6115, 587.8994, 132.51015, 663.7145, -1.432548, 684.996, -117.46847, 662.3844, -228.4905, 575.9286)
+polygon = PackedVector2Array(-5.464715e-06, 5.3203564, 244.24844, 575.9286, 173.3376, 669.0348, 67.329475, 720.90826, -73.05966, 722.23834, -166.89117, 662.38434, -228.4905, 575.9286)
 
 [node name="Sprite2D" type="Sprite2D" parent="Area2D" unique_id=1193801360]
-texture = SubResource("ImageTexture_50wlb")
-
-[node name="DangerTimer" type="Timer" parent="." unique_id=1802483976]
-
-[node name="WarnTimer" type="Timer" parent="." unique_id=1579736493]
 
 [node name="WarningSprites" type="AnimatedSprite2D" parent="." unique_id=527893219]
 position = Vector2(34, 32)
@@ -103,13 +151,26 @@ sprite_frames = SubResource("SpriteFrames_vsn8x")
 [node name="DetectionArea" type="Sprite2D" parent="." unique_id=1858914626]
 scale = Vector2(2.015625, 2.015625)
 
-[node name="Interactable" parent="." unique_id=325767183 instance=ExtResource("4_fus4w")]
-visible = false
+[node name="DeviceInteractable" parent="." unique_id=433617273 instance=ExtResource("5_1ta5n")]
+script = SubResource("GDScript_fus4w")
+interactable_name = ""
+interaction_prompt = "Press [Space] to interact"
 
-[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
+[node name="Timers" type="Node" parent="." unique_id=1830786664]
+
+[node name="DangerTimer" type="Timer" parent="Timers" unique_id=1802483976]
+
+[node name="WarnTimer" type="Timer" parent="Timers" unique_id=1579736493]
+
+[node name="DisabledTimer" type="Timer" parent="Timers" unique_id=619903263]
+
+[node name="Timer" type="Timer" parent="Timers" unique_id=972610358]
+
 [connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]
 [connection signal="area_exited" from="Area2D" to="." method="_on_area_2d_area_exited"]
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
 [connection signal="body_exited" from="Area2D" to="." method="_on_area_2d_body_exited"]
-[connection signal="timeout" from="DangerTimer" to="." method="_on_danger_timer_timeout"]
-[connection signal="timeout" from="WarnTimer" to="." method="_on_warn_timer_timeout"]
+[connection signal="timeout" from="Timers/DangerTimer" to="." method="_on_danger_timer_timeout"]
+[connection signal="timeout" from="Timers/WarnTimer" to="." method="_on_warn_timer_timeout"]
+[connection signal="timeout" from="Timers/DisabledTimer" to="." method="_on_disabled_timer_timeout"]
+[connection signal="timeout" from="Timers/Timer" to="." method="_on_timer_timeout"]

@@ -5,22 +5,28 @@ const HackableDevice = preload("res://Scenes/Functional/Interactables/Hackable D
 var parent_entity: HackableDevice = null
 
 @export var difficulty: int = 1
-@export var module_count: int = 1
+@export var module_count: int = 3
 var modules_completed: int = 0
 
-# Called when the node enters the scene tree for the first time.
-func _ready() -> void:
-	print(position)
-	pass # Replace with function body.
+var fail_count: int = 0
+var fail_limit: int = 3 # module fail limit (count==limit -> minigame fail)
 
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
-	pass
-
+func _update_labels():
+	$Container/Device.text = parent_entity.device_name
+	$Container/Difficulty.text = "Difficulty: " + str(difficulty)
+	$Container/Completion.text = "Modules Completed: " + str(modules_completed) + " / " + str(module_count)
+	$Container/Failures.text = "Failures: " + str(fail_count) + " / " + str(fail_limit)
 
 func initialize_minigame(hackable : HackableDevice):
 	parent_entity = hackable
+
+	_update_labels()
+
+	# Pass the parent_device reference to the hacking UI
+	if $Container:
+		#print("ne-am oprit pe AICI!!!")
+		$Container.parent_device = parent_entity
 
 func _on_mimic_pressed() -> void:
 	parent_entity.on_hack_successful()
@@ -35,12 +41,32 @@ func _on_mimic_pressed() -> void:
 const BaseModuleScene = preload("res://Scenes/Functional/Hacking Minigame/Modules/Module Base/BaseModule.tscn")
 const TestModuleScene = preload("res://Scenes/Functional/Hacking Minigame/Modules/Module Base/test_derived_module.tscn")
 
+const KeywordModuleScene = preload("res://Scenes/Functional/Hacking Minigame/Modules/Keyword/KeywordModule.tscn")
+const BezierModuleScene = preload("res://Scenes/Functional/Hacking Minigame/Modules/Bezier/bezier.tscn")
+const BinaryMaskingScene = preload("res://Scenes/Functional/Hacking Minigame/Modules/BinaryMasking/binary_masking.tscn")
+
 var module_pool = [
 	{
 		scene = TestModuleScene,
 		script = preload("res://Scenes/Functional/Hacking Minigame/Modules/Module Base/test_derived_module.gd")
 	},
+	# {
+	# 	scene = KeywordModuleScene,
+	# 	script = preload("res://Scenes/Functional/Modules/KeywordMatching/KeywordMatchingModule.cs")
+	# },
+	# {
+	# 	scene = BezierModuleScene,
+	# 	script = preload("res://Scenes/Functional/Hacking Minigame/Modules/Bezier/bezier.gd")
+	# }
+	{
+		scene = BinaryMaskingScene,
+		script = preload("res://Scenes/Functional/Hacking Minigame/Modules/BinaryMasking/binary_masking.gd")
+	}
 ]
+
+
+var current_module = null
+
 
 func select_module():
 	var module_index = randi() % module_pool.size()
@@ -51,14 +77,52 @@ func pull_next_module():
 	var module_instance = module_data.scene.instantiate()
 	module_instance.set_script(module_data.script)
 	module_instance.parent_minigame = self
+	module_instance.minigame_frame = get_node("Container/ModuleFrame")
 
 	$Container/ModuleFrame.add_child(module_instance)
-	module_instance.position = Vector2(0, 0) # Force position to (0, 0)
+	current_module = module_instance
+	
+	module_instance.set_anchors_preset(Control.PRESET_FULL_RECT)
+	print("Container origin: " + str($Container/ModuleFrame.position) + "; module position: " + str(module_instance.position))
 
 	module_instance.initialize_module(self)
+	module_instance.connect("module_completed", Callable(self, "on_module_completed"))
+
+
 	return module_instance
 
 
 func _on_gen_module_pressed() -> void:
 	var module = pull_next_module()
 	print("Generated module: " + str(module.module_name))
+
+
+
+func on_module_completed(module_name: String) -> void:
+	modules_completed += 1
+	_update_labels()
+	print("Module completed: " + module_name)
+
+	if modules_completed >= module_count:
+		print("All modules completed! Hacking successful.")
+		parent_entity.on_hack_successful()
+		queue_free()
+	else:
+		# Load next module
+		if current_module:
+			current_module.queue_free()
+		pull_next_module()
+
+
+func on_module_failed(module_name: String) -> void:
+	fail_count += 1
+	_update_labels()
+	print("Module failed: " + module_name)
+	if fail_count >= fail_limit:
+		print("Fail limit reached! Hacking failed.")
+		parent_entity.on_hack_failed()
+		queue_free()
+	else:
+		# Reload current module
+		if current_module:
+			current_module.reset_module()
