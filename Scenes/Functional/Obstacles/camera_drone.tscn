@@ -1,0 +1,28 @@
+[gd_scene format=3 uid="uid://c8htj5idi3hkt"]
+
+[ext_resource type="Script" uid="uid://b5kqlbu2ocan0" path="res://camera_drone.gd" id="1_fu5fo"]
+[ext_resource type="Texture2D" uid="uid://dckgupeoukcmu" path="res://textures/drone.png" id="2_v7vcm"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_84ukx"]
+
+[node name="CameraDrone" type="CharacterBody2D" unique_id=285823046 node_paths=PackedStringArray("patrol_points")]
+scale = Vector2(0.3, 0.3)
+script = ExtResource("1_fu5fo")
+patrol_points = [NodePath(""), NodePath(""), NodePath("")]
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=215953072]
+rotation = 1.5707964
+scale = Vector2(1, 1.005)
+texture = ExtResource("2_v7vcm")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1826741552]
+shape = SubResource("CircleShape2D_84ukx")
+
+[node name="VisionCone" type="Area2D" parent="." unique_id=1074129048]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="VisionCone" unique_id=1370548072]
+polygon = PackedVector2Array(3.3333333, 0, 600, -273.3333, 600, 266.66666)
+
+[node name="RayCast2D" type="RayCast2D" parent="." unique_id=837538766]
+enabled = false
+target_position = Vector2(0, 0)

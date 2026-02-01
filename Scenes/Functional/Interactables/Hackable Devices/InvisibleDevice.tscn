@@ -1,0 +1,10 @@
+[gd_scene format=3 uid="uid://cs0iur5f0v3w7"]
+
+[ext_resource type="PackedScene" uid="uid://bqq66veeuw43j" path="res://Scenes/Functional/Interactables/Hackable Devices/BaseDevice.tscn" id="1_83trf"]
+
+[node name="Interactable" unique_id=325767183 instance=ExtResource("1_83trf")]
+default_texture = null
+hacked_texture = null
+
+[node name="Sprite2D" parent="." index="1" unique_id=440756694]
+texture = null

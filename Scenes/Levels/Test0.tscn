@@ -2,14 +2,13 @@
 
 [ext_resource type="PackedScene" uid="uid://co1rc0ob6v4xs" path="res://Scenes/Functional/Player/Player.tscn" id="1_c38sf"]
 [ext_resource type="PackedScene" uid="uid://deacbbse3x3ov" path="res://Scenes/Functional/Obstacles/Wall.tscn" id="2_dk62x"]
+[ext_resource type="Texture2D" uid="uid://dnr43qdh20ubw" path="res://Scenes/Functional/Interactables/Doors/vert door.piskel" id="4_8m6qh"]
 [ext_resource type="PackedScene" uid="uid://b2apyps155mgv" path="res://Scenes/Functional/Interactables/Doors/FadingDoor.tscn" id="4_eq4xh"]
 [ext_resource type="PackedScene" uid="uid://bqq66veeuw43j" path="res://Scenes/Functional/Interactables/Hackable Devices/BaseDevice.tscn" id="5_e2s60"]
+[ext_resource type="Texture2D" uid="uid://cy0g2pkqb7tgn" path="res://Scenes/Functional/Interactables/Doors/door disabled.png" id="5_ehbd7"]
 [ext_resource type="PackedScene" uid="uid://d3si4cm6sa1n3" path="res://Scenes/Functional/CameraSystem/Scenes/MainCamera.tscn" id="6_uiv5f"]
-[ext_resource type="Texture2D" uid="uid://dckgupeoukcmu" path="res://textures/drone.png" id="7_25o6u"]
-[ext_resource type="Script" uid="uid://b5kqlbu2ocan0" path="res://camera_drone.gd" id="7_84ukx"]
 [ext_resource type="PackedScene" uid="uid://duujbf38cwpy0" path="res://Scenes/Functional/Interactables/Hackable Devices/SecurityTerminal.tscn" id="8_25o6u"]
-
-[sub_resource type="CircleShape2D" id="CircleShape2D_84ukx"]
+[ext_resource type="PackedScene" uid="uid://c8htj5idi3hkt" path="res://Scenes/Functional/Obstacles/camera_drone.tscn" id="8_076n6"]
 
 [node name="Node2D" type="Node2D" unique_id=430878801]
 position = Vector2(6, 7)
@@ -22,6 +21,8 @@ position = Vector2(670, 198)
 
 [node name="Interactable2" parent="." unique_id=1733218285 instance=ExtResource("4_eq4xh")]
 position = Vector2(672, 326)
+active_tex = ExtResource("4_8m6qh")
+disabled_tex = ExtResource("5_ehbd7")
 
 [node name="Camera" parent="." unique_id=1871301614 instance=ExtResource("6_uiv5f")]
 position = Vector2(81, -2)
@@ -29,32 +30,12 @@ position = Vector2(81, -2)
 [node name="Interactable3" parent="." unique_id=325767183 instance=ExtResource("5_e2s60")]
 position = Vector2(849, 446)
 
-[node name="CameraDrone" type="CharacterBody2D" parent="." unique_id=532205285 node_paths=PackedStringArray("patrol_points")]
+[node name="CameraDrone" parent="." unique_id=285823046 instance=ExtResource("8_076n6")]
 position = Vector2(84, 75)
-scale = Vector2(0.3, 0.3)
-script = ExtResource("7_84ukx")
-patrol_points = [NodePath("../Marker2D2"), NodePath("../Marker2D3"), NodePath("../Marker2D")]
-
-[node name="Sprite2D" type="Sprite2D" parent="CameraDrone" unique_id=1422263518]
-rotation = 1.5707964
-scale = Vector2(1, 1.005)
-texture = ExtResource("7_25o6u")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="CameraDrone" unique_id=1223207590]
-shape = SubResource("CircleShape2D_84ukx")
-
-[node name="VisionCone" type="Area2D" parent="CameraDrone" unique_id=827455482]
-
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="CameraDrone/VisionCone" unique_id=44104343]
-polygon = PackedVector2Array(3.3333333, 0, 600, -273.3333, 600, 266.66666)
-
-[node name="RayCast2D" type="RayCast2D" parent="CameraDrone" unique_id=1790179937]
-enabled = false
-target_position = Vector2(0, 0)
 
 [node name="Interactable4" parent="." unique_id=284489477 node_paths=PackedStringArray("linked_drone") instance=ExtResource("8_25o6u")]
 position = Vector2(488, 143)
-linked_drone = NodePath("../CameraDrone")
+linked_drone = NodePath("")
 
 [node name="Marker2D" type="Marker2D" parent="." unique_id=1915251289]
 position = Vector2(274.3054, 494.6386)
