@@ -1,0 +1,6 @@
+[gd_scene format=3 uid="uid://dlwa2i7rbpiab"]
+
+[ext_resource type="Script" path="res://Scenes/Functional/Core/audio_manager.gd" id="1_fntwd"]
+
+[node name="AudioManager" type="Node" unique_id=220532311]
+script = ExtResource("1_fntwd")
