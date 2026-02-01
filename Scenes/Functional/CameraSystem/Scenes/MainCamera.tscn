@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://r7swc8fuyadm" path="res://Scenes/Functional/CameraSystem/Scripts/main_camera2.gd" id="1_8p70a"]
 [ext_resource type="Texture2D" uid="uid://cwtn57lrmaq01" path="res://Scenes/Functional/CameraSystem/Assets/CameraMovement2-20260131-132701.piskel" id="1_50wlb"]
-[ext_resource type="Texture2D" uid="uid://cfut5v4t2jq4y" path="res://Scenes/Functional/CameraSystem/Assets/WARN_DANGER.piskel" id="3_8p70a"]
+[ext_resource type="Texture2D" uid="uid://cry3kg8831dah" path="res://Scenes/Functional/CameraSystem/Assets/WARN_SIGNS_REFRESHED.piskel" id="3_fus4w"]
 [ext_resource type="PackedScene" uid="uid://bqq66veeuw43j" path="res://Scenes/Functional/Interactables/Hackable Devices/BaseDevice.tscn" id="5_1ta5n"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_8p70a"]
@@ -42,16 +42,20 @@ animations = [{
 }]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ce6ki"]
-atlas = ExtResource("3_8p70a")
+atlas = ExtResource("3_fus4w")
 region = Rect2(0, 0, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_r0i31"]
-atlas = ExtResource("3_8p70a")
+atlas = ExtResource("3_fus4w")
 region = Rect2(32, 0, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_t3vj1"]
-atlas = ExtResource("3_8p70a")
+atlas = ExtResource("3_fus4w")
 region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vsn8x"]
+atlas = ExtResource("3_fus4w")
+region = Rect2(96, 0, 32, 32)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_vsn8x"]
 animations = [{
@@ -64,6 +68,9 @@ animations = [{
 }, {
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_t3vj1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vsn8x")
 }],
 "loop": true,
 "name": &"default",
@@ -109,8 +116,11 @@ func on_hack_successful():
 	$\"..\".isCameraDisabled = 1
 	#print(\"Hacked from the CameraHackLogic\")
 	$\"../Timers/DisabledTimer\".start(CAMERA_DISABLED_TIME)
+
 	$\"../CameraSprites\".modulate.a = 0.3
 	$\"..\".currentColor.a = 0.01
+	#for start take out the signal
+	$\"../WarningSprites\".set_frame(3)
 
 func on_hack_failed():
 	hacked = false
