@@ -1,0 +1,16 @@
+[gd_scene format=3 uid="uid://bnor333n0qfcn"]
+
+[ext_resource type="Script" uid="uid://brrh0x0d6konv" path="res://Scenes/Functional/Hacking Minigame/Modules/BinaryMasking/Button/binary_button.gd" id="1_63415"]
+[ext_resource type="Texture2D" uid="uid://bl8qm7ictk5m2" path="res://Scenes/Functional/Hacking Minigame/Modules/BinaryMasking/Button/bin button off.png" id="2_ia8w6"]
+[ext_resource type="Texture2D" uid="uid://2511v3kon8ie" path="res://Scenes/Functional/Hacking Minigame/Modules/BinaryMasking/Button/bin button on.png" id="3_wtt2r"]
+
+[node name="BinaryButton" type="TextureButton" unique_id=1364667192]
+offset_right = 8.0
+offset_bottom = 8.0
+toggle_mode = true
+texture_normal = ExtResource("2_ia8w6")
+texture_pressed = ExtResource("3_wtt2r")
+script = ExtResource("1_63415")
+index = 1
+
+[connection signal="toggled" from="." to="." method="_on_toggled"]
