@@ -42,6 +42,7 @@ const TestModuleScene = preload("res://Scenes/Functional/Hacking Minigame/Module
 const KeywordModuleScene = preload("res://Scenes/Functional/Hacking Minigame/Modules/Keyword/KeywordModule.tscn")
 const BezierModuleScene = preload("res://Scenes/Functional/Hacking Minigame/Modules/Bezier/bezier.tscn")
 const BinaryMaskingScene = preload("res://Scenes/Functional/Hacking Minigame/Modules/BinaryMasking/binary_masking.tscn")
+const FrequencyModulationScene = preload("res://Scenes/Functional/Hacking Minigame/Modules/FrequencyModulation/FrequencyModulationModule.tscn")
 
 var module_pool = [
 	{
@@ -52,13 +53,17 @@ var module_pool = [
 	# 	scene = KeywordModuleScene,
 	# 	script = preload("res://Scenes/Functional/Modules/KeywordMatching/KeywordMatchingModule.cs")
 	# },
-	# {
-	# 	scene = BezierModuleScene,
-	# 	script = preload("res://Scenes/Functional/Hacking Minigame/Modules/Bezier/bezier.gd")
-	# }
+	{
+		scene = BezierModuleScene,
+		script = preload("res://Scenes/Functional/Hacking Minigame/Modules/Bezier/bezier.gd")
+	},
 	{
 		scene = BinaryMaskingScene,
 		script = preload("res://Scenes/Functional/Hacking Minigame/Modules/BinaryMasking/binary_masking.gd")
+	},
+	{
+		scene = FrequencyModulationScene,
+		script = preload("res://Scenes/Functional/Modules/FrequencyModulation/FrequencyModulationMinigame.cs")
 	}
 ]
 
@@ -75,24 +80,21 @@ func pull_next_module():
 	var module_instance = module_data.scene.instantiate()
 	module_instance.set_script(module_data.script)
 	module_instance.parent_minigame = self
-	module_instance.minigame_frame = get_node("Container/ModuleFrame")
+	module_instance.minigame_frame = get_node("CanvasLayer/Container/ModuleFrame")
 
 	$CanvasLayer/Container/ModuleFrame.add_child(module_instance)
 	current_module = module_instance
 	
 	module_instance.set_anchors_preset(Control.PRESET_FULL_RECT)
-	print("Container origin: " + str($CanvasLayer/Container/ModuleFrame.position) + "; module position: " + str(module_instance.position))
 
 	module_instance.initialize_module(self)
 	module_instance.connect("module_completed", Callable(self, "on_module_completed"))
-
 
 	return module_instance
 
 
 func _on_gen_module_pressed() -> void:
-	var module = pull_next_module()
-	print("Generated module: " + str(module.module_name))
+	pull_next_module()
 
 
 
@@ -106,7 +108,6 @@ func on_module_completed(module_name: String) -> void:
 		parent_entity.on_hack_successful()
 		queue_free()
 	else:
-		# Load next module
 		if current_module:
 			current_module.queue_free()
 		pull_next_module()
@@ -121,6 +122,5 @@ func on_module_failed(module_name: String) -> void:
 		parent_entity.on_hack_failed()
 		queue_free()
 	else:
-		# Reload current module
 		if current_module:
 			current_module.reset_module()

@@ -42,8 +42,8 @@ func _on_input_event(viewport: Node, event: InputEvent, shape_idx: int) -> void:
 				return c1.z_index < c2.z_index
 		)
 		# we're only clicking on the topmost collider
-		print(colliders[-1])
-		if colliders[-1] == self:
+		#print(colliders[-1])
+		if colliders and colliders[-1] == self:
 			is_dragging = true
 			click_position = get_local_mouse_position()
 		
