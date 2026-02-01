@@ -4,6 +4,18 @@
 [ext_resource type="Script" uid="uid://cta7wnpyrdgsm" path="res://Scenes/Functional/Player/player.gd" id="1_i1tdd"]
 [ext_resource type="Script" uid="uid://cfdrfghd1tk0" path="res://Scenes/Functional/Player/player_sprite.gd" id="3_lujq3"]
 [ext_resource type="Script" uid="uid://1hak46nl5wa8" path="res://Scenes/Functional/Player/interaction_area.gd" id="4_mubij"]
+[ext_resource type="Texture2D" uid="uid://c353r6g8g8i8w" path="res://sprites/GGJ sprites/walk_front/wf1.png" id="5_b5a1o"]
+[ext_resource type="Texture2D" uid="uid://b2ns8ltqg038s" path="res://sprites/GGJ sprites/walk_front/wf2.png" id="6_8lsre"]
+[ext_resource type="Texture2D" uid="uid://doax7okaavbi8" path="res://sprites/GGJ sprites/walk_front/wf3.png" id="7_jv5pe"]
+[ext_resource type="Texture2D" uid="uid://bgtpfgcofyknj" path="res://sprites/GGJ sprites/walk_side/left/wsl1.png" id="8_c5a1q"]
+[ext_resource type="Texture2D" uid="uid://dqgufdnmtue8h" path="res://sprites/GGJ sprites/walk_side/left/wsl2.png" id="9_gsobn"]
+[ext_resource type="Texture2D" uid="uid://ulxgq2m4ikwc" path="res://sprites/GGJ sprites/walk_side/left/wsl3.png" id="10_847sq"]
+[ext_resource type="Texture2D" uid="uid://cuykpbox6mwhr" path="res://sprites/GGJ sprites/walk_side/right/wsr1.png" id="11_ypx51"]
+[ext_resource type="Texture2D" uid="uid://biw0l5oij1ljm" path="res://sprites/GGJ sprites/walk_side/right/wsr2.png" id="12_w8fdr"]
+[ext_resource type="Texture2D" uid="uid://cdwkvxdujqh20" path="res://sprites/GGJ sprites/walk_side/right/wsr3.png" id="13_ov3f3"]
+[ext_resource type="Texture2D" uid="uid://qu2165nnhpbf" path="res://sprites/GGJ sprites/walk_back/wb1.png" id="14_6lawi"]
+[ext_resource type="Texture2D" uid="uid://duylny0357qv3" path="res://sprites/GGJ sprites/walk_back/wb2.png" id="15_dpltq"]
+[ext_resource type="Texture2D" uid="uid://c4vpre3a6xmdx" path="res://sprites/GGJ sprites/walk_back/wb3.png" id="16_se20s"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_lujq3"]
 size = Vector2(69, 122)
@@ -11,12 +23,84 @@ size = Vector2(69, 122)
 [sub_resource type="CircleShape2D" id="CircleShape2D_lujq3"]
 radius = 7.200694
 
+[sub_resource type="SpriteFrames" id="SpriteFrames_p72s4"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("5_b5a1o")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_8lsre")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_jv5pe")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_8lsre")
+}],
+"loop": true,
+"name": &"walk_down",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("8_c5a1q")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_gsobn")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_847sq")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_gsobn")
+}],
+"loop": true,
+"name": &"walk_left",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("11_ypx51")
+}, {
+"duration": 1.0,
+"texture": ExtResource("12_w8fdr")
+}, {
+"duration": 1.0,
+"texture": ExtResource("13_ov3f3")
+}, {
+"duration": 1.0,
+"texture": ExtResource("12_w8fdr")
+}],
+"loop": true,
+"name": &"walk_right",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("14_6lawi")
+}, {
+"duration": 1.0,
+"texture": ExtResource("15_dpltq")
+}, {
+"duration": 1.0,
+"texture": ExtResource("16_se20s")
+}, {
+"duration": 1.0,
+"texture": ExtResource("15_dpltq")
+}],
+"loop": true,
+"name": &"walk_up",
+"speed": 5.0
+}]
+
 [node name="Player" type="CharacterBody2D" unique_id=1285538653 groups=["Player"]]
 collision_layer = 3
 collision_mask = 3
 script = ExtResource("1_i1tdd")
 
 [node name="PlayerSprite" type="AnimatedSprite2D" parent="." unique_id=472939682 groups=["Player"]]
+visible = false
 z_index = 10
 scale = Vector2(4, 4)
 sprite_frames = ExtResource("1_dgwec")
@@ -35,6 +119,11 @@ scale = Vector2(10, 10)
 shape = SubResource("CircleShape2D_lujq3")
 debug_color = Color(4.3317675e-07, 0.6418373, 0.3128065, 0.41960785)
 
+[node name="WalkSprite" type="AnimatedSprite2D" parent="." unique_id=962988042]
+scale = Vector2(2.5, 2.5)
+sprite_frames = SubResource("SpriteFrames_p72s4")
+animation = &"walk_down"
+frame_progress = 0.9157946
 [node name="Camera2D" type="Camera2D" parent="." unique_id=174127000]
 
 [connection signal="area_entered" from="InteractionArea" to="InteractionArea" method="_on_area_entered"]

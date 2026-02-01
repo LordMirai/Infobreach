@@ -10,6 +10,7 @@ var movement_enabled: bool = true
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	$PlayerSprite.set_speed_scale(0.0)
+	$WalkSprite.set_speed_scale(0.0)
 	pass # Replace with function body.
 	
 
@@ -28,16 +29,20 @@ func _process(delta: float) -> void:
 	if Input.is_action_pressed("ui_right"):
 		velocity.x += 1
 		$PlayerSprite.flip_h = true
+		$WalkSprite.play("walk_right")
 		
 	elif Input.is_action_pressed("ui_left"):
 		velocity.x -= 1
 		$PlayerSprite.flip_h = false
+		$WalkSprite.play("walk_left")
 
 	if Input.is_action_pressed("ui_up"):
 		velocity.y -= 1
+		$WalkSprite.play("walk_up")
 
 	elif Input.is_action_pressed("ui_down"):
 		velocity.y += 1
+		$WalkSprite.play("walk_down")
 
 
 	if velocity.length() > 0:
