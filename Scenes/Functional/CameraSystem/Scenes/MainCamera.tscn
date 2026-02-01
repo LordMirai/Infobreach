@@ -110,6 +110,7 @@ func on_hack_successful():
 	#print(\"Hacked from the CameraHackLogic\")
 	$\"../Timers/DisabledTimer\".start(CAMERA_DISABLED_TIME)
 	$\"../CameraSprites\".modulate.a = 0.3
+	$\"..\".currentColor.a = 0.01
 
 func on_hack_failed():
 	hacked = false
@@ -138,7 +139,7 @@ sprite_frames = SubResource("SpriteFrames_athw2")
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Area2D" unique_id=399076903]
 position = Vector2(7.6293945e-06, 16)
 scale = Vector2(1.3961194, 0.7518293)
-polygon = PackedVector2Array(0.2837293, -0.33007813, 220.6115, 587.8994, 132.51015, 663.7145, -1.432548, 684.996, -117.46847, 662.3844, -228.4905, 575.9286)
+polygon = PackedVector2Array(-5.464715e-06, 5.3203564, 244.24844, 575.9286, 173.3376, 669.0348, 67.329475, 720.90826, -73.05966, 722.23834, -166.89117, 662.38434, -228.4905, 575.9286)
 
 [node name="Sprite2D" type="Sprite2D" parent="Area2D" unique_id=1193801360]
 
