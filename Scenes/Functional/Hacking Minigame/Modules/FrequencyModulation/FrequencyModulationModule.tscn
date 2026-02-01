@@ -1,0 +1,31 @@
+[gd_scene format=3 uid="uid://d038lej53b60l"]
+
+[ext_resource type="Script" uid="uid://dhswyaxumrusc" path="res://Scenes/Functional/Hacking Minigame/Modules/Module Base/base_module.gd" id="1_7p4le"]
+[ext_resource type="PackedScene" uid="uid://b1f8fowlwiekh" path="res://Scenes/Functional/Modules/FrequencyModulation/FrequencyModulationMinigame.tscn" id="2_1fvdn"]
+
+[node name="FrequencyModulationModule" type="Control" unique_id=1344213614]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_7p4le")
+
+[node name="Container" type="PanelContainer" parent="." unique_id=1258241354]
+z_index = 6
+layout_mode = 1
+offset_right = 512.0
+offset_bottom = 512.0
+
+[node name="Background" type="ColorRect" parent="Container" unique_id=851374414]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+color = Color(0.14044744, 0.14044744, 0.14044744, 1)
+
+[node name="Control" parent="Container" unique_id=1403552496 instance=ExtResource("2_1fvdn")]
+layout_mode = 2
+
+[connection signal="MinigameCompleted" from="Container/Control" to="." method="complete_module"]
+[connection signal="MinigameFailed" from="Container/Control" to="." method="fail_module"]
