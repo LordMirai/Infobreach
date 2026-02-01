@@ -11,14 +11,6 @@ var modules_completed: int = 0
 var fail_count: int = 0
 var fail_limit: int = 3 # module fail limit (count==limit -> minigame fail)
 
-# Called when the node enters the scene tree for the first time.
-func _ready() -> void:
-	pass # Replace with function body.
-
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
-	pass
 
 func _update_labels():
 	$Container/Device.text = parent_entity.device_name
@@ -92,7 +84,6 @@ func pull_next_module():
 	print("Container origin: " + str($Container/ModuleFrame.position) + "; module position: " + str(module_instance.position))
 
 	module_instance.initialize_module(self)
-	
 	module_instance.connect("module_completed", Callable(self, "on_module_completed"))
 
 

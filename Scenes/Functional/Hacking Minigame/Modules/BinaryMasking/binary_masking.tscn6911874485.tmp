@@ -7,7 +7,10 @@
 
 [node name="BaseModule" unique_id=1344213614 instance=ExtResource("1_pr4xm")]
 script = ExtResource("2_gi1lh")
-hack_enabled = false
+module_name = null
+difficulty = null
+hack_enabled = null
+self_reset_on_fail = null
 
 [node name="Input" type="Label" parent="Container/Background" parent_id_path=PackedInt32Array(851374414) index="2" unique_id=1054695712]
 layout_mode = 0
