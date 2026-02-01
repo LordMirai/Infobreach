@@ -4,17 +4,17 @@
 [ext_resource type="Texture2D" uid="uid://bab3uu88bimsc" path="res://Scenes/Functional/Hacking Minigame/closebtn.png" id="2_c32av"]
 [ext_resource type="Texture2D" uid="uid://cu0fq54ebxn86" path="res://Scenes/Functional/Hacking Minigame/hacking minigame tex test.png" id="2_o6vpl"]
 [ext_resource type="Script" uid="uid://jcjl2q4iwh3r" path="res://Scenes/Functional/Hacking Minigame/UI_control.gd" id="2_wyv6g"]
+[ext_resource type="FontFile" uid="uid://bkxfscaiy7g1a" path="res://Assets/Fonts/JetBrainsMono-Regular.ttf" id="5_08miw"]
 
 [node name="HackingMinigame" type="Control" unique_id=572980912]
 z_index = 20
 layout_mode = 3
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+mouse_filter = 1
 script = ExtResource("1_dt5jg")
 
 [node name="Container" type="Control" parent="." unique_id=1369514488]
@@ -31,6 +31,7 @@ offset_bottom = 400.0
 grow_horizontal = 2
 grow_vertical = 2
 scale = Vector2(1.008591, 1)
+mouse_filter = 1
 script = ExtResource("2_wyv6g")
 
 [node name="Background" type="TextureRect" parent="Container" unique_id=485558385]
@@ -48,10 +49,10 @@ layout_mode = 1
 anchors_preset = 1
 anchor_left = 1.0
 anchor_right = 1.0
-offset_left = -49.008728
-offset_top = -25.0
-offset_right = 0.991272
-offset_bottom = 25.0
+offset_left = -64.59961
+offset_top = 21.0
+offset_right = -14.599609
+offset_bottom = 71.0
 grow_horizontal = 0
 texture_normal = ExtResource("2_c32av")
 
@@ -64,6 +65,7 @@ offset_bottom = 83.0
 text = "MIMIC MINIGAME COMPLETE"
 
 [node name="ModuleFrame" type="PanelContainer" parent="Container" unique_id=198195361]
+clip_contents = true
 layout_mode = 1
 anchors_preset = 7
 anchor_left = 0.5
@@ -76,6 +78,7 @@ offset_right = 256.0
 offset_bottom = -33.0
 grow_horizontal = 2
 grow_vertical = 0
+mouse_filter = 1
 
 [node name="GenModule" type="Button" parent="Container" unique_id=525172706]
 layout_mode = 0
@@ -84,6 +87,52 @@ offset_top = 120.0
 offset_right = 310.5605
 offset_bottom = 151.0
 text = "Generate Module"
+
+[node name="Completion" type="Label" parent="Container" unique_id=158474270]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -180.60309
+offset_top = 21.0
+offset_right = -72.60309
+offset_bottom = 44.0
+grow_horizontal = 0
+theme_override_fonts/font = ExtResource("5_08miw")
+text = "<Completion>"
+horizontal_alignment = 2
+
+[node name="Failures" type="Label" parent="Container" unique_id=1091379838]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -188.60309
+offset_top = 41.0
+offset_right = -72.60309
+offset_bottom = 64.0
+grow_horizontal = 0
+theme_override_fonts/font = ExtResource("5_08miw")
+text = "<Failures>"
+horizontal_alignment = 2
+
+[node name="Difficulty" type="Label" parent="Container" unique_id=27284965]
+layout_mode = 1
+offset_left = 16.855196
+offset_top = 41.0
+offset_right = 132.8552
+offset_bottom = 64.0
+theme_override_fonts/font = ExtResource("5_08miw")
+text = "<Difficulty>"
+
+[node name="Device" type="Label" parent="Container" unique_id=1282274038]
+layout_mode = 1
+offset_left = 16.855194
+offset_top = 22.0
+offset_right = 132.8552
+offset_bottom = 45.0
+theme_override_fonts/font = ExtResource("5_08miw")
+text = "<Device>"
 
 [connection signal="tree_exited" from="." to="Container" method="_on_minigame_closed"]
 [connection signal="pressed" from="Container/CloseButton" to="Container" method="_on_close_button_pressed"]

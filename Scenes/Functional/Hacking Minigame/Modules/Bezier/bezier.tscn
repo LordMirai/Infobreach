@@ -2,24 +2,68 @@
 
 [ext_resource type="Script" uid="uid://lrm7nemawt53" path="res://Scenes/Functional/Hacking Minigame/Modules/Bezier/bezier.gd" id="1_whrlc"]
 
-[node name="Bezier" type="Container" unique_id=1109403167]
-z_index = 10
-custom_minimum_size = Vector2(512, 512)
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -256.0
-offset_top = -256.0
-offset_right = 256.0
-offset_bottom = 256.0
-grow_horizontal = 2
-grow_vertical = 2
+[node name="Bezier" type="Control" unique_id=1237586963]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 1920.0
+offset_bottom = 1080.0
+mouse_filter = 1
 script = ExtResource("1_whrlc")
+module_name = "Bezier Alignment"
+difficulty = 2
 
-[node name="Line2D" type="Line2D" parent="." unique_id=1508487864]
+[node name="Container" type="PanelContainer" parent="." unique_id=1581132451]
+layout_mode = 1
+offset_right = 512.0
+offset_bottom = 512.0
+mouse_filter = 1
 
-[node name="GoalPoints" type="Node2D" parent="." unique_id=574617318]
+[node name="Background" type="ColorRect" parent="Container" unique_id=495751107]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+mouse_filter = 1
+color = Color(0.14044744, 0.14044744, 0.14044744, 1)
 
-[node name="CurvePoints" type="Node2D" parent="." unique_id=664647526]
+[node name="NameLabel" type="Label" parent="Container/Background" unique_id=2124996688]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 23.0
+text = "<Module name>"
+
+[node name="DifficultyLabel" type="Label" parent="Container/Background" unique_id=2114970747]
+layout_mode = 0
+offset_top = 20.0
+offset_right = 125.0
+offset_bottom = 43.0
+text = "<Difficulty>"
+
+[node name="Timer" type="Label" parent="Container/Background" unique_id=1359794076]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -125.0
+offset_bottom = 23.0
+grow_horizontal = 0
+text = "<Timer>"
+horizontal_alignment = 2
+
+[node name="Line2D" type="Line2D" parent="Container" unique_id=1508487864]
+z_index = 50
+z_as_relative = false
+
+[node name="GoalPoints" type="Node2D" parent="Container" unique_id=574617318]
+z_index = 50
+z_as_relative = false
+
+[node name="CurvePoints" type="Node2D" parent="Container" unique_id=664647526]
+z_index = 50
+z_as_relative = false
+
+[node name="Timer" type="Timer" parent="." unique_id=693163891]
+wait_time = 15.0
+one_shot = true
+autostart = true
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

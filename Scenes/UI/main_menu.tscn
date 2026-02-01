@@ -5,6 +5,7 @@
 [ext_resource type="Script" uid="uid://b5hkjgphuduos" path="res://Scenes/UI/os_icon.gd" id="3_o14dv"]
 [ext_resource type="Script" uid="uid://dpb3p3ytpjfwv" path="res://Scenes/UI/start_prompt.gd" id="4_u7lva"]
 [ext_resource type="StyleBox" uid="uid://cad1oolt86wde" path="res://Assets/UI/new_style_box_flat.tres" id="5_mrfpk"]
+[ext_resource type="Texture2D" uid="uid://ofi0d4vckg7y" path="res://Assets/Images/logo.png" id="6_4pqbp"]
 
 [node name="Main Menu" type="Control" unique_id=969432078]
 layout_mode = 3
@@ -65,7 +66,7 @@ offset_bottom = -217.0
 grow_horizontal = 2
 grow_vertical = 0
 theme_override_fonts/font = ExtResource("1_5wsvm")
-theme_override_font_sizes/font_size = 32
+theme_override_font_sizes/font_size = 48
 text = "Press any button to start"
 horizontal_alignment = 1
 vertical_alignment = 1
@@ -86,7 +87,7 @@ layout_mode = 2
 custom_minimum_size = Vector2(225, 0)
 layout_mode = 2
 theme_override_fonts/font = ExtResource("1_5wsvm")
-text = "vendetta@hacker-os: ~ $"
+text = "anomulus@hacker-os: ~ $"
 autowrap_mode = 2
 
 [node name="CommandInput" type="LineEdit" parent="ConsoleVBox/PromptHbox" unique_id=494885133]
@@ -164,3 +165,55 @@ middle_mouse_paste_enabled = false
 selecting_enabled = false
 drag_and_drop_selection_enabled = false
 virtual_keyboard_enabled = false
+
+[node name="Logo" type="HBoxContainer" parent="." unique_id=1845524022]
+custom_minimum_size = Vector2(0, 100)
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -489.0
+offset_top = -144.0
+offset_right = 15.0
+offset_bottom = -31.0
+grow_horizontal = 0
+grow_vertical = 0
+
+[node name="LogoText" type="Label" parent="Logo" unique_id=1930445414]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_5wsvm")
+theme_override_font_sizes/font_size = 32
+text = "Kitsune Den Studio"
+
+[node name="LogoImage" type="TextureRect" parent="Logo" unique_id=1098214077]
+layout_mode = 2
+texture = ExtResource("6_4pqbp")
+expand_mode = 2
+
+[node name="OSName" type="Label" parent="." unique_id=2132362083]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_top = 634.0
+offset_bottom = 714.0
+grow_horizontal = 2
+theme_override_fonts/font = ExtResource("1_5wsvm")
+theme_override_font_sizes/font_size = 32
+text = "Anomalous Scanning System"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="BigGameTitle" type="Label" parent="." unique_id=1605773518]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_top = 41.0
+offset_bottom = 121.0
+grow_horizontal = 2
+theme_override_fonts/font = ExtResource("1_5wsvm")
+theme_override_font_sizes/font_size = 60
+text = "INFOBREACH"
+horizontal_alignment = 1
+vertical_alignment = 1

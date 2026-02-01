@@ -12,21 +12,36 @@ extends Control
 @onready var exit_game = $ConsoleVBox/MenuOption3
 @onready var enter_option = $ConsoleVBox/Input/EnterOption
 @onready var input_field = $ConsoleVBox/Input/InputField
+@onready var big_game_title = $BigGameTitle
+@onready var logo = $Logo
+@onready var os_name = $OSName
 
 var is_booted = false
 
 func _ready() -> void:
 	input_field.text_submitted.connect(_on_input_submitted)
 
-func _input(event: InputEvent) -> void:
+func _input(event: InputEvent) -> void:	
+	if event is InputEventKey and event.is_pressed() and event.keycode == KEY_ESCAPE:
+		get_tree().quit()
 	if event is InputEventKey and event.is_pressed() and event.keycode == KEY_F1:
 		start_hacking()
 	if not is_booted and event is InputEventKey and event.is_pressed():
-		boot_system()
+		var is_just_modifier = event.keycode in [
+			KEY_CTRL, KEY_SHIFT, KEY_ALT, KEY_META, KEY_CAPSLOCK, KEY_TAB
+		]
+		
+		var is_holding_modifier = event.ctrl_pressed or event.alt_pressed or event.shift_pressed or event.meta_pressed
+
+		if not is_just_modifier and not is_holding_modifier:
+			boot_system()
 
 func boot_system():
 	is_booted = true
 	start_label.visible = false
+	big_game_title.visible = false
+	logo.visible = false
+	os_name.visible = false
 	
 	var tween = create_tween()
 
@@ -79,8 +94,7 @@ func _on_input_submitted(new_text: String):
 			invalid_command()
 
 func start_hacking():
-	# get_tree().change_scene_to_file()
-	print("HACKING")
+	get_tree().change_scene_to_file("res://Scenes/Levels/first_level.tscn")
 
 func invalid_command():
 	var flash = create_tween()
