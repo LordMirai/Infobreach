@@ -33,8 +33,9 @@ horizontal_alignment = 1
 
 [node name="Out_Temp" type="Label" parent="Container/Background" parent_id_path=PackedInt32Array(851374414) index="4" unique_id=283651534]
 layout_mode = 0
+offset_left = -85.0
 offset_top = 356.0
-offset_right = 512.0
+offset_right = 427.0
 offset_bottom = 396.0
 theme_override_colors/font_color = Color(0.7921569, 0.3529412, 1, 1)
 theme_override_fonts/font = ExtResource("3_vsgkq")
@@ -224,3 +225,14 @@ offset_right = 229.99939
 offset_bottom = 407.00012
 scale = Vector2(0.15915842, 1.2488952)
 index = 15
+
+[node name="BinaryViewBtn" type="Button" parent="." index="2" unique_id=70979018]
+z_index = 11
+layout_mode = 0
+offset_left = 327.0
+offset_top = 126.0
+offset_right = 508.0
+offset_bottom = 157.0
+text = "Switch binary/Decimal"
+
+[connection signal="pressed" from="BinaryViewBtn" to="." method="_on_binary_view_btn_pressed"]
