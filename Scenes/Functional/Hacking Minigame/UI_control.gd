@@ -15,7 +15,7 @@ func _ready() -> void:
 
 	active_hacking_ui = self
 
-	get_parent().position = get_tree().root.size / 2 # center screen
+	get_parent().get_parent().position = get_tree().root.size / 2 # center screen
 	player = get_tree().current_scene.get_node("Player") as Player
 	if player:
 		player.movement_enabled = false
@@ -26,7 +26,7 @@ func _ready() -> void:
 func _on_close_button_pressed() -> void:
 	
 	parent_device.on_hack_failed()
-	get_parent().queue_free() # close parent
+	get_parent().get_parent().queue_free() # close parent
 	
 	# Clear the active hacking UI reference
 	if active_hacking_ui == self:

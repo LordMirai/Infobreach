@@ -13,10 +13,10 @@ var fail_limit: int = 3 # module fail limit (count==limit -> minigame fail)
 
 
 func _update_labels():
-	$Container/Device.text = parent_entity.device_name
-	$Container/Difficulty.text = "Difficulty: " + str(difficulty)
-	$Container/Completion.text = "Modules Completed: " + str(modules_completed) + " / " + str(module_count)
-	$Container/Failures.text = "Failures: " + str(fail_count) + " / " + str(fail_limit)
+	$CanvasLayer/Container/Device.text = parent_entity.device_name
+	$CanvasLayer/Container/Difficulty.text = "Difficulty: " + str(difficulty)
+	$CanvasLayer/Container/Completion.text = "Modules Completed: " + str(modules_completed) + " / " + str(module_count)
+	$CanvasLayer/Container/Failures.text = "Failures: " + str(fail_count) + " / " + str(fail_limit)
 
 func initialize_minigame(hackable : HackableDevice):
 	parent_entity = hackable
@@ -24,10 +24,8 @@ func initialize_minigame(hackable : HackableDevice):
 	_update_labels()
 
 	# Pass the parent_device reference to the hacking UI
-	if $Container:
-		#print("ne-am oprit pe AICI!!!")
-		$Container.parent_device = parent_entity
-
+	if $CanvasLayer/Container:
+		$CanvasLayer/Container.parent_device = parent_entity
 func _on_mimic_pressed() -> void:
 	parent_entity.on_hack_successful()
 	queue_free()
@@ -79,11 +77,11 @@ func pull_next_module():
 	module_instance.parent_minigame = self
 	module_instance.minigame_frame = get_node("Container/ModuleFrame")
 
-	$Container/ModuleFrame.add_child(module_instance)
+	$CanvasLayer/Container/ModuleFrame.add_child(module_instance)
 	current_module = module_instance
 	
 	module_instance.set_anchors_preset(Control.PRESET_FULL_RECT)
-	print("Container origin: " + str($Container/ModuleFrame.position) + "; module position: " + str(module_instance.position))
+	print("Container origin: " + str($CanvasLayer/Container/ModuleFrame.position) + "; module position: " + str(module_instance.position))
 
 	module_instance.initialize_module(self)
 	module_instance.connect("module_completed", Callable(self, "on_module_completed"))
