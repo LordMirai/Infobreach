@@ -1,12 +1,29 @@
 [gd_scene format=3 uid="uid://dpq48dhgdfwik"]
 
 [ext_resource type="PackedScene" uid="uid://blx5wgga4r3ay" path="res://Scenes/Functional/Obstacles/horizontal_level_door.tscn" id="1_ldnb4"]
+[ext_resource type="Texture2D" uid="uid://42gmf8y31gc" path="res://sprites/Office Tileset/Office VX Ace/B-C-D-E Office 1 No Shadows.png" id="2_wk0pr"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_t43ub"]
+atlas = ExtResource("2_wk0pr")
+region = Rect2(490.84265, 297.81128, 10.072113, 53.9953)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wk0pr"]
+atlas = ExtResource("2_wk0pr")
+region = Rect2(490.84265, 297.81128, 10.072113, 53.9953)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_wk0pr"]
+size = Vector2(31, 213.5)
 
 [node name="Interactable" unique_id=2069599029 instance=ExtResource("1_ldnb4")]
+active_tex = SubResource("AtlasTexture_t43ub")
 
 [node name="CollisionShape2D" parent="Area" parent_id_path=PackedInt32Array(668397000) index="0" unique_id=70439265]
 position = Vector2(-0.99999994, -0.10000005)
 scale = Vector2(0.99999976, 0.99999976)
 
+[node name="Sprite2D" parent="." index="1" unique_id=440756694]
+texture = SubResource("AtlasTexture_wk0pr")
+
 [node name="Body Blocker" parent="." index="2" unique_id=1615269018]
 position = Vector2(-11.5, -0.75)
+shape = SubResource("RectangleShape2D_wk0pr")

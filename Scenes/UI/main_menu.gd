@@ -94,7 +94,7 @@ func _on_input_submitted(new_text: String):
 			invalid_command()
 
 func start_hacking():
-	get_tree().change_scene_to_file("res://Scenes/Levels/first_level.tscn")
+	get_tree().change_scene_to_file("res://Scenes/Levels/Test2.tscn")
 
 func invalid_command():
 	var flash = create_tween()

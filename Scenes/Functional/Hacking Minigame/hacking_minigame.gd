@@ -61,10 +61,10 @@ var module_pool = [
 		scene = BinaryMaskingScene,
 		script = preload("res://Scenes/Functional/Hacking Minigame/Modules/BinaryMasking/binary_masking.gd")
 	},
-	{
-		scene = FrequencyModulationScene,
-		script = preload("res://Scenes/Functional/Modules/FrequencyModulation/FrequencyModulationMinigame.cs")
-	}
+	# {
+	# 	scene = FrequencyModulationScene,
+	# 	script = preload("res://Scenes/Functional/Modules/FrequencyModulation/FrequencyModulationMinigame.cs")
+	# },
 ]
 
 

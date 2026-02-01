@@ -8,19 +8,27 @@ atlas = ExtResource("2_bwh6f")
 region = Rect2(490.84265, 297.81128, 10.072113, 53.9953)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_bwh6f"]
-size = Vector2(12.400002, 22.400003)
+size = Vector2(12.400002, 24.000004)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bwh6f"]
+atlas = ExtResource("2_bwh6f")
+region = Rect2(255.8338, 455.9527, 32.341797, 48.146606)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_a4c6t"]
+size = Vector2(128, 173.75)
 
 [node name="Interactable" unique_id=2069599029 instance=ExtResource("1_6yp2c")]
 active_tex = SubResource("AtlasTexture_a4c6t")
 disabled_tex = null
 
 [node name="CollisionShape2D" parent="Area" parent_id_path=PackedInt32Array(668397000) index="0" unique_id=70439265]
-position = Vector2(-1.1999999, -0.59999985)
-scale = Vector2(0.9999998, 0.9999998)
+position = Vector2(-1.1999997, -0.59999985)
+scale = Vector2(0.99999976, 0.99999976)
 shape = SubResource("RectangleShape2D_bwh6f")
 
 [node name="Sprite2D" parent="." index="1" unique_id=440756694]
-texture = SubResource("AtlasTexture_a4c6t")
+texture = SubResource("AtlasTexture_bwh6f")
 
 [node name="Body Blocker" parent="." index="2" unique_id=1615269018]
 position = Vector2(-12, 7.125)
+shape = SubResource("RectangleShape2D_a4c6t")
