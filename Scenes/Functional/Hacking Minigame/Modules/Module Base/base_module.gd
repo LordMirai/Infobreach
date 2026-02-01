@@ -51,3 +51,7 @@ func reset_module():
 
 func sub_init():
 	pass  # To be overridden in derived classes for specific initialization
+
+
+func _on_control_minigame_completed() -> void:
+	pass # Replace with function body.
