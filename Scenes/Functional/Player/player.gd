@@ -9,9 +9,8 @@ var movement_enabled: bool = true
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	$PlayerSprite.set_speed_scale(0.0)
-	$WalkSprite.set_speed_scale(0.0)
-	pass # Replace with function body.
+	$WalkSprite.play()
+	
 	
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -48,4 +47,13 @@ func _process(delta: float) -> void:
 	if velocity.length() > 0:
 		var temp_speed = sneakSpeed if Input.is_action_pressed("sneak") else self.speed
 		velocity = velocity.normalized() * (temp_speed if not Input.is_action_pressed("sprint") else sprintSpeed)
+		if Input.is_action_pressed("sprint"):
+			$WalkSprite.speed_scale = 1.5
+		else:
+			if Input.is_action_pressed("sneak"):
+				$WalkSprite.speed_scale = 0.5
+			else:
+				$WalkSprite.speed_scale = 1.0
 		move_and_slide()
+	else:
+		$WalkSprite.speed_scale = 0

@@ -5,8 +5,8 @@ const Player = preload("res://Scenes/Functional/Player/player.gd")
 var door_open: bool = false
 
 
-const active_tex: Texture2D = preload("res://Scenes/Functional/Interactables/Doors/vert door.piskel")
-const disabled_tex: Texture2D = preload("res://Scenes/Functional/Interactables/Doors/door disabled.png")
+@export var active_tex: Texture2D = preload("res://Scenes/Functional/Interactables/Doors/vert door.piskel")
+@export var disabled_tex: Texture2D = preload("res://Scenes/Functional/Interactables/Doors/door disabled.png")
 
 
 func _toggle_door():

@@ -1,0 +1,12 @@
+[gd_scene format=3 uid="uid://dpq48dhgdfwik"]
+
+[ext_resource type="PackedScene" uid="uid://blx5wgga4r3ay" path="res://Scenes/Functional/Obstacles/horizontal_level_door.tscn" id="1_ldnb4"]
+
+[node name="Interactable" unique_id=2069599029 instance=ExtResource("1_ldnb4")]
+
+[node name="CollisionShape2D" parent="Area" parent_id_path=PackedInt32Array(668397000) index="0" unique_id=70439265]
+position = Vector2(-0.99999994, -0.10000005)
+scale = Vector2(0.99999976, 0.99999976)
+
+[node name="Body Blocker" parent="." index="2" unique_id=1615269018]
+position = Vector2(-11.5, -0.75)

@@ -7,6 +7,8 @@
 
 [node name="BaseModule" unique_id=1344213614 instance=ExtResource("1_pr4xm")]
 script = ExtResource("2_gi1lh")
+module_name = "Binary Masking"
+difficulty = 3
 hack_enabled = false
 
 [node name="Input" type="Label" parent="Container/Background" parent_id_path=PackedInt32Array(851374414) index="2" unique_id=1054695712]
@@ -49,7 +51,7 @@ offset_top = 216.0
 offset_right = 512.0
 offset_bottom = 256.0
 theme_override_fonts/font = ExtResource("3_vsgkq")
-theme_override_font_sizes/font_size = 30
+theme_override_font_sizes/font_size = 40
 text = "< OP >"
 horizontal_alignment = 1
 

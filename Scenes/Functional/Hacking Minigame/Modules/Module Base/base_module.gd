@@ -49,7 +49,6 @@ func initialize_module(minigame):
 
 
 func reset_module():
-	# pass
 	initialize_module(parent_minigame) # Comment this out if you don't want to re-initialize on reset
 
 
