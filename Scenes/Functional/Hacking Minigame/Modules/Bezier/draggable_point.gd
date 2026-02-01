@@ -5,7 +5,8 @@ var is_dragging: bool = false
 var click_position: Vector2 = Vector2.ZERO
 var top_left: Vector2 = Vector2.ZERO
 var bounds: Vector2 = Vector2.ZERO
-	
+@onready var collision: CollisionShape2D = $CollisionShape2D
+
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	pass # Replace with function body.
@@ -28,22 +29,28 @@ func _process(delta: float) -> void:
 
 func _on_input_event(viewport: Node, event: InputEvent, shape_idx: int) -> void:
 	if event.is_action_pressed("click"):
-		var parameters: PhysicsPointQueryParameters2D = PhysicsPointQueryParameters2D.new()
-		parameters.position = event.position
+		var parameters: PhysicsRayQueryParameters2D = PhysicsRayQueryParameters2D.new()
+		parameters.from = event.position
+		parameters.to = event.position
+		parameters.hit_from_inside = true
+		#parameters.collision_mask = collision.collision_mask
+		print("Clicked on ", event.position, " At" , position)
 		parameters.collide_with_areas = true
 		# get all area2d colliders
-		var objects_clicked: Array[Dictionary] = get_world_2d().direct_space_state.intersect_point(parameters)
-		var colliders = objects_clicked.map(
-			func(dict):
-				return dict.collider
-		)
-		colliders.sort_custom(
-			func(c1, c2):
-				return c1.z_index < c2.z_index
-		)
+		var objects_clicked: Dictionary = get_world_2d().direct_space_state.intersect_ray(parameters)
+		print(objects_clicked)
+		#var colliders = objects_clicked.map(
+			#func(dict):
+				#return dict.collider
+		#)
+		#print(colliders)
+		#colliders.sort_custom(
+			#func(c1, c2):
+				#return c1.z_index < c2.z_index
+		#)
 		# we're only clicking on the topmost collider
-		#print(colliders[-1])
-		if colliders and colliders[-1] == self:
+		#print(colliders)
+		if objects_clicked and objects_clicked.collider == self:
 			is_dragging = true
 			click_position = get_local_mouse_position()
 		

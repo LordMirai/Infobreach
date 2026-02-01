@@ -1,7 +1,7 @@
 extends Node2D
 
 @onready var sprite: Sprite2D = $Sprite2D
-#@onready var collision: CollisionO = $CollisionShape2D
+@onready var collision: CollisionShape2D = $CollisionShape2D
 
 var is_intersected: bool:
 	set(intersected):
@@ -22,16 +22,18 @@ func _process(delta: float) -> void:
 
 
 func detect_input(point: Vector2) -> bool:
-	var parameters: PhysicsPointQueryParameters2D = PhysicsPointQueryParameters2D.new()
-	parameters.position = point
+	var parameters: PhysicsRayQueryParameters2D = PhysicsRayQueryParameters2D.new()
+	parameters.from = point
+	parameters.to = point
+	parameters.hit_from_inside = true
 	parameters.collide_with_areas = true
+	#parameters.collision_mask = collision.collision_mask
 	#parameters.collision_mask = self.collision_mask
 	# get all area2d colliders
-	var objects_touched: Array[Dictionary] = get_world_2d().direct_space_state.intersect_point(parameters)
+	var objects_touched: Dictionary = get_world_2d().direct_space_state.intersect_ray(parameters)
 	#print(objects_touched)
-	for object in objects_touched:
-		if object.collider == self:
-			#is_intersected = true
-			return true
-	#is_intersected = false
-	return false
+	return objects_touched and objects_touched.collider == self
+		##is_intersected = true
+		#return true
+	##is_intersected = false
+	#return false
