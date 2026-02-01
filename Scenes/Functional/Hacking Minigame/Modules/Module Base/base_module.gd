@@ -8,7 +8,8 @@ var minigame_frame: PanelContainer = null
 
 @export var module_name: String = "Base Module"
 @export var difficulty: int = 1
-@export var hack_enabled: bool = false
+@export var hack_enabled: bool = false # cheaty flag to enable hack complete button
+@export var self_reset_on_fail: bool = false # if False, Module manager will destroy the module on fail and generate another. set to True if you reset it yourself
 
 const DEBUG: bool = true
 

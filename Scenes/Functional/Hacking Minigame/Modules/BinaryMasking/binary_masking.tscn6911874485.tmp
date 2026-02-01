@@ -1,0 +1,229 @@
+[gd_scene format=3 uid="uid://dih1sptistlgp"]
+
+[ext_resource type="PackedScene" uid="uid://b58efh46s6cok" path="res://Scenes/Functional/Hacking Minigame/Modules/Module Base/BaseModule.tscn" id="1_pr4xm"]
+[ext_resource type="Script" uid="uid://db52gdtdilgr1" path="res://Scenes/Functional/Hacking Minigame/Modules/BinaryMasking/binary_masking.gd" id="2_gi1lh"]
+[ext_resource type="FontFile" uid="uid://bkxfscaiy7g1a" path="res://Assets/Fonts/JetBrainsMono-Regular.ttf" id="3_vsgkq"]
+[ext_resource type="PackedScene" uid="uid://bnor333n0qfcn" path="res://Scenes/Functional/Hacking Minigame/Modules/BinaryMasking/Button/BinaryButton.tscn" id="4_w7jf2"]
+
+[node name="BaseModule" unique_id=1344213614 instance=ExtResource("1_pr4xm")]
+script = ExtResource("2_gi1lh")
+module_name = null
+difficulty = null
+hack_enabled = null
+self_reset_on_fail = null
+
+[node name="Input" type="Label" parent="Container/Background" parent_id_path=PackedInt32Array(851374414) index="2" unique_id=1054695712]
+layout_mode = 0
+offset_top = 176.0
+offset_right = 512.0
+offset_bottom = 216.0
+theme_override_colors/font_color = Color(0, 0.8627451, 1, 1)
+theme_override_fonts/font = ExtResource("3_vsgkq")
+theme_override_font_sizes/font_size = 30
+text = "<INPUT>"
+horizontal_alignment = 1
+
+[node name="Output" type="Label" parent="Container/Background" parent_id_path=PackedInt32Array(851374414) index="3" unique_id=514205815]
+layout_mode = 0
+offset_top = 313.0
+offset_right = 512.0
+offset_bottom = 336.0
+theme_override_colors/font_color = Color(1, 0.34509805, 0.22352941, 1)
+theme_override_fonts/font = ExtResource("3_vsgkq")
+theme_override_font_sizes/font_size = 30
+text = "<OUTPUT>"
+horizontal_alignment = 1
+
+[node name="Out_Temp" type="Label" parent="Container/Background" parent_id_path=PackedInt32Array(851374414) index="4" unique_id=283651534]
+layout_mode = 0
+offset_top = 356.0
+offset_right = 512.0
+offset_bottom = 396.0
+theme_override_colors/font_color = Color(0.7921569, 0.3529412, 1, 1)
+theme_override_fonts/font = ExtResource("3_vsgkq")
+theme_override_font_sizes/font_size = 30
+text = "<TEMP>"
+horizontal_alignment = 2
+
+[node name="Symbol" type="Label" parent="Container/Background" parent_id_path=PackedInt32Array(851374414) index="5" unique_id=851608180]
+layout_mode = 0
+offset_top = 216.0
+offset_right = 512.0
+offset_bottom = 256.0
+theme_override_fonts/font = ExtResource("3_vsgkq")
+theme_override_font_sizes/font_size = 30
+text = "< OP >"
+horizontal_alignment = 1
+
+[node name="Mask" type="Label" parent="Container/Background" parent_id_path=PackedInt32Array(851374414) index="6" unique_id=1508989544]
+layout_mode = 0
+offset_top = 254.0
+offset_right = 512.0
+offset_bottom = 294.0
+theme_override_colors/font_color = Color(1, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_vsgkq")
+theme_override_font_sizes/font_size = 30
+text = "<MASK>"
+horizontal_alignment = 1
+
+[node name="Eq" type="Label" parent="Container/Background" parent_id_path=PackedInt32Array(851374414) index="7" unique_id=567914672]
+layout_mode = 0
+offset_top = 280.0
+offset_right = 512.0
+offset_bottom = 320.0
+theme_override_fonts/font = ExtResource("3_vsgkq")
+theme_override_font_sizes/font_size = 30
+text = "="
+horizontal_alignment = 1
+
+[node name="ButtonPanel" type="ColorRect" parent="Container/Background" parent_id_path=PackedInt32Array(851374414) index="8" unique_id=811691811]
+layout_mode = 0
+offset_left = 79.0
+offset_top = 414.0
+offset_right = 591.0
+offset_bottom = 926.0
+scale = Vector2(0.67265177, 0.08484169)
+color = Color(0, 0, 0, 1)
+
+[node name="b0" parent="Container/Background/ButtonPanel" index="0" unique_id=1364667192 instance=ExtResource("4_w7jf2")]
+layout_mode = 0
+offset_left = 474.2424
+offset_top = 0.000118255615
+offset_right = 704.24243
+offset_bottom = 407.00012
+scale = Vector2(0.15915842, 1.2488952)
+index = 0
+
+[node name="b1" parent="Container/Background/ButtonPanel" index="1" unique_id=876608846 instance=ExtResource("4_w7jf2")]
+layout_mode = 0
+offset_left = 444.50952
+offset_top = 0.00012207031
+offset_right = 674.5095
+offset_bottom = 407.00012
+scale = Vector2(0.15915842, 1.2488952)
+
+[node name="b2" parent="Container/Background/ButtonPanel" index="2" unique_id=218362426 instance=ExtResource("4_w7jf2")]
+layout_mode = 0
+offset_left = 416.26306
+offset_top = 0.00012207031
+offset_right = 646.2631
+offset_bottom = 407.00012
+scale = Vector2(0.15915842, 1.2488952)
+index = 2
+
+[node name="b3" parent="Container/Background/ButtonPanel" index="3" unique_id=1180291510 instance=ExtResource("4_w7jf2")]
+layout_mode = 0
+offset_left = 386.52966
+offset_top = 0.00012207031
+offset_right = 616.5297
+offset_bottom = 407.00012
+scale = Vector2(0.15915842, 1.2488952)
+index = 3
+
+[node name="b4" parent="Container/Background/ButtonPanel" index="4" unique_id=1487109740 instance=ExtResource("4_w7jf2")]
+layout_mode = 0
+offset_left = 344.90332
+offset_top = 0.00012207031
+offset_right = 574.9033
+offset_bottom = 407.00012
+scale = Vector2(0.15915842, 1.2488952)
+index = 4
+
+[node name="b5" parent="Container/Background/ButtonPanel" index="5" unique_id=716088686 instance=ExtResource("4_w7jf2")]
+layout_mode = 0
+offset_left = 315.17053
+offset_top = 0.00012207031
+offset_right = 545.17053
+offset_bottom = 407.00012
+scale = Vector2(0.15915842, 1.2488952)
+index = 5
+
+[node name="b6" parent="Container/Background/ButtonPanel" index="6" unique_id=2141501594 instance=ExtResource("4_w7jf2")]
+layout_mode = 0
+offset_left = 286.9241
+offset_top = 0.00012207031
+offset_right = 516.9241
+offset_bottom = 407.00012
+scale = Vector2(0.15915842, 1.2488952)
+index = 6
+
+[node name="b7" parent="Container/Background/ButtonPanel" index="7" unique_id=1654356444 instance=ExtResource("4_w7jf2")]
+layout_mode = 0
+offset_left = 257.1907
+offset_top = 0.00012207031
+offset_right = 487.19077
+offset_bottom = 407.00012
+scale = Vector2(0.15915842, 1.2488952)
+index = 7
+
+[node name="b8" parent="Container/Background/ButtonPanel" index="8" unique_id=1195528558 instance=ExtResource("4_w7jf2")]
+layout_mode = 0
+offset_left = 215.56479
+offset_top = 0.00012207031
+offset_right = 445.56482
+offset_bottom = 407.00012
+scale = Vector2(0.15915842, 1.2488952)
+index = 8
+
+[node name="b9" parent="Container/Background/ButtonPanel" index="9" unique_id=408991503 instance=ExtResource("4_w7jf2")]
+layout_mode = 0
+offset_left = 185.83182
+offset_top = 0.00012207031
+offset_right = 415.83185
+offset_bottom = 407.00012
+scale = Vector2(0.15915842, 1.2488952)
+index = 9
+
+[node name="b10" parent="Container/Background/ButtonPanel" index="10" unique_id=2076899216 instance=ExtResource("4_w7jf2")]
+layout_mode = 0
+offset_left = 157.58536
+offset_top = 0.00012207031
+offset_right = 387.58542
+offset_bottom = 407.00012
+scale = Vector2(0.15915842, 1.2488952)
+index = 10
+
+[node name="b11" parent="Container/Background/ButtonPanel" index="11" unique_id=544517361 instance=ExtResource("4_w7jf2")]
+layout_mode = 0
+offset_left = 127.85196
+offset_top = 0.00012207031
+offset_right = 357.85208
+offset_bottom = 407.00012
+scale = Vector2(0.15915842, 1.2488952)
+index = 11
+
+[node name="b12" parent="Container/Background/ButtonPanel" index="12" unique_id=1521221046 instance=ExtResource("4_w7jf2")]
+layout_mode = 0
+offset_left = 87.71243
+offset_top = 0.00012207031
+offset_right = 317.71243
+offset_bottom = 407.00012
+scale = Vector2(0.15915842, 1.2488952)
+index = 12
+
+[node name="b13" parent="Container/Background/ButtonPanel" index="13" unique_id=1970420072 instance=ExtResource("4_w7jf2")]
+layout_mode = 0
+offset_left = 57.979492
+offset_top = 0.00012207031
+offset_right = 287.9795
+offset_bottom = 407.00012
+scale = Vector2(0.15915842, 1.2488952)
+index = 13
+
+[node name="b14" parent="Container/Background/ButtonPanel" index="14" unique_id=1260109551 instance=ExtResource("4_w7jf2")]
+layout_mode = 0
+offset_left = 29.73288
+offset_top = 0.00012207031
+offset_right = 259.73294
+offset_bottom = 407.00012
+scale = Vector2(0.15915842, 1.2488952)
+index = 14
+
+[node name="b15" parent="Container/Background/ButtonPanel" index="15" unique_id=1672718000 instance=ExtResource("4_w7jf2")]
+layout_mode = 0
+offset_left = -0.0006713867
+offset_top = 0.00012207031
+offset_right = 229.99939
+offset_bottom = 407.00012
+scale = Vector2(0.15915842, 1.2488952)
+index = 15

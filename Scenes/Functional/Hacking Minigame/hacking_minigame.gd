@@ -11,14 +11,6 @@ var modules_completed: int = 0
 var fail_count: int = 0
 var fail_limit: int = 3 # module fail limit (count==limit -> minigame fail)
 
-# Called when the node enters the scene tree for the first time.
-func _ready() -> void:
-	pass # Replace with function body.
-
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
-	pass
 
 func _update_labels():
 	$Container/Device.text = parent_entity.device_name
@@ -51,6 +43,7 @@ const TestModuleScene = preload("res://Scenes/Functional/Hacking Minigame/Module
 
 const KeywordModuleScene = preload("res://Scenes/Functional/Hacking Minigame/Modules/Keyword/KeywordModule.tscn")
 const BezierModuleScene = preload("res://Scenes/Functional/Hacking Minigame/Modules/Bezier/bezier.tscn")
+const BinaryMaskingScene = preload("res://Scenes/Functional/Hacking Minigame/Modules/BinaryMasking/binary_masking.tscn")
 
 var module_pool = [
 	{
@@ -61,9 +54,13 @@ var module_pool = [
 	# 	scene = KeywordModuleScene,
 	# 	script = preload("res://Scenes/Functional/Modules/KeywordMatching/KeywordMatchingModule.cs")
 	# },
+	# {
+	# 	scene = BezierModuleScene,
+	# 	script = preload("res://Scenes/Functional/Hacking Minigame/Modules/Bezier/bezier.gd")
+	# }
 	{
-		scene = BezierModuleScene,
-		script = preload("res://Scenes/Functional/Hacking Minigame/Modules/Bezier/bezier.gd")
+		scene = BinaryMaskingScene,
+		script = preload("res://Scenes/Functional/Hacking Minigame/Modules/BinaryMasking/binary_masking.gd")
 	}
 ]
 
@@ -89,8 +86,9 @@ func pull_next_module():
 	print("Container origin: " + str($Container/ModuleFrame.position) + "; module position: " + str(module_instance.position))
 
 	module_instance.initialize_module(self)
-	
 	module_instance.connect("module_completed", Callable(self, "on_module_completed"))
+
+
 	return module_instance
 
 
@@ -114,3 +112,17 @@ func on_module_completed(module_name: String) -> void:
 		if current_module:
 			current_module.queue_free()
 		pull_next_module()
+
+
+func on_module_failed(module_name: String) -> void:
+	fail_count += 1
+	_update_labels()
+	print("Module failed: " + module_name)
+	if fail_count >= fail_limit:
+		print("Fail limit reached! Hacking failed.")
+		parent_entity.on_hack_failed()
+		queue_free()
+	else:
+		# Reload current module
+		if current_module:
+			current_module.reset_module()
