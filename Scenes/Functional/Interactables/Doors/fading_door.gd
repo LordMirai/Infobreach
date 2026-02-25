@@ -13,7 +13,8 @@ func _toggle_door():
 	door_open = not door_open
 
 	$"Body Blocker".disabled = door_open
-	$Sprite2D.texture = active_tex if not door_open else disabled_tex
+	# $Sprite2D.texture = active_tex if not door_open else disabled_tex
+	$Sprite2D.visible = not door_open
 
 	$AudSource.play()
 
@@ -31,3 +32,7 @@ func _colliding_with_player() -> bool:
 
 
 	return false
+
+
+func _ready() -> void:
+	active_tex = $Sprite2D.texture

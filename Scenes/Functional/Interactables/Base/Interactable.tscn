@@ -14,10 +14,10 @@ size = Vector2(132, 128)
 script = ExtResource("1_vs0bu")
 interactable_name = "Cool interactable"
 
-[node name="Area" type="Area2D" parent="." unique_id=668397000 groups=["interactable"]]
+[node name="InteractArea" type="Area2D" parent="." unique_id=668397000 groups=["interactable"]]
 scale = Vector2(10, 10)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area" unique_id=70439265]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="InteractArea" unique_id=70439265]
 shape = SubResource("CircleShape2D_vs0bu")
 debug_color = Color(0.24771354, 0.50624675, 1, 0.41960785)
 

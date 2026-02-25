@@ -17,7 +17,6 @@ const Interactable = preload("res://Scenes/Functional/Interactables/Base/interac
 var active_interactable: Interactable = null
 
 
-
 func _on_area_entered(area: Area2D) -> void:
 	if area.is_in_group("interactable"):
 		print("Entered interaction area of: " + str(area.get_parent().interactable_name))

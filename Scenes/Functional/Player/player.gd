@@ -6,12 +6,13 @@ extends CharacterBody2D
 @export var sneakSpeed: float = 100.0
 
 var movement_enabled: bool = true
+var current_sprite: String = "walk_down"
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	$WalkSprite.play()
-	
-	
+	$WalkSprite.frame = 1 # this is the neutral down sprite.
+
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
@@ -21,27 +22,43 @@ func _process(delta: float) -> void:
 	if Input.is_action_just_pressed("ui_cancel"):
 		get_tree().quit() # Exit the game
 
+	# check if R is pressed
+	if Input.is_key_pressed(Key.KEY_R):
+		# get game manager
+		var game_manager = get_node("/root/GameManager")
+		if game_manager:
+			game_manager.level_fail() # Call level fail function in game manager
+		return
+
 	if not movement_enabled:
 		return
-		
-	# Check input actions for movement
-	if Input.is_action_pressed("ui_right"):
-		velocity.x += 1
-		$PlayerSprite.flip_h = true
-		$WalkSprite.play("walk_right")
-		
-	elif Input.is_action_pressed("ui_left"):
-		velocity.x -= 1
-		$PlayerSprite.flip_h = false
-		$WalkSprite.play("walk_left")
 
+	# Check input actions for movement. Up/down take priority.
 	if Input.is_action_pressed("ui_up"):
 		velocity.y -= 1
-		$WalkSprite.play("walk_up")
+		if current_sprite != "walk_up":
+			current_sprite = "walk_up"
+			$WalkSprite.play("walk_up")
 
 	elif Input.is_action_pressed("ui_down"):
 		velocity.y += 1
-		$WalkSprite.play("walk_down")
+		if current_sprite != "walk_down":
+			current_sprite = "walk_down"
+			$WalkSprite.play("walk_down")
+
+	if Input.is_action_pressed("ui_right"):
+		velocity.x += 1
+		if velocity.y == 0:
+			if current_sprite != "walk_right":
+				current_sprite = "walk_right"
+				$WalkSprite.play("walk_right")
+
+	elif Input.is_action_pressed("ui_left"):
+		velocity.x -= 1
+		if velocity.y == 0:
+			if current_sprite != "walk_left":
+				current_sprite = "walk_left"
+				$WalkSprite.play("walk_left")
 
 
 	if velocity.length() > 0:

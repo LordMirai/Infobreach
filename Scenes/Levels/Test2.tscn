@@ -10,6 +10,7 @@
 [ext_resource type="PackedScene" uid="uid://dvtk3smi6ufhh" path="res://Scenes/UI/pause_menu.tscn" id="8_cruyl"]
 [ext_resource type="PackedScene" uid="uid://cs0iur5f0v3w7" path="res://Scenes/Functional/Interactables/Hackable Devices/InvisibleDevice.tscn" id="9_la3k0"]
 [ext_resource type="PackedScene" uid="uid://c8htj5idi3hkt" path="res://Scenes/Functional/Obstacles/camera_drone.tscn" id="10_vuoxq"]
+[ext_resource type="Texture2D" uid="uid://djdn0nbqhkv1s" path="res://Images/expecto patronum.png" id="11_nju1n"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_0g6gs"]
 texture = ExtResource("2_qw3tq")
@@ -2473,7 +2474,7 @@ tile_map_data = PackedByteArray("AAAsADMAAAAYAA0AAAAsADQAAAAYAA4AAAAsADUAAAAYAA8
 tile_set = SubResource("TileSet_nju1n")
 
 [node name="Player" parent="." unique_id=1285538653 instance=ExtResource("4_qw3tq")]
-position = Vector2(2449, 2233)
+position = Vector2(2454, 2093)
 
 [node name="HDoor" parent="." unique_id=2069599029 instance=ExtResource("5_8dhrr")]
 position = Vector2(1247, 1341)
@@ -2565,15 +2566,20 @@ position = Vector2(3215, 1871)
 position = Vector2(3482, 2198)
 
 [node name="Computer5" parent="." unique_id=641126767 instance=ExtResource("9_la3k0")]
-position = Vector2(1728, 2114)
+position = Vector2(1719, 2112)
 
 [node name="Computer6" parent="." unique_id=395261266 instance=ExtResource("9_la3k0")]
-position = Vector2(2021, 2103)
+position = Vector2(2010, 2101)
 
 [node name="Computer7" parent="." unique_id=925052508 instance=ExtResource("9_la3k0")]
-position = Vector2(1602, 1856)
+position = Vector2(1584, 1869)
 
 [node name="CameraDrone" parent="." unique_id=285823046 node_paths=PackedStringArray("patrol_points") instance=ExtResource("10_vuoxq")]
 position = Vector2(3258, 1067)
 rotation = 1.5834284
 patrol_points = [NodePath("../Floor/Marker2D"), NodePath("../Floor/Marker2D2"), NodePath("../Floor/Marker2D3"), NodePath("../Floor/Marker2D4")]
+
+[node name="ExpectoPatronum" type="Sprite2D" parent="." unique_id=319413815]
+position = Vector2(2450.657, 2725.0002)
+scale = Vector2(0.7107438, 0.7107438)
+texture = ExtResource("11_nju1n")

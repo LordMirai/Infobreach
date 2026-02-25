@@ -10,14 +10,16 @@ data = PackedByteArray("cW9hZgAAVt8CAKxEFAAQKAAAAAAAAAAAAAAAAOAAQAAAAAAAAAAAAAAA
 format = 3
 stereo = true
 
-[node name="Interactable" unique_id=325767183 instance=ExtResource("1_p0nkw")]
+[node name="Interactable" unique_id=325767183 groups=["Hackable Devices"] instance=ExtResource("1_p0nkw")]
 script = ExtResource("2_1uuhs")
 hackable = true
 hacked = false
 device_name = "Base Device"
 hack_difficulty = 1
+score_reward = 100
 default_texture = ExtResource("3_ylp6t")
 hacked_texture = ExtResource("4_4ax3r")
+destroy_area_on_hack = true
 interactable_name = "Base Hackable Device"
 interaction_prompt = "Press [Space] to Interface with Device"
 

@@ -18,7 +18,7 @@
 [ext_resource type="Texture2D" uid="uid://c4vpre3a6xmdx" path="res://sprites/GGJ sprites/walk_back/wb3.png" id="16_se20s"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_lujq3"]
-size = Vector2(69, 122)
+size = Vector2(51, 68)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_lujq3"]
 radius = 7.200694
@@ -101,29 +101,31 @@ script = ExtResource("1_i1tdd")
 
 [node name="PlayerSprite" type="AnimatedSprite2D" parent="." unique_id=472939682 groups=["Player"]]
 visible = false
-z_index = 10
+z_index = 20
 scale = Vector2(4, 4)
 sprite_frames = ExtResource("1_dgwec")
 frame_progress = 0.4672218
 script = ExtResource("3_lujq3")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=221576324 groups=["Player"]]
-position = Vector2(-0.5, 2)
+position = Vector2(-0.5, 34)
 shape = SubResource("RectangleShape2D_lujq3")
 
 [node name="InteractionArea" type="Area2D" parent="." unique_id=908933762 groups=["Player"]]
 script = ExtResource("4_mubij")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="InteractionArea" unique_id=1489174849]
+position = Vector2(0, 10.999999)
 scale = Vector2(10, 10)
 shape = SubResource("CircleShape2D_lujq3")
 debug_color = Color(4.3317675e-07, 0.6418373, 0.3128065, 0.41960785)
 
 [node name="WalkSprite" type="AnimatedSprite2D" parent="." unique_id=962988042]
+z_index = 10
+position = Vector2(3.0000002, 0)
 scale = Vector2(2.5, 2.5)
 sprite_frames = SubResource("SpriteFrames_p72s4")
-animation = &"walk_down"
-frame_progress = 0.9157946
+animation = &"walk_up"
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=174127000]
 

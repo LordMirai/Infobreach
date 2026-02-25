@@ -1,15 +1,18 @@
 extends "res://Scenes/Functional/Interactables/Base/interactable.gd"
 
 # preload minigame
-var HackingMinigame : PackedScene = preload("res://Scenes/Functional/Hacking Minigame/HackingMinigame.tscn")
+var HackingMinigame: PackedScene = preload("res://Scenes/Functional/Hacking Minigame/HackingMinigame.tscn")
 
 @export var hackable: bool = true
 @export var hacked: bool = false
 @export var device_name: String = "Base Device"
-@export var hack_difficulty: int = 1  # 0 (no-hack), 1 (easy) to 3 (hard)
+@export var hack_difficulty: int = 1 # 0 (no-hack), 1 (easy) to 3 (hard)
+@export var score_reward: int = 100
 
 @export var default_texture: Texture2D
 @export var hacked_texture: Texture2D
+
+@export var destroy_area_on_hack: bool = true
 
 signal device_hacked(device_name)
 signal device_hack_failed(device_name)
@@ -27,12 +30,12 @@ func sub_interact():
 		print("Starting hack on device: " + device_name)
 
 		if hacking_ui_instance != null:
-			print("Hacking UI already active.")			
+			print("Hacking UI already active.")
 			return
 		
 		hacking_ui_instance = HackingMinigame.instantiate()
 		get_tree().current_scene.add_child(hacking_ui_instance)
-		hacking_ui_instance.initialize_minigame(self)
+		hacking_ui_instance.initialize_minigame(self )
 		
 
 # prepare hack successful/failed signals
@@ -42,6 +45,9 @@ func on_hack_successful():
 	$Sprite2D.texture = hacked_texture
 	emit_signal("device_hacked", device_name)
 	# Additional logic for successful hack
+	if destroy_area_on_hack and $InteractArea:
+		print("Destroying hack area for device: " + device_name)
+		$InteractArea.queue_free() # Remove hack area if it exists
 
 
 func on_hack_failed():
